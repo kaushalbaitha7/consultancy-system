@@ -38,7 +38,7 @@ function Register() {
 
             // REGISTER USER
             const res = await axios.post(
-                "http://localhost:5000/api/auth/register",
+                "https://gyanguru-backend.onrender.com/api/auth/register",
                 formData
             );
 
@@ -46,7 +46,7 @@ function Register() {
 
             // SEND OTP
             await axios.post(
-                "http://localhost:5000/api/auth/send-email-otp",
+                "https://gyanguru-backend.onrender.com/api/auth/send-otp",
                 {
                     email: formData.email
                 }

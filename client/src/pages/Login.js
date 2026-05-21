@@ -13,44 +13,71 @@ import logo from "../assets/logo.png";
 function Login() {
 
     const navigate = useNavigate();
+
     const [email, setEmail] = useState("");
 
     const [password, setPassword] = useState("");
+
+    const [loading, setLoading] = useState(false);
 
     const handleLogin = async (e) => {
 
         e.preventDefault();
 
+        setLoading(true);
+
         try {
 
             const res = await axios.post(
+
                 "https://gyanguru-backend.onrender.com/api/auth/login",
+
                 {
                     email,
                     password
                 }
-            );
 
-            localStorage.setItem(
-                "token",
-                res.data.token
             );
-
-            localStorage.setItem(
-                "user",
-                JSON.stringify(res.data.user)
-            );
-
-            navigate("/dashboard");
 
             console.log(res.data);
 
+            // SAVE TOKEN
+            localStorage.setItem(
+
+                "token",
+
+                res.data.token
+
+            );
+
+            // SAVE USER
+            localStorage.setItem(
+
+                "user",
+
+                JSON.stringify(res.data.user)
+
+            );
+
+            alert("Login Successful");
+
+            navigate("/dashboard");
+
         } catch (error) {
 
+            console.log(error);
+
             alert(
+
                 error.response?.data?.message ||
+
                 "Login Failed"
+
             );
+
+        } finally {
+
+            setLoading(false);
 
         }
 
@@ -59,6 +86,8 @@ function Login() {
     return (
 
         <div className="auth-container">
+
+            {/* TOP BRANDING */}
 
             <div className="top-branding">
 
@@ -77,6 +106,10 @@ function Login() {
                 </p>
 
             </div>
+
+
+
+            {/* LOGIN CARD */}
 
             <div className="auth-card">
 
@@ -108,8 +141,17 @@ function Login() {
                         required
                     />
 
-                    <button type="submit">
-                        Login
+                    <button
+                        type="submit"
+                        disabled={loading}
+                    >
+
+                        {
+                            loading
+                                ? "Please Wait..."
+                                : "Login"
+                        }
+
                     </button>
 
                 </form>

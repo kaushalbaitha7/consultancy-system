@@ -38,30 +38,29 @@ function Register() {
 
             // REGISTER USER
             const res = await axios.post(
+
                 "https://gyanguru-backend.onrender.com/api/auth/register",
+
                 formData
+
             );
 
             console.log(res.data);
 
-            // SEND OTP
-            await axios.post(
-                "https://gyanguru-backend.onrender.com/api/auth/send-otp",
-                {
-                    email: formData.email
-                }
-            );
+            alert("Registration Successful");
 
-            alert("OTP Sent Successfully");
-
-            // REDIRECT TO VERIFY PAGE
-           navigate("/");
+            navigate("/");
 
         } catch (error) {
 
+            console.log(error);
+
             alert(
+
                 error.response?.data?.message ||
+
                 "Registration Failed"
+
             );
 
         }

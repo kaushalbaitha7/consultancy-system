@@ -23,7 +23,7 @@ function VerifyOtp() {
         try {
 
             const res = await axios.post(
-                "http://localhost:5000/api/auth/verify-otp",
+                "https://gyanguru-backend.onrender.com/api/auth/verify-otp",
                 {
                     email,
                     otp

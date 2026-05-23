@@ -1,61 +1,326 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
+
 {
+
+    /* =========================
+       AUTH DETAILS
+    ========================= */
+
     fullName: {
+
         type: String,
+
         required: true
     },
 
     email: {
+
         type: String,
+
         required: true,
+
         unique: true
     },
 
     phone: {
+
         type: String,
+
         required: true,
+
         unique: true
     },
 
     password: {
+
         type: String,
+
         required: true
     },
 
+
+
+    /* =========================
+       VERIFICATION
+    ========================= */
+
     emailVerified: {
+
         type: Boolean,
+
         default: false
     },
 
     whatsappVerified: {
+
         type: Boolean,
+
         default: false
     },
 
     isVerified: {
+
         type: Boolean,
+
         default: false
     },
 
+
+
+    /* =========================
+       ROLE
+    ========================= */
+
     role: {
+
         type: String,
+
         default: "student"
     },
 
+
+
+    /* =========================
+       PERSONAL DETAILS
+    ========================= */
+
     personalDetails: {
+
+        neetRollNo: String,
+
+        neetApplicationNo: String,
+
+        allIndiaRank: String,
+
+        candidateName: String,
+
         fatherName: String,
+
         motherName: String,
+
         dob: String,
-        address: String,
-        neetRoll: String,
-        neetRank: String,
-        category: String
+
+        category: String,
+
+        disabledQuota: String,
+
+        neetMobile: String,
+
+        alternativeMobile: String,
+
+        neetEmail: String,
+
+        identificationMark: String,
+
+        domicileState: String,
+
+        nriQuota: String,
+
+        nationality: String,
+
+        religion: String,
+
+        aadharNumber: String,
+
+        motherTongue: String
+    },
+
+
+
+    /* =========================
+       EDUCATIONAL DETAILS
+    ========================= */
+
+    educationalDetails: {
+
+        tenth: {
+
+            rollNo: String,
+
+            marks: String,
+
+            percentage: String,
+
+            schoolName: String,
+
+            schoolAddress: String,
+
+            boardUniversity: String,
+
+            collegeType: String,
+
+            passedYear: String
+        },
+
+        twelfth: {
+
+            rollNo: String,
+
+            marks: String,
+
+            percentage: String,
+
+            schoolName: String,
+
+            schoolAddress: String,
+
+            boardUniversity: String,
+
+            collegeType: String,
+
+            passedYear: String
+        }
+
+    },
+
+
+
+    /* =========================
+       ADDRESS DETAILS
+    ========================= */
+
+    addressDetails: {
+
+        houseNo: String,
+
+        colony: String,
+
+        locality: String,
+
+        country: String,
+
+        state: String,
+
+        district: String,
+
+        pinCode: String,
+
+        policeStation: String
+    },
+
+
+
+    /* =========================
+       BANK DETAILS
+    ========================= */
+
+    bankDetails: {
+
+        bankName: String,
+
+        branchName: String,
+
+        accountHolderName: String,
+
+        accountNumber: String,
+
+        ifscCode: String
+    },
+
+
+
+    /* =========================
+       COUNSELLING DETAILS
+    ========================= */
+
+    counsellingDetails: {
+
+        preferredCourse: String,
+
+        preferredStates: [String],
+
+        budget: String
+    },
+
+
+
+    /* =========================
+       DOCUMENTS
+    ========================= */
+
+    documents: {
+
+        photo: String,
+
+        neetScorecard: String,
+
+        neetAdmitCard: String,
+
+        hindiSignature: String,
+
+        englishSignature: String,
+
+        thumb: String,
+
+        casteCertificate: String,
+
+        domicileCertificate: String,
+
+        passbookCheque: String,
+
+        tenthScorecard: String,
+
+        tenthCertificate: String,
+
+        tenthStudyCertificate: String,
+
+        tenthTcLc: String,
+
+        tenthCharacterCertificate: String,
+
+        tenthMigrationCertificate: String,
+
+        twelfthScorecard: String,
+
+        twelfthCertificate: String,
+
+        twelfthStudyCertificate: String,
+
+        twelfthTcLc: String,
+
+        twelfthCharacterCertificate: String,
+
+        twelfthMigrationCertificate: String
+    },
+
+
+
+    /* =========================
+       APPLICATION STATUS
+    ========================= */
+
+    applicationStatus: {
+
+        type: String,
+
+        default: "Incomplete"
+    },
+
+    counsellingStatus: {
+
+        type: String,
+
+        default: "Not Started"
+    },
+
+    allotmentStatus: {
+
+        type: String,
+
+        default: "Pending"
     }
 
 },
-{ timestamps: true }
+
+{
+
+    timestamps: true
+
+}
+
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports =
+mongoose.model("User", userSchema);

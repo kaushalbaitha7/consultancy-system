@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/dashboard.css";
 
 import logo from "../assets/logo.png";
@@ -44,43 +45,53 @@ function Dashboard() {
 
                     <ul>
 
-                        <li className="active-menu">
-                            Dashboard
-                        </li>
+                        <Link
+                           to="/dashboard"
+                         className="menu-link"
+    >
+                         <li className="active-menu">
+                           Dashboard
+                     </li>
+                     </Link>
 
-                        <li>
-                            Personal Details
-                        </li>
+                          <Link
+                           to="/personal-details"
+                         className="menu-link"
+    >
+        <li>
+            Personal Details
+        </li>
+    </Link>
 
-                        <li>
-                            Educational Details
-                        </li>
+    <li>
+        Educational Details
+    </li>
 
-                        <li>
-                            Address Details
-                        </li>
+    <li>
+        Address Details
+    </li>
 
-                        <li>
-                            Bank Details
-                        </li>
+    <li>
+        Bank Details
+    </li>
 
-                        <li>
-                            Counselling Preferences
-                        </li>
+    <li>
+        Counselling Preferences
+    </li>
 
-                        <li>
-                            Documents Upload
-                        </li>
+    <li>
+        Documents Upload
+    </li>
 
-                        <li>
-                            Downloads
-                        </li>
+    <li>
+        Downloads
+    </li>
 
-                        <li>
-                            Support
-                        </li>
+    <li>
+        Support
+    </li>
 
-                    </ul>
+</ul>
 
                 </div>
 

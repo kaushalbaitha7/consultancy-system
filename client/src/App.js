@@ -1,9 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 import Login from "./pages/Login";
+
 import Register from "./pages/Register";
+
 import VerifyOtp from "./pages/VerifyOtp";
+
 import Dashboard from "./pages/Dashboard";
+
+import PersonalDetails from "./pages/PersonalDetails";
 
 function App() {
 
@@ -13,11 +22,48 @@ function App() {
 
       <Routes>
 
-        <Route path="/" element={<Login />} />
+        {/* LOGIN */}
 
-        <Route path="/register" element={<Register />} />
-        <Route path="/verify-otp" element={<VerifyOtp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/"
+          element={<Login />}
+        />
+
+
+
+        {/* REGISTER */}
+
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+
+
+
+        {/* OTP VERIFY */}
+
+        <Route
+          path="/verify-otp"
+          element={<VerifyOtp />}
+        />
+
+
+
+        {/* DASHBOARD */}
+
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
+
+
+
+        {/* PERSONAL DETAILS */}
+
+        <Route
+          path="/personal-details"
+          element={<PersonalDetails />}
+        />
 
       </Routes>
 

@@ -1,45 +1,32 @@
-const express =
-require("express");
+const express = require("express");
 
-const router =
-express.Router();
-
-
+const router = express.Router();
 
 const {
-
     updatePersonalDetails,
-
     getPersonalDetails
-
-}
-
-= require(
-"../controllers/studentController"
-);
+} = require("../controllers/studentController");
 
 
 
-/* SAVE */
+/* =========================
+   SAVE PERSONAL DETAILS
+========================= */
 
 router.post(
-
     "/personal-details",
-
     updatePersonalDetails
-
 );
 
 
 
-/* FETCH */
+/* =========================
+   FETCH PERSONAL DETAILS
+========================= */
 
 router.get(
-
     "/personal-details/:userId",
-
     getPersonalDetails
-
 );
 
 

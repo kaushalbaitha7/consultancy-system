@@ -21,7 +21,7 @@ require("./routes/studentRoutes");
 
 
 /* =========================
-   APP INIT
+   APP
 ========================= */
 
 const app = express();
@@ -35,6 +35,20 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+
+
+
+/* =========================
+   TEST ROUTE
+========================= */
+
+app.get("/", (req, res) => {
+
+    res.send(
+        "Consultancy Server Running"
+    );
+
+});
 
 
 
@@ -55,35 +69,11 @@ app.use(
 
 
 /* =========================
-   TEST ROUTE
-========================= */
-
-app.get("/", (req, res) => {
-
-    res.send(
-        "Consultancy Server Running"
-    );
-
-});
-
-
-
-/* =========================
    DATABASE CONNECTION
 ========================= */
 
 mongoose.connect(
-
-    process.env.MONGO_URI,
-
-    {
-
-        useNewUrlParser: true,
-
-        useUnifiedTopology: true
-
-    }
-
+    process.env.MONGO_URI
 )
 
 .then(() => {
@@ -94,19 +84,15 @@ mongoose.connect(
 
 
 
-    /* =========================
-       SERVER START
-    ========================= */
-
     const PORT =
     process.env.PORT || 5000;
+
+
 
     app.listen(PORT, () => {
 
         console.log(
-
             `Server running on port ${PORT}`
-
         );
 
     });
@@ -116,11 +102,8 @@ mongoose.connect(
 .catch((error) => {
 
     console.log(
-
-        "MongoDB Connection Error:",
-
+        "MongoDB Error:",
         error
-
     );
 
 });

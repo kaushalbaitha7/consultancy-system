@@ -1,5 +1,4 @@
-const User =
-require("../models/User");
+const User = require("../models/User");
 
 
 
@@ -7,18 +6,28 @@ require("../models/User");
    SAVE PERSONAL DETAILS
 ========================= */
 
-exports.updatePersonalDetails =
-async (req, res) => {
+exports.updatePersonalDetails = async (req, res) => {
 
     try {
 
         const {
-
             userId,
-
             personalDetails
-
         } = req.body;
+
+
+
+        if (!userId) {
+
+            return res.status(400).json({
+
+                success: false,
+
+                message: "User ID Missing"
+
+            });
+
+        }
 
 
 
@@ -28,27 +37,37 @@ async (req, res) => {
             userId,
 
             {
-
                 personalDetails
-
             },
 
             {
-
                 new: true
-
             }
 
         );
 
 
 
-        res.json({
+        if (!updatedUser) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message: "User Not Found"
+
+            });
+
+        }
+
+
+
+        res.status(200).json({
 
             success: true,
 
             message:
-            "Personal Details Saved",
+            "Personal Details Saved Successfully",
 
             user: updatedUser
 
@@ -58,11 +77,15 @@ async (req, res) => {
 
     catch (error) {
 
+        console.log(error);
+
+
+
         res.status(500).json({
 
-            success:false,
+            success: false,
 
-            message:error.message
+            message: error.message
 
         });
 
@@ -72,17 +95,17 @@ async (req, res) => {
 
 
 
+
+
 /* =========================
    GET PERSONAL DETAILS
 ========================= */
 
-exports.getPersonalDetails =
-async (req, res) => {
+exports.getPersonalDetails = async (req, res) => {
 
     try {
 
-        const { userId } =
-        req.params;
+        const { userId } = req.params;
 
 
 
@@ -91,12 +114,26 @@ async (req, res) => {
 
 
 
-        res.json({
+        if (!user) {
 
-            success:true,
+            return res.status(404).json({
+
+                success: false,
+
+                message: "User Not Found"
+
+            });
+
+        }
+
+
+
+        res.status(200).json({
+
+            success: true,
 
             personalDetails:
-            user.personalDetails
+            user.personalDetails || {}
 
         });
 
@@ -104,11 +141,15 @@ async (req, res) => {
 
     catch (error) {
 
+        console.log(error);
+
+
+
         res.status(500).json({
 
-            success:false,
+            success: false,
 
-            message:error.message
+            message: error.message
 
         });
 

@@ -162,7 +162,7 @@ function PersonalDetails() {
        SAVE DETAILS
     ========================= */
 
-   const handleSubmit =
+const handleSubmit =
 async (e) => {
 
     e.preventDefault();
@@ -174,15 +174,24 @@ async (e) => {
 
 
     Object.keys(formData)
-    .forEach((key) => {
+    .forEach((field) => {
+
+        const value =
+        formData[field];
+
+
 
         if (
-            !formData[key] ||
-            formData[key].trim() === ""
+
+            value === undefined ||
+
+            value === null ||
+
+            value.toString().trim() === ""
+
         ) {
 
-            newErrors[key] =
-            true;
+            newErrors[field] = true;
 
         }
 
@@ -190,13 +199,17 @@ async (e) => {
 
 
 
+    setFieldErrors(newErrors);
+
+
+
+    /* =========================
+       IF ERRORS FOUND
+    ========================= */
+
     if (
         Object.keys(newErrors).length > 0
     ) {
-
-        setFieldErrors(newErrors);
-
-
 
         setError(
             "Please fill all mandatory fields carefully."
@@ -208,21 +221,15 @@ async (e) => {
 
 
 
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-
-
         return;
 
     }
 
 
+
+    /* =========================
+       SAVE DATA
+    ========================= */
 
     try {
 

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 
 import axios from "axios";
@@ -12,7 +14,8 @@ function PersonalDetails() {
     );
 
 
-
+    const navigate = useNavigate();
+    
     const [error, setError] =
     useState("");
 
@@ -401,6 +404,13 @@ function PersonalDetails() {
 
                             Edit Details
 
+                        </button>
+
+                        <button
+                           className="home-btn"
+                           onClick={() => navigate("/dashboard")}
+                        >
+                            Go To Dashboard
                         </button>
 
                     </div>

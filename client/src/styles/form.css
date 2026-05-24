@@ -553,3 +553,83 @@
     box-shadow:
     0 14px 25px rgba(15,23,42,0.22);
 }
+
+/* =========================
+   ERROR INPUT
+========================= */
+
+.error-input{
+
+    border:2px solid #ef4444 !important;
+
+    background:#fff1f2 !important;
+
+    box-shadow:
+    0 0 0 4px rgba(239,68,68,0.10);
+
+    animation:
+    errorPulse 0.25s ease;
+}
+
+
+
+/* =========================
+   ERROR INPUT FOCUS
+========================= */
+
+.error-input:focus{
+
+    border:2px solid #dc2626 !important;
+
+    background:#ffffff !important;
+
+    box-shadow:
+    0 0 0 5px rgba(239,68,68,0.15) !important;
+}
+
+
+
+/* =========================
+   REQUIRED FIELD TEXT
+========================= */
+
+.field-required{
+
+    margin-top:8px;
+
+    color:#dc2626;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:0.2px;
+}
+
+
+
+/* =========================
+   ERROR ANIMATION
+========================= */
+
+@keyframes errorPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.01);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}

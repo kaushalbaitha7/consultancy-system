@@ -19,6 +19,9 @@ function PersonalDetails() {
     const [error, setError] =
     useState("");
 
+    const [fieldErrors, setFieldErrors] =
+    useState({});
+
     const [success, setSuccess] =
     useState("");
 
@@ -159,91 +162,119 @@ function PersonalDetails() {
        SAVE DETAILS
     ========================= */
 
-    const handleSubmit =
-    async (e) => {
+   const handleSubmit =
+async (e) => {
 
-        e.preventDefault();
-
-
-
-        const emptyField =
-        Object.values(formData)
-        .some(value => value === "");
+    e.preventDefault();
 
 
 
-        if (emptyField) {
+    let newErrors = {};
 
-            setError(
-                "All fields are mandatory. Please fill all details carefully."
-            );
 
-            setSuccess("");
 
-            window.scrollTo({
+    Object.keys(formData)
+    .forEach((key) => {
 
-                top: 0,
+        if (
+            !formData[key] ||
+            formData[key].trim() === ""
+        ) {
 
-                behavior: "smooth"
-
-            });
-
-            return;
+            newErrors[key] =
+            true;
 
         }
 
-
-
-        try {
-
-            const res =
-            await axios.post(
-
-                "https://gyanguru-backend.onrender.com/api/student/personal-details",
-
-                {
-
-                    userId: user._id,
-
-                    personalDetails:
-                    formData
-
-                }
-
-            );
+    });
 
 
 
-            console.log(res.data);
+    if (
+        Object.keys(newErrors).length > 0
+    ) {
+
+        setFieldErrors(newErrors);
 
 
 
-            setError("");
+        setError(
+            "Please fill all mandatory fields carefully."
+        );
 
 
 
-            setSuccess(
-                "Personal Details Saved Successfully"
-            );
+        setSuccess("");
 
 
 
-            setPreviewMode(true);
+        window.scrollTo({
 
-        }
+            top: 0,
 
-        catch (error) {
+            behavior: "smooth"
 
-            console.log(error);
+        });
 
-            setError(
-                "Something went wrong"
-            );
 
-        }
 
-    };
+        return;
 
+    }
+
+
+
+    try {
+
+        const res =
+        await axios.post(
+
+            "https://gyanguru-backend.onrender.com/api/student/personal-details",
+
+            {
+
+                userId: user._id,
+
+                personalDetails:
+                formData
+
+            }
+
+        );
+
+
+
+        console.log(res.data);
+
+
+
+        setError("");
+
+
+
+        setSuccess(
+            "Personal Details Saved Successfully"
+        );
+
+
+
+        setPreviewMode(true);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+
+
+        setError(
+            "Something went wrong"
+        );
+
+    }
+
+};
 
 
     return (
@@ -308,18 +339,6 @@ function PersonalDetails() {
 
                             <div>
                                 <strong>
-                                    Candidate Name
-                                </strong>
-
-                                <p>
-                                    {formData.candidateName}
-                                </p>
-                            </div>
-
-
-
-                            <div>
-                                <strong>
                                     NEET Roll Number
                                 </strong>
 
@@ -327,6 +346,7 @@ function PersonalDetails() {
                                     {formData.neetRollNo}
                                 </p>
                             </div>
+
 
 
 
@@ -340,7 +360,7 @@ function PersonalDetails() {
                                 </p>
                             </div>
 
-
+                                
 
                             <div>
                                 <strong>
@@ -352,6 +372,49 @@ function PersonalDetails() {
                                 </p>
                             </div>
 
+                                <div>
+                                <strong>
+                                    Candidate Name
+                                </strong>
+
+                                <p>
+                                    {formData.candidateName}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Father's Name
+                                </strong>
+
+                                <p>
+                                    {formData.fathersName}
+                                </p>
+                            </div>
+
+
+
+                            <div>
+                                <strong>
+                                    Mother's Name
+                                </strong>
+
+                                <p>
+                                    {formData.mothersName}
+                                </p>
+                            </div>
+
+
+
+                            <div>
+                                <strong>
+                                    Date of Birth
+                                </strong>
+
+                                <p>
+                                    {formData.dob}
+                                </p>
+                            </div>
 
 
                             <div>
@@ -365,6 +428,75 @@ function PersonalDetails() {
                             </div>
 
 
+                            <div>
+                                <strong>
+                                    Disabled Quota
+                                </strong>
+
+                                <p>
+                                    {formData.disabledQuota}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    NEET Registered Mobile Number
+                                </strong>
+
+                                <p>
+                                    {formData.neetRegisteredMobileNo}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Alternative Mobile Number
+                                </strong>
+
+                                <p>
+                                    {formData.alternativeMobileNo}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    NEET Registered Email Id
+                                </strong>
+
+                                <p>
+                                    {formData.neetRegisteredEmailId}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Mark of Identification
+                                </strong>
+
+                                <p>
+                                    {formData.markOfIdentification}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Domicile State
+                                </strong>
+
+                                <p>
+                                    {formData.domicileState}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    NRI Quota
+                                </strong>
+
+                                <p>
+                                    {formData.nriQuota}
+                                </p>
+                            </div>
 
                             <div>
                                 <strong>
@@ -376,8 +508,6 @@ function PersonalDetails() {
                                 </p>
                             </div>
 
-
-
                             <div>
                                 <strong>
                                     Religion
@@ -388,8 +518,27 @@ function PersonalDetails() {
                                 </p>
                             </div>
 
-                        </div>
+                            <div>
+                                <strong>
+                                    Aadhar Number
+                                </strong>
 
+                                <p>
+                                    {formData.aadharNumber}
+                                </p>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Mother Tongue
+                                </strong>
+
+                                <p>
+                                    {formData.motherTongue}
+                                </p>
+                            </div>
+
+                        </div>
 
 
                         <button
@@ -432,12 +581,18 @@ function PersonalDetails() {
                                     NEET Roll Number
                                 </label>
 
-                                <input
+                               <input
                                     type="text"
                                     name="neetRollNo"
                                     value={formData.neetRollNo}
                                     onChange={handleChange}
                                     placeholder="Enter NEET Roll Number"
+
+                                    className={
+                                        fieldErrors.neetRollNo
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -456,6 +611,12 @@ function PersonalDetails() {
                                     value={formData.neetApplicationNo}
                                     onChange={handleChange}
                                     placeholder="Enter Application Number"
+
+                                    className={
+                                        fieldErrors.neetApplicationNo
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -474,6 +635,12 @@ function PersonalDetails() {
                                     value={formData.allIndiaRank}
                                     onChange={handleChange}
                                     placeholder="Enter AIR Rank"
+
+                                    className={
+                                        fieldErrors.allIndiaRank
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -492,6 +659,12 @@ function PersonalDetails() {
                                     value={formData.candidateName}
                                     onChange={handleChange}
                                     placeholder="Enter Candidate Name"
+
+                                    className={
+                                        fieldErrors.candidateName
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -510,6 +683,12 @@ function PersonalDetails() {
                                     value={formData.fatherName}
                                     onChange={handleChange}
                                     placeholder="Enter Father's Name"
+
+                                    className={
+                                        fieldErrors.fatherName
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -528,6 +707,12 @@ function PersonalDetails() {
                                     value={formData.motherName}
                                     onChange={handleChange}
                                     placeholder="Enter Mother's Name"
+
+                                    className={
+                                        fieldErrors.motherName
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -545,6 +730,12 @@ function PersonalDetails() {
                                     name="dob"
                                     value={formData.dob}
                                     onChange={handleChange}
+
+                                    className={
+                                        fieldErrors.dob
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -561,6 +752,12 @@ function PersonalDetails() {
                                     name="category"
                                     value={formData.category}
                                     onChange={handleChange}
+
+                                    className={
+                                        fieldErrors.category
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 >
 
                                     <option value="">
@@ -603,6 +800,12 @@ function PersonalDetails() {
                                     name="disabledQuota"
                                     value={formData.disabledQuota}
                                     onChange={handleChange}
+
+                                    className={
+                                        fieldErrors.disabledQuota
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 >
 
                                     <option value="">
@@ -635,6 +838,12 @@ function PersonalDetails() {
                                     value={formData.neetMobile}
                                     onChange={handleChange}
                                     placeholder="Enter Mobile Number"
+
+                                    className={
+                                        fieldErrors.neetMobile
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -653,6 +862,12 @@ function PersonalDetails() {
                                     value={formData.alternativeMobile}
                                     onChange={handleChange}
                                     placeholder="Enter Parent Mobile"
+
+                                    className={
+                                        fieldErrors.alternativeMobile
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -671,6 +886,12 @@ function PersonalDetails() {
                                     value={formData.neetEmail}
                                     onChange={handleChange}
                                     placeholder="Enter Email"
+
+                                    className={
+                                        fieldErrors.neetEmail
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -689,6 +910,8 @@ function PersonalDetails() {
                                     value={formData.identificationMark}
                                     onChange={handleChange}
                                     placeholder="Enter Identification Mark"
+
+                                    
                                 />
 
                             </div>
@@ -707,6 +930,12 @@ function PersonalDetails() {
                                     value={formData.domicileState}
                                     onChange={handleChange}
                                     placeholder="Enter State"
+
+                                    className={
+                                        fieldErrors.domicileState
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -723,6 +952,12 @@ function PersonalDetails() {
                                     name="nriQuota"
                                     value={formData.nriQuota}
                                     onChange={handleChange}
+
+                                    className={
+                                        fieldErrors.nriQuota
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 >
 
                                     <option value="">
@@ -753,6 +988,12 @@ function PersonalDetails() {
                                     name="nationality"
                                     value={formData.nationality}
                                     onChange={handleChange}
+
+                                    className={
+                                        fieldErrors.nationality
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 >
 
                                     <option value="">
@@ -783,6 +1024,12 @@ function PersonalDetails() {
                                     name="religion"
                                     value={formData.religion}
                                     onChange={handleChange}
+
+                                    className={
+                                        fieldErrors.religion
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 >
 
                                     <option value="">
@@ -831,6 +1078,12 @@ function PersonalDetails() {
                                     value={formData.aadharNumber}
                                     onChange={handleChange}
                                     placeholder="Enter Aadhar Number"
+
+                                    className={
+                                        fieldErrors.aadharNumber
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>
@@ -849,6 +1102,12 @@ function PersonalDetails() {
                                     value={formData.motherTongue}
                                     onChange={handleChange}
                                     placeholder="Enter Mother Tongue"
+
+                                    className={
+                                        fieldErrors.motherTongue
+                                        ? "error-input"
+                                        : ""
+                                    }
                                 />
 
                             </div>

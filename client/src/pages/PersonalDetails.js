@@ -145,16 +145,26 @@ function PersonalDetails() {
 
     const handleChange = (e) => {
 
-        setFormData({
+    setFormData({
 
-            ...formData,
+        ...formData,
 
-            [e.target.name]:
-            e.target.value
+        [e.target.name]:
+        e.target.value
 
-        });
+    });
 
-    };
+
+
+    setFieldErrors({
+
+        ...fieldErrors,
+
+        [e.target.name]: false
+
+    });
+
+};
 
 
 
@@ -169,15 +179,37 @@ async (e) => {
 
 
 
-    let newErrors = {};
+    /* =========================
+       CLEAN DATA
+    ========================= */
+
+    const cleanedData = {};
 
 
 
     Object.keys(formData)
+    .forEach((key) => {
+
+        cleanedData[key] =
+        formData[key]?.trim();
+
+    });
+
+
+
+    /* =========================
+       VALIDATION
+    ========================= */
+
+    let newErrors = {};
+
+
+
+    Object.keys(cleanedData)
     .forEach((field) => {
 
         const value =
-        formData[field];
+        cleanedData[field];
 
 
 
@@ -187,7 +219,7 @@ async (e) => {
 
             value === null ||
 
-            value.toString().trim() === ""
+            value === ""
 
         ) {
 
@@ -204,7 +236,7 @@ async (e) => {
 
 
     /* =========================
-       IF ERRORS FOUND
+       IF ERRORS
     ========================= */
 
     if (
@@ -218,6 +250,16 @@ async (e) => {
 
 
         setSuccess("");
+
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
 
 
 
@@ -243,7 +285,7 @@ async (e) => {
                 userId: user._id,
 
                 personalDetails:
-                formData
+                cleanedData
 
             }
 
@@ -252,6 +294,10 @@ async (e) => {
 
 
         console.log(res.data);
+
+
+
+        setFieldErrors({});
 
 
 
@@ -282,7 +328,6 @@ async (e) => {
     }
 
 };
-
 
     return (
 
@@ -552,9 +597,13 @@ async (e) => {
 
                             className="edit-btn"
 
-                            onClick={() =>
-                                setPreviewMode(false)
-                            }
+                            onClick={() => {
+
+                                setPreviewMode(false);
+
+                                setSuccess("");
+
+                            }}
 
                         >
 

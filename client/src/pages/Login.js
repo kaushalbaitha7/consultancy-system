@@ -20,11 +20,21 @@ function Login() {
 
     const [loading, setLoading] = useState(false);
 
+    const [success, setSuccess] = useState("");
+
+    const [error, setError] = useState("");
+
+
+
     const handleLogin = async (e) => {
 
         e.preventDefault();
 
         setLoading(true);
+
+        setError("");
+
+
 
         try {
 
@@ -39,9 +49,14 @@ function Login() {
 
             );
 
+
+
             console.log(res.data);
 
-            // SAVE TOKEN
+
+
+            /* SAVE TOKEN */
+
             localStorage.setItem(
 
                 "token",
@@ -50,7 +65,10 @@ function Login() {
 
             );
 
-            // SAVE USER
+
+
+            /* SAVE USER */
+
             localStorage.setItem(
 
                 "user",
@@ -59,15 +77,33 @@ function Login() {
 
             );
 
-            alert("Login Successful");
 
-            navigate("/dashboard");
 
-        } catch (error) {
+            /* SUCCESS MESSAGE */
+
+            setSuccess(
+                "Login Successful!"
+            );
+
+
+
+            /* REDIRECT */
+
+            setTimeout(() => {
+
+                navigate("/dashboard");
+
+            }, 1200);
+
+        }
+
+        catch (error) {
 
             console.log(error);
 
-            alert(
+
+
+            setError(
 
                 error.response?.data?.message ||
 
@@ -75,7 +111,9 @@ function Login() {
 
             );
 
-        } finally {
+        }
+
+        finally {
 
             setLoading(false);
 
@@ -83,9 +121,13 @@ function Login() {
 
     };
 
+
+
     return (
 
         <div className="auth-container">
+
+
 
             {/* TOP BRANDING */}
 
@@ -97,12 +139,20 @@ function Login() {
                     className="main-logo"
                 />
 
+
+
                 <h1 className="brand-title">
+
                     GyanGuru Admission Portal
+
                 </h1>
 
+
+
                 <p className="brand-subtitle">
+
                     Educational Consultancy
+
                 </p>
 
             </div>
@@ -115,57 +165,138 @@ function Login() {
 
                 <h2>NEET UG 2026</h2>
 
+
+
                 <p className="subtitle">
+
                     Student Login Portal
+
                 </p>
+
+
+
+                {/* SUCCESS MESSAGE */}
+
+                {
+
+                    success && (
+
+                        <div className="success-toast">
+
+                            {success}
+
+                        </div>
+
+                    )
+
+                }
+
+
+
+                {/* ERROR MESSAGE */}
+
+                {
+
+                    error && (
+
+                        <div className="error-toast">
+
+                            {error}
+
+                        </div>
+
+                    )
+
+                }
+
+
 
                 <form onSubmit={handleLogin}>
 
-                    <input
-                        type="email"
-                        placeholder="Enter Email"
-                        value={email}
-                        onChange={(e) =>
-                            setEmail(e.target.value)
-                        }
-                        required
-                    />
+
 
                     <input
-                        type="password"
-                        placeholder="Enter Password"
-                        value={password}
+
+                        type="email"
+
+                        placeholder="Enter Email"
+
+                        value={email}
+
                         onChange={(e) =>
-                            setPassword(e.target.value)
+
+                            setEmail(e.target.value)
+
                         }
+
                         required
+
                     />
+
+
+
+                    <input
+
+                        type="password"
+
+                        placeholder="Enter Password"
+
+                        value={password}
+
+                        onChange={(e) =>
+
+                            setPassword(e.target.value)
+
+                        }
+
+                        required
+
+                    />
+
+
 
                     <button
+
                         type="submit"
+
                         disabled={loading}
+
                     >
 
                         {
+
                             loading
+
                                 ? "Please Wait..."
+
                                 : "Login"
+
                         }
 
                     </button>
 
                 </form>
 
+
+
                 <div className="divider">
+
                     OR
+
                 </div>
+
+
 
                 <p className="register-text">
 
                     New Student?
 
+
+
                     <Link to="/register">
+
                         Create Account
+
                     </Link>
 
                 </p>

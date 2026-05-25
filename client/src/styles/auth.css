@@ -160,3 +160,94 @@ body{
     }
 
 }
+/* =========================
+   SUCCESS TOAST
+========================= */
+
+.success-toast{
+
+    width:100%;
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    border:
+    1px solid #86efac;
+
+    padding:16px 20px;
+
+    border-radius:16px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    animation:
+    toastSlide 0.35s ease;
+}
+
+
+
+/* =========================
+   ERROR TOAST
+========================= */
+
+.error-toast{
+
+    width:100%;
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+    border:
+    1px solid #fecaca;
+
+    padding:16px 20px;
+
+    border-radius:16px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    animation:
+    toastSlide 0.35s ease;
+}
+
+
+
+/* =========================
+   TOAST ANIMATION
+========================= */
+
+@keyframes toastSlide{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(-10px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}

@@ -98,28 +98,82 @@ function PersonalDetails() {
                     res.data.personalDetails
                 ) {
 
-                    setFormData(
-                        res.data.personalDetails
+                setFormData(
+                    res.data.personalDetails
+                );
+
+
+
+                const requiredFields = [
+
+                    "neetRollNo",
+
+                    "neetApplicationNo",
+
+                    "allIndiaRank",
+
+                    "candidateName",
+
+                    "fatherName",
+
+                    "motherName",
+
+                    "dob",
+
+                    "category",
+
+                    "disabledQuota",
+
+                    "neetMobile",
+
+                    "alternativeMobile",
+
+                    "neetEmail",
+
+                    "identificationMark",
+
+                    "domicileState",
+
+                    "nriQuota",
+
+                    "nationality",
+
+                    "religion",
+
+                    "aadharNumber",
+
+                    "motherTongue"
+
+                ];
+
+
+
+                const isComplete =
+                requiredFields.every((field) => {
+
+                    return (
+
+                        res.data.personalDetails?.[field]
+
+                        &&
+
+                        res.data.personalDetails[field]
+                        .toString()
+                        .trim() !== ""
+
                     );
 
-
-
-                    const hasData =
-                    Object.values(
-                        res.data.personalDetails
-                    ).some(
-                        value => value !== ""
-                    );
+                });
 
 
 
-                    if (hasData) {
+                if (isComplete) {
 
-                        setPreviewMode(true);
-
-                    }
+                    setPreviewMode(true);
 
                 }
+
+}
 
             }
 
@@ -440,7 +494,7 @@ async (e) => {
                                 </strong>
 
                                 <p>
-                                    {formData.fathersName}
+                                    {formData.fatherName}
                                 </p>
                             </div>
 
@@ -452,7 +506,7 @@ async (e) => {
                                 </strong>
 
                                 <p>
-                                    {formData.mothersName}
+                                    {formData.motherName}
                                 </p>
                             </div>
 
@@ -966,6 +1020,12 @@ async (e) => {
                                     value={formData.identificationMark}
                                     onChange={handleChange}
                                     placeholder="Enter Identification Mark"
+
+                                     className={
+                                        fieldErrors.identificationMark
+                                        ? "error-input"
+                                        : ""
+                                    }
 
                                     
                                 />

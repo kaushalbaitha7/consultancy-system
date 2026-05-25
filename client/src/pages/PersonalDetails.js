@@ -233,6 +233,60 @@ async (e) => {
 
 
 
+    setError("");
+
+    setSuccess("");
+
+
+
+    /* =========================
+       REQUIRED FIELDS
+    ========================= */
+
+    const requiredFields = [
+
+        "neetRollNo",
+
+        "neetApplicationNo",
+
+        "allIndiaRank",
+
+        "candidateName",
+
+        "fatherName",
+
+        "motherName",
+
+        "dob",
+
+        "category",
+
+        "disabledQuota",
+
+        "neetMobile",
+
+        "alternativeMobile",
+
+        "neetEmail",
+
+        "identificationMark",
+
+        "domicileState",
+
+        "nriQuota",
+
+        "nationality",
+
+        "religion",
+
+        "aadharNumber",
+
+        "motherTongue"
+
+    ];
+
+
+
     /* =========================
        CLEAN DATA
     ========================= */
@@ -245,7 +299,9 @@ async (e) => {
     .forEach((key) => {
 
         cleanedData[key] =
-        formData[key]?.trim();
+        formData[key]
+        ?.toString()
+        .trim();
 
     });
 
@@ -259,21 +315,13 @@ async (e) => {
 
 
 
-    Object.keys(cleanedData)
-    .forEach((field) => {
-
-        const value =
-        cleanedData[field];
-
-
+    requiredFields.forEach((field) => {
 
         if (
 
-            value === undefined ||
+            !cleanedData[field] ||
 
-            value === null ||
-
-            value === ""
+            cleanedData[field] === ""
 
         ) {
 
@@ -290,20 +338,20 @@ async (e) => {
 
 
     /* =========================
-       IF ERRORS
+       STOP SAVE
     ========================= */
 
     if (
+
         Object.keys(newErrors).length > 0
+
     ) {
 
         setError(
+
             "Please fill all mandatory fields carefully."
+
         );
-
-
-
-        setSuccess("");
 
 
 
@@ -351,16 +399,10 @@ async (e) => {
 
 
 
-        setFieldErrors({});
-
-
-
-        setError("");
-
-
-
         setSuccess(
+
             "Personal Details Saved Successfully"
+
         );
 
 
@@ -376,7 +418,9 @@ async (e) => {
 
 
         setError(
+
             "Something went wrong"
+
         );
 
     }

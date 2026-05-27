@@ -197,29 +197,41 @@ function EducationalDetails() {
 
     const handleChange = (
 
-        section,
+    section,
 
-        field,
+    field,
 
-        value
+    value
 
-    ) => {
+) => {
 
-        setFormData({
+    setFormData({
 
-            ...formData,
+        ...formData,
 
-            [section]: {
+        [section]: {
 
-                ...formData[section],
+            ...formData[section],
 
-                [field]: value
+            [field]: value
 
-            }
+        }
 
-        });
+    });
 
-    };
+
+
+    /* REMOVE FIELD ERROR */
+
+    setFieldErrors((prev) => ({
+
+        ...prev,
+
+        [`${section}.${field}`]: ""
+
+    }));
+
+};
 
 
 
@@ -252,6 +264,14 @@ function EducationalDetails() {
             }
 
         });
+
+        setFieldErrors((prev) => ({
+
+    ...prev,
+
+    [`twelfth.pcbMarks.${field}`]: ""
+
+     }));
 
     };
 

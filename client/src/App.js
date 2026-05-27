@@ -14,6 +14,8 @@ import Dashboard from "./pages/Dashboard";
 
 import PersonalDetails from "./pages/PersonalDetails";
 
+import EducationalDetails from "./pages/EducationalDetails";
+
 function App() {
 
   return (
@@ -63,6 +65,13 @@ function App() {
         <Route
           path="/personal-details"
           element={<PersonalDetails />}
+        />
+
+        {/* EDUCATIONAL DETAILS */}
+
+        <Route
+          path="/educational-details"
+          element={<EducationalDetails />}
         />
 
       </Routes>

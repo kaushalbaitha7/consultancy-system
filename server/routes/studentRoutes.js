@@ -2,33 +2,86 @@ const express = require("express");
 
 const router = express.Router();
 
+
+
+/* =========================
+   CONTROLLERS
+========================= */
+
 const {
+
     updatePersonalDetails,
-    getPersonalDetails
+
+    getPersonalDetails,
+
+    saveEducationalDetails,
+
+    getEducationalDetails
+
 } = require("../controllers/studentController");
 
 
 
 /* =========================
-   SAVE PERSONAL DETAILS
+   PERSONAL DETAILS
 ========================= */
 
+/* SAVE PERSONAL DETAILS */
+
 router.post(
+
     "/personal-details",
+
     updatePersonalDetails
+
 );
+
+
+
+/* FETCH PERSONAL DETAILS */
+
+router.get(
+
+    "/personal-details/:userId",
+
+    getPersonalDetails
+
+);
+
 
 
 
 /* =========================
-   FETCH PERSONAL DETAILS
+   EDUCATIONAL DETAILS
 ========================= */
 
-router.get(
-    "/personal-details/:userId",
-    getPersonalDetails
+/* SAVE EDUCATIONAL DETAILS */
+
+router.post(
+
+    "/educational-details",
+
+    saveEducationalDetails
+
 );
 
 
+
+/* FETCH EDUCATIONAL DETAILS */
+
+router.get(
+
+    "/educational-details/:userId",
+
+    getEducationalDetails
+
+);
+
+
+
+
+/* =========================
+   EXPORT ROUTER
+========================= */
 
 module.exports = router;

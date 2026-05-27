@@ -135,46 +135,61 @@ const userSchema = new mongoose.Schema(
 
     educationalDetails: {
 
-        tenth: {
+    tenth: {
 
-            rollNo: String,
+        seatNo: String,
 
-            marks: String,
+        percentage: String,
 
-            percentage: String,
+        schoolName: String,
 
-            schoolName: String,
+        schoolAddress: String,
 
-            schoolAddress: String,
+        board: String,
 
-            boardUniversity: String,
+        collegeType: String,
 
-            collegeType: String,
-
-            passedYear: String
-        },
-
-        twelfth: {
-
-            rollNo: String,
-
-            marks: String,
-
-            percentage: String,
-
-            schoolName: String,
-
-            schoolAddress: String,
-
-            boardUniversity: String,
-
-            collegeType: String,
-
-            passedYear: String
-        }
+        passedYear: String
 
     },
 
+
+
+    twelfth: {
+
+        seatNo: String,
+
+        percentage: String,
+
+
+
+        pcbMarks: {
+
+            physics: String,
+
+            chemistry: String,
+
+            biology: String,
+
+            pcbPercentage: String
+
+        },
+
+
+
+        schoolName: String,
+
+        schoolAddress: String,
+
+        board: String,
+
+        collegeType: String,
+
+        passedYear: String
+
+    }
+
+},
 
 
     /* =========================

@@ -96,125 +96,125 @@ function EducationalDetails() {
 
 
 
+const fetchEducationalDetails = useCallback(async () => {
 
-    const fetchEducationalDetails = useCallback(async () => {
+    try {
 
-        try {
+        const res =
+        await axios.get(
 
-            const res =
-            await axios.get(
+            `https://gyanguru-backend.onrender.com/api/student/educational-details/${user._id}`
 
-                `https://gyanguru-backend.onrender.com/api/student/educational-details/${user._id}`
-
-            );
-
-
-
-           if (
-
-    res.data.educationalDetails
-
-) {
-
-    setFormData((prev) => ({
-
-        ...prev,
-
-        tenth: {
-
-            ...prev.tenth,
-
-            ...res.data.educationalDetails?.tenth
-
-        },
+        );
 
 
 
-        twelfth: {
+        if (res.data.educationalDetails) {
 
-            ...prev.twelfth,
+            setFormData((prev) => ({
 
-            ...res.data.educationalDetails?.twelfth,
+                ...prev,
 
+                tenth: {
 
+                    ...prev.tenth,
 
-            pcbMarks: {
+                    ...res.data.educationalDetails?.tenth
 
-                ...prev.twelfth.pcbMarks,
-
-                ...res.data.educationalDetails?.twelfth?.pcbMarks
-
-            }
-
-        }
-
-    }));
+                },
 
 
 
-    const data =
-    res.data.educationalDetails;
+                twelfth: {
+
+                    ...prev.twelfth,
+
+                    ...res.data.educationalDetails?.twelfth,
 
 
 
-                const isComplete =
+                    pcbMarks: {
 
-    (data?.tenth?.seatNo || "").trim() &&
+                        ...prev.twelfth.pcbMarks,
 
-    (data?.tenth?.percentage || "").trim() &&
+                        ...res.data.educationalDetails?.twelfth?.pcbMarks
 
-    (data?.tenth?.schoolName || "").trim() &&
+                    }
 
-    (data?.tenth?.schoolAddress || "").trim() &&
+                }
 
-    (data?.tenth?.board || "").trim() &&
-
-    (data?.tenth?.collegeType || "").trim() &&
-
-    (data?.tenth?.passedYear || "").trim() &&
+            }));
 
 
 
-    (data?.twelfth?.seatNo || "").trim() &&
+            const data =
+            res.data.educationalDetails;
 
-    (data?.twelfth?.percentage || "").trim() &&
 
-    (data?.twelfth?.pcbMarks?.physics || "").trim() &&
 
-    (data?.twelfth?.pcbMarks?.chemistry || "").trim() &&
+            const isComplete =
 
-    (data?.twelfth?.pcbMarks?.biology || "").trim() &&
+            (data?.tenth?.seatNo || "").trim() &&
 
-    (data?.twelfth?.pcbMarks?.pcbPercentage || "").trim() &&
+            (data?.tenth?.percentage || "").trim() &&
 
-    (data?.twelfth?.schoolName || "").trim() &&
+            (data?.tenth?.schoolName || "").trim() &&
 
-    (data?.twelfth?.schoolAddress || "").trim() &&
+            (data?.tenth?.schoolAddress || "").trim() &&
 
-    (data?.twelfth?.board || "").trim() &&
+            (data?.tenth?.board || "").trim() &&
 
-    (data?.twelfth?.collegeType || "").trim() &&
+            (data?.tenth?.collegeType || "").trim() &&
 
-    (data?.twelfth?.passedYear || "").trim();
+            (data?.tenth?.passedYear || "").trim() &&
 
-              if (isComplete) {
+
+
+            (data?.twelfth?.seatNo || "").trim() &&
+
+            (data?.twelfth?.percentage || "").trim() &&
+
+            (data?.twelfth?.pcbMarks?.physics || "").trim() &&
+
+            (data?.twelfth?.pcbMarks?.chemistry || "").trim() &&
+
+            (data?.twelfth?.pcbMarks?.biology || "").trim() &&
+
+            (data?.twelfth?.pcbMarks?.pcbPercentage || "").trim() &&
+
+            (data?.twelfth?.schoolName || "").trim() &&
+
+            (data?.twelfth?.schoolAddress || "").trim() &&
+
+            (data?.twelfth?.board || "").trim() &&
+
+            (data?.twelfth?.collegeType || "").trim() &&
+
+            (data?.twelfth?.passedYear || "").trim();
+
+
+
+            if (isComplete && !previewMode) {
 
                 setPreviewMode(true);
 
-              }
-
             }
 
         }
 
-        catch (error) {
+    }
 
-            console.log(error);
+    catch (error) {
 
-        }
-        }, [user]);
+        console.log(error);
 
-       useEffect(() => {
+    }
+
+}, [user, previewMode]);
+
+
+
+useEffect(() => {
 
     fetchEducationalDetails();
 
@@ -1415,53 +1415,223 @@ function EducationalDetails() {
 
                     <div className="preview-card">
 
-                        <h2>
+    <h2>
 
-                            Educational Details Saved
+        Educational Details Preview
 
-                        </h2>
-
-
-
-                        <div className="preview-actions">
-
-                            <button
-
-                                className="edit-btn"
-
-                                onClick={() =>
-
-                                    setPreviewMode(false)
-
-                                }
-
-                            >
-
-                                Edit Details
-
-                            </button>
+    </h2>
 
 
 
-                            <button
+    <div className="preview-section">
 
-                                className="home-btn"
+        <h3>10th / SSC Details</h3>
 
-                                onClick={() =>
+        <div className="preview-grid">
 
-                                    navigate("/dashboard")
+            <div>
 
-                                }
+                <span>Seat No</span>
 
-                            >
+                <p>{formData.tenth.seatNo}</p>
 
-                                Go To Dashboard
+            </div>
 
-                            </button>
+            <div>
 
-                        </div>
+                <span>Percentage</span>
+
+                <p>{formData.tenth.percentage}</p>
+
+            </div>
+
+            <div>
+
+                <span>School Name</span>
+
+                <p>{formData.tenth.schoolName}</p>
+
+            </div>
+
+            <div>
+
+                <span>School Address</span>
+
+                <p>{formData.tenth.schoolAddress}</p>
+
+            </div>
+
+            <div>
+
+                <span>Board</span>
+
+                <p>{formData.tenth.board}</p>
+
+            </div>
+
+            <div>
+
+                <span>College Type</span>
+
+                <p>{formData.tenth.collegeType}</p>
+
+            </div>
+
+            <div>
+
+                <span>Passed Year</span>
+
+                <p>{formData.tenth.passedYear}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div className="preview-section">
+
+        <h3>12th / PUC Details</h3>
+
+        <div className="preview-grid">
+
+            <div>
+
+                <span>Seat No</span>
+
+                <p>{formData.twelfth.seatNo}</p>
+
+            </div>
+
+            <div>
+
+                <span>Percentage</span>
+
+                <p>{formData.twelfth.percentage}</p>
+
+            </div>
+
+            <div>
+
+                <span>Physics Marks</span>
+
+                <p>{formData.twelfth.pcbMarks.physics}</p>
+
+            </div>
+
+            <div>
+
+                <span>Chemistry Marks</span>
+
+                <p>{formData.twelfth.pcbMarks.chemistry}</p>
+
+            </div>
+
+            <div>
+
+                <span>Biology Marks</span>
+
+                <p>{formData.twelfth.pcbMarks.biology}</p>
+
+            </div>
+
+            <div>
+
+                <span>PCB Percentage</span>
+
+                <p>{formData.twelfth.pcbMarks.pcbPercentage}</p>
+
+            </div>
+
+            <div>
+
+                <span>School Name</span>
+
+                <p>{formData.twelfth.schoolName}</p>
+
+            </div>
+
+            <div>
+
+                <span>School Address</span>
+
+                <p>{formData.twelfth.schoolAddress}</p>
+
+            </div>
+
+            <div>
+
+                <span>Board</span>
+
+                <p>{formData.twelfth.board}</p>
+
+            </div>
+
+            <div>
+
+                <span>College Type</span>
+
+                <p>{formData.twelfth.collegeType}</p>
+
+            </div>
+
+            <div>
+
+                <span>Passed Year</span>
+
+                <p>{formData.twelfth.passedYear}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+                    <div className="preview-actions">
+
+                        <button
+
+                            className="edit-btn"
+
+                            onClick={() => {
+
+                                setSuccess("");
+
+                                setPreviewMode(false);
+
+                            }}
+
+                        >
+
+                            Edit Details
+
+                        </button>
+
+
+
+                        <button
+
+                            className="home-btn"
+
+                            onClick={() =>
+
+                                navigate("/dashboard")
+
+                            }
+
+                        >
+
+                            Go To Dashboard
+
+                        </button>
 
                     </div>
+
+                </div>
 
                 )
 

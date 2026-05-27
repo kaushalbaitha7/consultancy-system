@@ -519,15 +519,20 @@
    PREVIEW ACTIONS
 ========================= */
 
-.preview-actions{
+.preview-actions {
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    gap:20px;
+    align-items: center;
 
-    flex-wrap:wrap;
+    gap: 25px;
+
+    margin-top: 50px;
+
+    width: 100%;
+
 }
 
 
@@ -663,5 +668,95 @@
 
         width:100%;
     }
+
+}
+
+.preview-section {
+
+    margin-top: 40px;
+
+    text-align: left;
+
+}
+
+
+
+.preview-section h3 {
+
+    font-size: 28px;
+
+    color: #0f172a;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.preview-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 20px;
+
+}
+
+
+
+.preview-grid div {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    border: 1px solid #dbe3ee;
+
+}
+
+
+
+.preview-grid span {
+
+    font-size: 14px;
+
+    color: #64748b;
+
+    display: block;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.preview-grid p {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #0f172a;
+
+    word-break: break-word;
+
+}
+
+.preview-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 50px;
+
+    width: 100%;
 
 }

@@ -71,15 +71,15 @@ function EducationalDetails() {
 
             pcbMarks: {
 
-                physics: "",
+            physics: "",
 
-                chemistry: "",
+            chemistry: "",
 
-                biology: "",
+            biology: "",
 
-                pcbPercentage: ""
+            pcbTotal: ""
 
-            },
+        },
 
 
 
@@ -183,7 +183,7 @@ const fetchEducationalDetails = useCallback(async () => {
 
             (data?.twelfth?.pcbMarks?.biology || "").trim() &&
 
-            (data?.twelfth?.pcbMarks?.pcbPercentage || "").trim() &&
+            (data?.twelfth?.pcbMarks?.pcbTotal || "").trim() &&
 
             (data?.twelfth?.schoolName || "").trim() &&
 
@@ -459,10 +459,10 @@ useEffect(() => {
 
 
 
-    if (!(formData?.twelfth?.pcbMarks?.pcbPercentage || "").trim()) {
+        if (!(formData?.twelfth?.pcbMarks?.pcbTotal || "").trim()) {
 
-        errors.pcbPercentage =
-        "PCB Percentage required";
+        errors.pcbTotal =
+        "PCB Total Marks required";
 
     }
 
@@ -1172,7 +1172,7 @@ useEffect(() => {
 
                                     <span>
 
-                                        PCB Percentage
+                                        PCB Total
 
                                     </span>
 
@@ -1182,13 +1182,13 @@ useEffect(() => {
 
                                         type="text"
 
-                                        value={formData.twelfth.pcbMarks.pcbPercentage}
+                                        value={formData.twelfth.pcbMarks.pcbTotal}
 
                                         onChange={(e) =>
 
                                             handlePCBChange(
 
-                                                "pcbPercentage",
+                                                "pcbTotal",
 
                                                 e.target.value
 
@@ -1542,9 +1542,9 @@ useEffect(() => {
 
             <div>
 
-                <span>PCB Percentage</span>
+                <span>PCB Total</span>
 
-                <p>{formData.twelfth.pcbMarks.pcbPercentage}</p>
+                <p>{formData.twelfth.pcbMarks.pcbTotal}</p>
 
             </div>
 

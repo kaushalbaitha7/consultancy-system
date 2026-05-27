@@ -168,7 +168,7 @@ function EducationalDetails() {
     (data?.twelfth?.collegeType || "").trim() &&
 
     (data?.twelfth?.passedYear || "").trim();
-    
+
               if (isComplete) {
 
                 setPreviewMode(true);
@@ -277,200 +277,181 @@ function EducationalDetails() {
 
 
 
-    const validateForm = () => {
+   const validateForm = () => {
 
-        let errors = {};
+    let errors = {};
 
 
 
-        if (!formData.tenth.seatNo.trim()) {
+    if (!(formData?.tenth?.seatNo || "").trim()) {
 
-            errors.tenthSeatNo =
-            "10th Seat Number is required";
+        errors.tenthSeatNo =
+        "10th Seat Number is required";
 
-        }
+    }
 
 
 
-        if (!formData.tenth.percentage.trim()) {
+    if (!(formData?.tenth?.percentage || "").trim()) {
 
-            errors.tenthPercentage =
-            "10th Percentage is required";
+        errors.tenthPercentage =
+        "10th Percentage is required";
 
-        }
+    }
 
 
 
-        if (!formData.tenth.schoolName.trim()) {
+    if (!(formData?.tenth?.schoolName || "").trim()) {
 
-            errors.tenthSchoolName =
-            "10th School Name is required";
+        errors.tenthSchoolName =
+        "10th School Name is required";
 
-        }
+    }
 
 
 
-        if (!formData.tenth.schoolAddress.trim()) {
+    if (!(formData?.tenth?.schoolAddress || "").trim()) {
 
-            errors.tenthSchoolAddress =
-            "10th School Address is required";
+        errors.tenthSchoolAddress =
+        "10th School Address is required";
 
-        }
+    }
 
 
 
-        if (!formData.tenth.board.trim()) {
+    if (!(formData?.tenth?.board || "").trim()) {
 
-            errors.tenthBoard =
-            "10th Board is required";
+        errors.tenthBoard =
+        "10th Board is required";
 
-        }
+    }
 
 
 
-        if (!formData.tenth.collegeType.trim()) {
+    if (!(formData?.tenth?.collegeType || "").trim()) {
 
-            errors.tenthCollegeType =
-            "10th College Type is required";
+        errors.tenthCollegeType =
+        "10th College Type is required";
 
-        }
+    }
 
 
 
-        if (!formData.tenth.passedYear.trim()) {
+    if (!(formData?.tenth?.passedYear || "").trim()) {
 
-            errors.tenthPassedYear =
-            "10th Passed Year is required";
+        errors.tenthPassedYear =
+        "10th Passed Year is required";
 
-        }
+    }
 
 
 
-        if (!formData.twelfth.seatNo.trim()) {
+    if (!(formData?.twelfth?.seatNo || "").trim()) {
 
-            errors.twelfthSeatNo =
-            "12th Seat Number is required";
+        errors.twelfthSeatNo =
+        "12th Seat Number is required";
 
-        }
+    }
 
 
 
-        if (!formData.twelfth.percentage.trim()) {
+    if (!(formData?.twelfth?.percentage || "").trim()) {
 
-            errors.twelfthPercentage =
-            "12th Percentage is required";
+        errors.twelfthPercentage =
+        "12th Percentage is required";
 
-        }
+    }
 
 
 
-        if (
+    if (!(formData?.twelfth?.pcbMarks?.physics || "").trim()) {
 
-            !formData.twelfth.pcbMarks.physics.trim()
+        errors.physics =
+        "Physics Marks required";
 
-        ) {
+    }
 
-            errors.physics =
-            "Physics Marks required";
 
-        }
 
+    if (!(formData?.twelfth?.pcbMarks?.chemistry || "").trim()) {
 
+        errors.chemistry =
+        "Chemistry Marks required";
 
-        if (
+    }
 
-            !formData.twelfth.pcbMarks.chemistry.trim()
 
-        ) {
 
-            errors.chemistry =
-            "Chemistry Marks required";
+    if (!(formData?.twelfth?.pcbMarks?.biology || "").trim()) {
 
-        }
+        errors.biology =
+        "Biology Marks required";
 
+    }
 
 
-        if (
 
-            !formData.twelfth.pcbMarks.biology.trim()
+    if (!(formData?.twelfth?.pcbMarks?.pcbPercentage || "").trim()) {
 
-        ) {
+        errors.pcbPercentage =
+        "PCB Percentage required";
 
-            errors.biology =
-            "Biology Marks required";
+    }
 
-        }
 
 
+    if (!(formData?.twelfth?.schoolName || "").trim()) {
 
-        if (
+        errors.twelfthSchoolName =
+        "12th School Name is required";
 
-            !formData.twelfth.pcbMarks.pcbPercentage.trim()
+    }
 
-        ) {
 
-            errors.pcbPercentage =
-            "PCB Percentage required";
 
-        }
+    if (!(formData?.twelfth?.schoolAddress || "").trim()) {
 
+        errors.twelfthSchoolAddress =
+        "12th School Address is required";
 
+    }
 
-        if (!formData.twelfth.schoolName.trim()) {
 
-            errors.twelfthSchoolName =
-            "12th School Name is required";
 
-        }
+    if (!(formData?.twelfth?.board || "").trim()) {
 
+        errors.twelfthBoard =
+        "12th Board is required";
 
+    }
 
-        if (!formData.twelfth.schoolAddress.trim()) {
 
-            errors.twelfthSchoolAddress =
-            "12th School Address is required";
 
-        }
+    if (!(formData?.twelfth?.collegeType || "").trim()) {
 
+        errors.twelfthCollegeType =
+        "12th College Type is required";
 
+    }
 
-        if (!formData.twelfth.board.trim()) {
 
-            errors.twelfthBoard =
-            "12th Board is required";
 
-        }
+    if (!(formData?.twelfth?.passedYear || "").trim()) {
 
+        errors.twelfthPassedYear =
+        "12th Passed Year is required";
 
+    }
 
-        if (!formData.twelfth.collegeType.trim()) {
 
-            errors.twelfthCollegeType =
-            "12th College Type is required";
 
-        }
+    setFieldErrors(errors);
 
 
 
-        if (!formData.twelfth.passedYear.trim()) {
+    return Object.keys(errors).length === 0;
 
-            errors.twelfthPassedYear =
-            "12th Passed Year is required";
-
-        }
-
-
-
-        setFieldErrors(errors);
-
-
-
-        return Object.keys(errors)
-        .length === 0;
-
-    };
-
-
+};
 
 
 

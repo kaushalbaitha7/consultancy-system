@@ -116,11 +116,81 @@ function EducationalDetails() {
 
             ) {
 
-                setFormData(
+                setFormData({
 
-                    res.data.educationalDetails
+    tenth: {
 
-                );
+        seatNo:
+        res.data.educationalDetails?.tenth?.seatNo || "",
+
+        percentage:
+        res.data.educationalDetails?.tenth?.percentage || "",
+
+        schoolName:
+        res.data.educationalDetails?.tenth?.schoolName || "",
+
+        schoolAddress:
+        res.data.educationalDetails?.tenth?.schoolAddress || "",
+
+        board:
+        res.data.educationalDetails?.tenth?.board || "",
+
+        collegeType:
+        res.data.educationalDetails?.tenth?.collegeType || "",
+
+        passedYear:
+        res.data.educationalDetails?.tenth?.passedYear || ""
+
+    },
+
+
+
+    twelfth: {
+
+        seatNo:
+        res.data.educationalDetails?.twelfth?.seatNo || "",
+
+        percentage:
+        res.data.educationalDetails?.twelfth?.percentage || "",
+
+
+
+        pcbMarks: {
+
+            physics:
+            res.data.educationalDetails?.twelfth?.pcbMarks?.physics || "",
+
+            chemistry:
+            res.data.educationalDetails?.twelfth?.pcbMarks?.chemistry || "",
+
+            biology:
+            res.data.educationalDetails?.twelfth?.pcbMarks?.biology || "",
+
+            pcbPercentage:
+            res.data.educationalDetails?.twelfth?.pcbMarks?.pcbPercentage || ""
+
+        },
+
+
+
+        schoolName:
+        res.data.educationalDetails?.twelfth?.schoolName || "",
+
+        schoolAddress:
+        res.data.educationalDetails?.twelfth?.schoolAddress || "",
+
+        board:
+        res.data.educationalDetails?.twelfth?.board || "",
+
+        collegeType:
+        res.data.educationalDetails?.twelfth?.collegeType || "",
+
+        passedYear:
+        res.data.educationalDetails?.twelfth?.passedYear || ""
+
+    }
+
+});
 
 
 

@@ -110,92 +110,50 @@ function EducationalDetails() {
 
 
 
-            if (
+           if (
 
-                res.data.educationalDetails
+    res.data.educationalDetails
 
-            ) {
+) {
 
-                setFormData({
+    setFormData((prev) => ({
 
-    tenth: {
+        ...prev,
 
-        seatNo:
-        res.data.educationalDetails?.tenth?.seatNo || "",
+        tenth: {
 
-        percentage:
-        res.data.educationalDetails?.tenth?.percentage || "",
+            ...prev.tenth,
 
-        schoolName:
-        res.data.educationalDetails?.tenth?.schoolName || "",
-
-        schoolAddress:
-        res.data.educationalDetails?.tenth?.schoolAddress || "",
-
-        board:
-        res.data.educationalDetails?.tenth?.board || "",
-
-        collegeType:
-        res.data.educationalDetails?.tenth?.collegeType || "",
-
-        passedYear:
-        res.data.educationalDetails?.tenth?.passedYear || ""
-
-    },
-
-
-
-    twelfth: {
-
-        seatNo:
-        res.data.educationalDetails?.twelfth?.seatNo || "",
-
-        percentage:
-        res.data.educationalDetails?.twelfth?.percentage || "",
-
-
-
-        pcbMarks: {
-
-            physics:
-            res.data.educationalDetails?.twelfth?.pcbMarks?.physics || "",
-
-            chemistry:
-            res.data.educationalDetails?.twelfth?.pcbMarks?.chemistry || "",
-
-            biology:
-            res.data.educationalDetails?.twelfth?.pcbMarks?.biology || "",
-
-            pcbPercentage:
-            res.data.educationalDetails?.twelfth?.pcbMarks?.pcbPercentage || ""
+            ...res.data.educationalDetails?.tenth
 
         },
 
 
 
-        schoolName:
-        res.data.educationalDetails?.twelfth?.schoolName || "",
+        twelfth: {
 
-        schoolAddress:
-        res.data.educationalDetails?.twelfth?.schoolAddress || "",
+            ...prev.twelfth,
 
-        board:
-        res.data.educationalDetails?.twelfth?.board || "",
-
-        collegeType:
-        res.data.educationalDetails?.twelfth?.collegeType || "",
-
-        passedYear:
-        res.data.educationalDetails?.twelfth?.passedYear || ""
-
-    }
-
-});
+            ...res.data.educationalDetails?.twelfth,
 
 
 
-                const data =
-                res.data.educationalDetails;
+            pcbMarks: {
+
+                ...prev.twelfth.pcbMarks,
+
+                ...res.data.educationalDetails?.twelfth?.pcbMarks
+
+            }
+
+        }
+
+    }));
+
+
+
+    const data =
+    res.data.educationalDetails;
 
 
 

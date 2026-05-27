@@ -171,7 +171,7 @@ const userSchema = new mongoose.Schema(
 
             biology: String,
 
-            pcbPercentage: String
+            pcbTotal: String
 
         },
 

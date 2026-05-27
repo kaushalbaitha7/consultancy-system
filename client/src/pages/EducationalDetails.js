@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import axios from "axios";
 
@@ -96,20 +96,8 @@ function EducationalDetails() {
 
 
 
-    useEffect(() => {
 
-    fetchEducationalDetails();
-
-    // eslint-disable-next-line
-
-}, []);
-
-
-
-
-
-    const fetchEducationalDetails =
-    async () => {
+    const fetchEducationalDetails = useCallback(async () => {
 
         try {
 
@@ -198,11 +186,13 @@ function EducationalDetails() {
             console.log(error);
 
         }
+        }, [user]);
 
-    };
+       useEffect(() => {
 
+    fetchEducationalDetails();
 
-
+}, [fetchEducationalDetails]);
 
 
     const handleChange = (

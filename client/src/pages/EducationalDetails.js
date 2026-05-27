@@ -274,8 +274,7 @@ function EducationalDetails() {
 
 
 
-    const handleChange = (
-    section,
+    const handlePCBChange = (
     field,
     value
 ) => {
@@ -284,11 +283,17 @@ function EducationalDetails() {
 
         ...formData,
 
-        [section]: {
+        twelfth: {
 
-            ...formData[section],
+            ...formData.twelfth,
 
-            [field]: value
+            pcbMarks: {
+
+                ...formData.twelfth.pcbMarks,
+
+                [field]: value
+
+            }
 
         }
 
@@ -296,60 +301,13 @@ function EducationalDetails() {
 
 
 
-    /* CLEAR FIELD ERRORS */
+    setFieldErrors((prev) => ({
 
-    const errorKeyMap = {
+        ...prev,
 
-        "tenth.seatNo": "tenthSeatNo",
+        [field]: ""
 
-        "tenth.percentage": "tenthPercentage",
-
-        "tenth.schoolName": "tenthSchoolName",
-
-        "tenth.schoolAddress": "tenthSchoolAddress",
-
-        "tenth.board": "tenthBoard",
-
-        "tenth.collegeType": "tenthCollegeType",
-
-        "tenth.passedYear": "tenthPassedYear",
-
-
-
-        "twelfth.seatNo": "twelfthSeatNo",
-
-        "twelfth.percentage": "twelfthPercentage",
-
-        "twelfth.schoolName": "twelfthSchoolName",
-
-        "twelfth.schoolAddress": "twelfthSchoolAddress",
-
-        "twelfth.board": "twelfthBoard",
-
-        "twelfth.collegeType": "twelfthCollegeType",
-
-        "twelfth.passedYear": "twelfthPassedYear"
-
-    };
-
-
-
-    const errorKey =
-    errorKeyMap[`${section}.${field}`];
-
-
-
-    if (errorKey) {
-
-        setFieldErrors((prev) => ({
-
-            ...prev,
-
-            [errorKey]: ""
-
-        }));
-
-    }
+    }));
 
 };
 

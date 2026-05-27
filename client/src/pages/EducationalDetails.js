@@ -131,51 +131,51 @@ function EducationalDetails() {
 
                 const isComplete =
 
-                    data?.tenth?.seatNo?.trim() &&
+    (data?.tenth?.seatNo || "").trim() &&
 
-                    data?.tenth?.percentage?.trim() &&
+    (data?.tenth?.percentage || "").trim() &&
 
-                    data?.tenth?.schoolName?.trim() &&
+    (data?.tenth?.schoolName || "").trim() &&
 
-                    data?.tenth?.schoolAddress?.trim() &&
+    (data?.tenth?.schoolAddress || "").trim() &&
 
-                    data?.tenth?.board?.trim() &&
+    (data?.tenth?.board || "").trim() &&
 
-                    data?.tenth?.collegeType?.trim() &&
+    (data?.tenth?.collegeType || "").trim() &&
 
-                    data?.tenth?.passedYear?.trim() &&
-
-
-
-                    data?.twelfth?.seatNo?.trim() &&
-
-                    data?.twelfth?.percentage?.trim() &&
-
-                    data?.twelfth?.pcbMarks?.physics?.trim() &&
-
-                    data?.twelfth?.pcbMarks?.chemistry?.trim() &&
-
-                    data?.twelfth?.pcbMarks?.biology?.trim() &&
-
-                    data?.twelfth?.pcbMarks?.pcbPercentage?.trim() &&
-
-                    data?.twelfth?.schoolName?.trim() &&
-
-                    data?.twelfth?.schoolAddress?.trim() &&
-
-                    data?.twelfth?.board?.trim() &&
-
-                    data?.twelfth?.collegeType?.trim() &&
-
-                    data?.twelfth?.passedYear?.trim();
+    (data?.tenth?.passedYear || "").trim() &&
 
 
 
-                if (isComplete) {
+    (data?.twelfth?.seatNo || "").trim() &&
 
-                    setPreviewMode(true);
+    (data?.twelfth?.percentage || "").trim() &&
 
-                }
+    (data?.twelfth?.pcbMarks?.physics || "").trim() &&
+
+    (data?.twelfth?.pcbMarks?.chemistry || "").trim() &&
+
+    (data?.twelfth?.pcbMarks?.biology || "").trim() &&
+
+    (data?.twelfth?.pcbMarks?.pcbPercentage || "").trim() &&
+
+    (data?.twelfth?.schoolName || "").trim() &&
+
+    (data?.twelfth?.schoolAddress || "").trim() &&
+
+    (data?.twelfth?.board || "").trim() &&
+
+    (data?.twelfth?.collegeType || "").trim() &&
+
+    (data?.twelfth?.passedYear || "").trim();
+
+
+
+if (isComplete) {
+
+    setPreviewMode(true);
+
+}
 
             }
 

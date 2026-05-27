@@ -194,13 +194,9 @@ function EducationalDetails() {
 
 
     const handleChange = (
-
     section,
-
     field,
-
     value
-
 ) => {
 
     setFormData({
@@ -219,60 +215,143 @@ function EducationalDetails() {
 
 
 
-    /* REMOVE FIELD ERROR */
+    /* CLEAR FIELD ERRORS */
 
-    setFieldErrors((prev) => ({
+    const errorKeyMap = {
 
-        ...prev,
+        "tenth.seatNo": "tenthSeatNo",
 
-        [`${section}.${field}`]: ""
+        "tenth.percentage": "tenthPercentage",
 
-    }));
+        "tenth.schoolName": "tenthSchoolName",
+
+        "tenth.schoolAddress": "tenthSchoolAddress",
+
+        "tenth.board": "tenthBoard",
+
+        "tenth.collegeType": "tenthCollegeType",
+
+        "tenth.passedYear": "tenthPassedYear",
+
+
+
+        "twelfth.seatNo": "twelfthSeatNo",
+
+        "twelfth.percentage": "twelfthPercentage",
+
+        "twelfth.schoolName": "twelfthSchoolName",
+
+        "twelfth.schoolAddress": "twelfthSchoolAddress",
+
+        "twelfth.board": "twelfthBoard",
+
+        "twelfth.collegeType": "twelfthCollegeType",
+
+        "twelfth.passedYear": "twelfthPassedYear"
+
+    };
+
+
+
+    const errorKey =
+    errorKeyMap[`${section}.${field}`];
+
+
+
+    if (errorKey) {
+
+        setFieldErrors((prev) => ({
+
+            ...prev,
+
+            [errorKey]: ""
+
+        }));
+
+    }
 
 };
 
 
 
+    const handleChange = (
+    section,
+    field,
+    value
+) => {
+
+    setFormData({
+
+        ...formData,
+
+        [section]: {
+
+            ...formData[section],
+
+            [field]: value
+
+        }
+
+    });
 
 
-    const handlePCBChange = (
 
-        field,
+    /* CLEAR FIELD ERRORS */
 
-        value
+    const errorKeyMap = {
 
-    ) => {
+        "tenth.seatNo": "tenthSeatNo",
 
-        setFormData({
+        "tenth.percentage": "tenthPercentage",
 
-            ...formData,
+        "tenth.schoolName": "tenthSchoolName",
 
-            twelfth: {
+        "tenth.schoolAddress": "tenthSchoolAddress",
 
-                ...formData.twelfth,
+        "tenth.board": "tenthBoard",
 
-                pcbMarks: {
+        "tenth.collegeType": "tenthCollegeType",
 
-                    ...formData.twelfth.pcbMarks,
+        "tenth.passedYear": "tenthPassedYear",
 
-                    [field]: value
 
-                }
 
-            }
+        "twelfth.seatNo": "twelfthSeatNo",
 
-        });
+        "twelfth.percentage": "twelfthPercentage",
 
-        setFieldErrors((prev) => ({
+        "twelfth.schoolName": "twelfthSchoolName",
 
-    ...prev,
+        "twelfth.schoolAddress": "twelfthSchoolAddress",
 
-    [`twelfth.pcbMarks.${field}`]: ""
+        "twelfth.board": "twelfthBoard",
 
-     }));
+        "twelfth.collegeType": "twelfthCollegeType",
+
+        "twelfth.passedYear": "twelfthPassedYear"
 
     };
 
+
+
+    const errorKey =
+    errorKeyMap[`${section}.${field}`];
+
+
+
+    if (errorKey) {
+
+        setFieldErrors((prev) => ({
+
+            ...prev,
+
+            [errorKey]: ""
+
+        }));
+
+    }
+
+};
 
 
 

@@ -168,14 +168,12 @@ function EducationalDetails() {
     (data?.twelfth?.collegeType || "").trim() &&
 
     (data?.twelfth?.passedYear || "").trim();
+    
+              if (isComplete) {
 
+                setPreviewMode(true);
 
-
-if (isComplete) {
-
-    setPreviewMode(true);
-
-}
+              }
 
             }
 

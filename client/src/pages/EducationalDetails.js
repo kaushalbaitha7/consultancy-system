@@ -98,9 +98,11 @@ function EducationalDetails() {
 
     useEffect(() => {
 
-        fetchEducationalDetails();
+    fetchEducationalDetails();
 
-    }, []);
+    // eslint-disable-next-line
+
+}, []);
 
 
 

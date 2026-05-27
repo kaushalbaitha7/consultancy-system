@@ -63,9 +63,18 @@ function Dashboard() {
         </li>
     </Link>
 
+    <Link
+    to="/educational-details"
+    className="menu-link"
+>
+
     <li>
+
         Educational Details
+
     </li>
+
+</Link>
 
     <li>
         Address Details

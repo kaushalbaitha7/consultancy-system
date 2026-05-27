@@ -18,6 +18,9 @@ function EducationalDetails() {
     const [previewMode, setPreviewMode] =
     useState(false);
 
+    const [manualEdit, setManualEdit] =
+    useState(false);
+
 
 
     const [success, setSuccess] =
@@ -194,7 +197,7 @@ const fetchEducationalDetails = useCallback(async () => {
 
 
 
-            if (isComplete && !previewMode) {
+            if (isComplete && !manualEdit) {
 
                 setPreviewMode(true);
 
@@ -210,7 +213,7 @@ const fetchEducationalDetails = useCallback(async () => {
 
     }
 
-}, [user, previewMode]);
+}, [user, manualEdit]);
 
 
 
@@ -575,7 +578,7 @@ useEffect(() => {
 
             setError("");
 
-
+            setManualEdit(false);
 
             setPreviewMode(true);
 
@@ -1600,7 +1603,7 @@ useEffect(() => {
                             onClick={() => {
 
                                 setSuccess("");
-
+                                setManualEdit(true);
                                 setPreviewMode(false);
 
                             }}

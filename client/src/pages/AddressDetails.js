@@ -32,11 +32,6 @@ function AddressDetails() {
 
 
 
-    const [manualEdit, setManualEdit] =
-    useState(false);
-
-
-
     const [error, setError] =
     useState("");
 
@@ -119,29 +114,86 @@ function AddressDetails() {
 
 
 
-            if (
+            if (res.data.addressDetails) {
 
-                res.data.addressDetails
+                setFormData({
 
-            ) {
+                    sameAddress:
+                    res.data.addressDetails?.sameAddress ?? true,
 
-                setFormData((prev) => ({
 
-                    ...prev,
 
-                    ...res.data.addressDetails
+                    permanent: {
 
-                }));
+                        houseNo:
+                        res.data.addressDetails?.permanent?.houseNo || "",
+
+                        streetColony:
+                        res.data.addressDetails?.permanent?.streetColony || "",
+
+                        landmark:
+                        res.data.addressDetails?.permanent?.landmark || "",
+
+                        policeStation:
+                        res.data.addressDetails?.permanent?.policeStation || "",
+
+                        villageTownCity:
+                        res.data.addressDetails?.permanent?.villageTownCity || "",
+
+                        district:
+                        res.data.addressDetails?.permanent?.district || "",
+
+                        country:
+                        res.data.addressDetails?.permanent?.country || "",
+
+                        state:
+                        res.data.addressDetails?.permanent?.state || "",
+
+                        pinCode:
+                        res.data.addressDetails?.permanent?.pinCode || ""
+
+                    },
+
+
+
+                    current: {
+
+                        houseNo:
+                        res.data.addressDetails?.current?.houseNo || "",
+
+                        streetColony:
+                        res.data.addressDetails?.current?.streetColony || "",
+
+                        landmark:
+                        res.data.addressDetails?.current?.landmark || "",
+
+                        policeStation:
+                        res.data.addressDetails?.current?.policeStation || "",
+
+                        villageTownCity:
+                        res.data.addressDetails?.current?.villageTownCity || "",
+
+                        district:
+                        res.data.addressDetails?.current?.district || "",
+
+                        country:
+                        res.data.addressDetails?.current?.country || "",
+
+                        state:
+                        res.data.addressDetails?.current?.state || "",
+
+                        pinCode:
+                        res.data.addressDetails?.current?.pinCode || ""
+
+                    }
+
+                });
 
 
 
                 if (
 
                     res.data.addressDetails?.permanent?.houseNo
-
-                    &&
-
-                    !manualEdit
 
                 ) {
 
@@ -159,7 +211,7 @@ function AddressDetails() {
 
         }
 
-    }, [user, manualEdit]);
+    }, [user?._id]);
 
 
 
@@ -197,7 +249,7 @@ function AddressDetails() {
 
                 ...prev[section],
 
-                [field]: value
+                [field]: value || ""
 
             }
 
@@ -210,7 +262,7 @@ function AddressDetails() {
 
 
     /* =========================
-       VALIDATION
+       VALIDATE FORM
     ========================= */
 
     const validateForm = () => {
@@ -222,23 +274,23 @@ function AddressDetails() {
 
         if (
 
-            !p.houseNo?.trim() ||
+            !p.houseNo.trim() ||
 
-            !p.streetColony?.trim() ||
+            !p.streetColony.trim() ||
 
-            !p.landmark?.trim() ||
+            !p.landmark.trim() ||
 
-            !p.policeStation?.trim() ||
+            !p.policeStation.trim() ||
 
-            !p.villageTownCity?.trim() ||
+            !p.villageTownCity.trim() ||
 
-            !p.district?.trim() ||
+            !p.district.trim() ||
 
-            !p.country?.trim() ||
+            !p.country.trim() ||
 
-            !p.state?.trim() ||
+            !p.state.trim() ||
 
-            !p.pinCode?.trim()
+            !p.pinCode.trim()
 
         ) {
 
@@ -265,29 +317,29 @@ function AddressDetails() {
 
             if (
 
-                !c.houseNo?.trim() ||
+                !c.houseNo.trim() ||
 
-                !c.streetColony?.trim() ||
+                !c.streetColony.trim() ||
 
-                !c.landmark?.trim() ||
+                !c.landmark.trim() ||
 
-                !c.policeStation?.trim() ||
+                !c.policeStation.trim() ||
 
-                !c.villageTownCity?.trim() ||
+                !c.villageTownCity.trim() ||
 
-                !c.district?.trim() ||
+                !c.district.trim() ||
 
-                !c.country?.trim() ||
+                !c.country.trim() ||
 
-                !c.state?.trim() ||
+                !c.state.trim() ||
 
-                !c.pinCode?.trim()
+                !c.pinCode.trim()
 
             ) {
 
                 setError(
 
-                    "Please fill all current address fields"
+                    "Please fill all temporary address fields"
 
                 );
 
@@ -314,7 +366,7 @@ function AddressDetails() {
 
 
     /* =========================
-       SAVE ADDRESS DETAILS
+       SAVE DETAILS
     ========================= */
 
     const handleSubmit =
@@ -348,14 +400,6 @@ function AddressDetails() {
                 }
 
             );
-
-
-
-            setError("");
-
-
-
-            setManualEdit(false);
 
 
 
@@ -451,23 +495,23 @@ Permanent Address
 
 [
 
-"houseNo",
+["houseNo", "House No / Flat No"],
 
-"streetColony",
+["streetColony", "Street / Colony"],
 
-"landmark",
+["landmark", "Landmark"],
 
-"policeStation",
+["policeStation", "Police Station"],
 
-"villageTownCity",
+["villageTownCity", "Village / Town / City"],
 
-"district",
+["district", "District"],
 
-"pinCode"
+["pinCode", "Pin Code"]
 
 ]
 
-.map((field) => (
+.map(([field, label]) => (
 
 <div
 
@@ -479,7 +523,7 @@ key={field}
 
 <label>
 
-{field}
+{label}
 
 </label>
 
@@ -491,7 +535,7 @@ type="text"
 
 value={
 
-formData.permanent[field]
+formData.permanent[field] || ""
 
 }
 
@@ -531,7 +575,7 @@ Country
 
 <select
 
-value={formData.permanent.country}
+value={formData.permanent.country || ""}
 
 onChange={(e) =>
 
@@ -585,7 +629,7 @@ State
 
 <select
 
-value={formData.permanent.state}
+value={formData.permanent.state || ""}
 
 onChange={(e) =>
 
@@ -710,23 +754,23 @@ Current / Temporary Address
 
 [
 
-"houseNo",
+["houseNo", "House No / Flat No"],
 
-"streetColony",
+["streetColony", "Street / Colony"],
 
-"landmark",
+["landmark", "Landmark"],
 
-"policeStation",
+["policeStation", "Police Station"],
 
-"villageTownCity",
+["villageTownCity", "Village / Town / City"],
 
-"district",
+["district", "District"],
 
-"pinCode"
+["pinCode", "Pin Code"]
 
 ]
 
-.map((field) => (
+.map(([field, label]) => (
 
 <div
 
@@ -738,7 +782,7 @@ key={field}
 
 <label>
 
-{field}
+{label}
 
 </label>
 
@@ -750,7 +794,7 @@ type="text"
 
 value={
 
-formData.current[field]
+formData.current[field] || ""
 
 }
 
@@ -790,7 +834,7 @@ Country
 
 <select
 
-value={formData.current.country}
+value={formData.current.country || ""}
 
 onChange={(e) =>
 
@@ -844,7 +888,7 @@ State
 
 <select
 
-value={formData.current.state}
+value={formData.current.state || ""}
 
 onChange={(e) =>
 
@@ -928,142 +972,156 @@ Save Address Details
 
 <div className="preview-card">
 
-<h2>
-
+<h2 className="preview-title">
 Address Details Preview
-
 </h2>
 
 
 
+{/* =========================
+   PERMANENT ADDRESS
+========================= */}
+
 <div className="preview-section">
 
-<h3>
-
+<h3 className="preview-subtitle">
 Permanent Address
-
 </h3>
 
 
 
 <div className="preview-grid">
 
+<div className="preview-item">
+<label>House No / Flat No</label>
+<p>{formData.permanent.houseNo}</p>
+</div>
+
+<div className="preview-item">
+<label>Street / Colony</label>
+<p>{formData.permanent.streetColony}</p>
+</div>
+
+<div className="preview-item">
+<label>Landmark</label>
+<p>{formData.permanent.landmark}</p>
+</div>
+
+<div className="preview-item">
+<label>Police Station</label>
+<p>{formData.permanent.policeStation}</p>
+</div>
+
+<div className="preview-item">
+<label>Village / Town / City</label>
+<p>{formData.permanent.villageTownCity}</p>
+</div>
+
+<div className="preview-item">
+<label>District</label>
+<p>{formData.permanent.district}</p>
+</div>
+
+<div className="preview-item">
+<label>State</label>
+<p>{formData.permanent.state}</p>
+</div>
+
+<div className="preview-item">
+<label>Country</label>
+<p>{formData.permanent.country}</p>
+</div>
+
+<div className="preview-item">
+<label>Pin Code</label>
+<p>{formData.permanent.pinCode}</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+{/* =========================
+   CURRENT ADDRESS
+========================= */}
+
 {
-
-Object.entries(
-
-formData.permanent
-
-)
-
-.map(([key, value]) => (
-
-<div key={key}>
-
-<span>
-
-{key}
-
-</span>
-
-
-
-<p>
-
-{value}
-
-</p>
-
-</div>
-
-))
-
-}
-
-</div>
-
-</div>
-
-
-
-
-
-{
-
 !formData.sameAddress && (
 
 <div className="preview-section">
 
-<h3>
-
-Current Address
-
+<h3 className="preview-subtitle">
+Current / Temporary Address
 </h3>
 
 
 
 <div className="preview-grid">
 
-{
+<div className="preview-item">
+<label>House No / Flat No</label>
+<p>{formData.current.houseNo}</p>
+</div>
 
-Object.entries(
+<div className="preview-item">
+<label>Street / Colony</label>
+<p>{formData.current.streetColony}</p>
+</div>
 
-formData.current
+<div className="preview-item">
+<label>Landmark</label>
+<p>{formData.current.landmark}</p>
+</div>
+
+<div className="preview-item">
+<label>Police Station</label>
+<p>{formData.current.policeStation}</p>
+</div>
+
+<div className="preview-item">
+<label>Village / Town / City</label>
+<p>{formData.current.villageTownCity}</p>
+</div>
+
+<div className="preview-item">
+<label>District</label>
+<p>{formData.current.district}</p>
+</div>
+
+<div className="preview-item">
+<label>State</label>
+<p>{formData.current.state}</p>
+</div>
+
+<div className="preview-item">
+<label>Country</label>
+<p>{formData.current.country}</p>
+</div>
+
+<div className="preview-item">
+<label>Pin Code</label>
+<p>{formData.current.pinCode}</p>
+</div>
+
+</div>
+
+</div>
 
 )
-
-.map(([key, value]) => (
-
-<div key={key}>
-
-<span>
-
-{key}
-
-</span>
-
-
-
-<p>
-
-{value}
-
-</p>
-
-</div>
-
-))
-
 }
-
-</div>
-
-</div>
-
-)
-
-}
-
-
 
 
 
 <div className="preview-actions">
 
 <button
-
 type="button"
-
 className="edit-btn"
-
-onClick={() => {
-
-    setManualEdit(true);
-
-    setPreviewMode(false);
-
-}}
-
+onClick={() =>
+setPreviewMode(false)
+}
 >
 
 Edit Details
@@ -1073,17 +1131,11 @@ Edit Details
 
 
 <button
-
 type="button"
-
 className="home-btn"
-
 onClick={() =>
-
 navigate("/dashboard")
-
 }
-
 >
 
 Go To Dashboard

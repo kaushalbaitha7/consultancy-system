@@ -16,6 +16,8 @@ import PersonalDetails from "./pages/PersonalDetails";
 
 import EducationalDetails from "./pages/EducationalDetails";
 
+import AddressDetails from "./pages/AddressDetails";
+
 function App() {
 
   return (
@@ -72,6 +74,11 @@ function App() {
         <Route
           path="/educational-details"
           element={<EducationalDetails />}
+        />
+
+        <Route
+          path="/address-details"
+          element={<AddressDetails />}
         />
 
       </Routes>

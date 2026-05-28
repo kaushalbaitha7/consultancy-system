@@ -76,9 +76,18 @@ function Dashboard() {
 
 </Link>
 
+    <Link
+    to="/address-details"
+    className="menu-link"
+>
+
     <li>
+
         Address Details
+
     </li>
+
+</Link>
 
     <li>
         Bank Details

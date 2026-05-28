@@ -193,28 +193,68 @@ const userSchema = new mongoose.Schema(
 
 
     /* =========================
-       ADDRESS DETAILS
-    ========================= */
+   ADDRESS DETAILS
+========================= */
 
-    addressDetails: {
+addressDetails: {
+
+    sameAddress: {
+
+        type: Boolean,
+
+        default: true
+
+    },
+
+
+
+    permanent: {
 
         houseNo: String,
 
-        colony: String,
+        streetColony: String,
 
-        locality: String,
+        landmark: String,
+
+        policeStation: String,
+
+        villageTownCity: String,
+
+        district: String,
 
         country: String,
 
         state: String,
 
-        district: String,
+        pinCode: String
 
-        pinCode: String,
-
-        policeStation: String
     },
 
+
+
+    current: {
+
+        houseNo: String,
+
+        streetColony: String,
+
+        landmark: String,
+
+        policeStation: String,
+
+        villageTownCity: String,
+
+        district: String,
+
+        country: String,
+
+        state: String,
+
+        pinCode: String
+
+    }
+
+},
 
 
     /* =========================

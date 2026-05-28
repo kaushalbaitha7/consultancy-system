@@ -16,7 +16,11 @@ const {
 
     saveEducationalDetails,
 
-    getEducationalDetails
+    getEducationalDetails,
+
+    saveAddressDetails,
+    
+    getAddressDetails
 
 } = require("../controllers/studentController");
 
@@ -77,7 +81,27 @@ router.get(
 
 );
 
+/* =========================
+   ADDRESS DETAILS
+========================= */
 
+router.post(
+
+    "/address-details",
+
+    saveAddressDetails
+
+);
+
+
+
+router.get(
+
+    "/address-details/:userId",
+
+    getAddressDetails
+
+);
 
 
 /* =========================

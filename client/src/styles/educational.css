@@ -516,28 +516,6 @@
 
 
 /* =========================
-   PREVIEW ACTIONS
-========================= */
-
-.preview-actions {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 25px;
-
-    margin-top: 50px;
-
-    width: 100%;
-
-}
-
-
-
-/* =========================
    EDIT BUTTON
 ========================= */
 
@@ -758,5 +736,31 @@
     margin-top: 50px;
 
     width: 100%;
+
+}
+
+.same-address-card {
+
+    margin-top: 35px;
+
+    background: #f8fafc;
+
+    border: 1px solid #dbe3ee;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #0f172a;
 
 }

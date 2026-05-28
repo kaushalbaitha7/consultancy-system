@@ -20,6 +20,8 @@ function AddressDetails() {
 
     const navigate = useNavigate();
 
+
+
     const user =
     JSON.parse(localStorage.getItem("user"));
 
@@ -32,7 +34,6 @@ function AddressDetails() {
 
     const [manualEdit, setManualEdit] =
     useState(false);
-
 
 
 
@@ -100,176 +101,150 @@ function AddressDetails() {
 
 
 
-const fetchAddressDetails =
-useCallback(async () => {
+    /* =========================
+       FETCH ADDRESS DETAILS
+    ========================= */
 
-    try {
+    const fetchAddressDetails =
+    useCallback(async () => {
 
-        const res =
-        await axios.get(
+        try {
 
-            `https://gyanguru-backend.onrender.com/api/student/address-details/${user._id}`
+            const res =
+            await axios.get(
 
-        );
+                `https://gyanguru-backend.onrender.com/api/student/address-details/${user._id}`
 
-
-
-        if (res.data.addressDetails) {
-
-            setFormData((prev) => ({
-
-                ...prev,
-
-                ...res.data.addressDetails
-
-            }));
+            );
 
 
 
             if (
 
-                res.data.addressDetails?.permanent?.houseNo
-
-                &&
-
-                !manualEdit
+                res.data.addressDetails
 
             ) {
 
-                setPreviewMode(true);
+                setFormData((prev) => ({
+
+                    ...prev,
+
+                    ...res.data.addressDetails
+
+                }));
+
+
+
+                if (
+
+                    res.data.addressDetails?.permanent?.houseNo
+
+                    &&
+
+                    !manualEdit
+
+                ) {
+
+                    setPreviewMode(true);
+
+                }
 
             }
 
         }
 
-    }
+        catch (error) {
 
-    catch (error) {
-
-        console.log(error);
-
-    }
-
-}, [user, manualEdit]);
-
-
-
-
-useEffect(() => {
-
-    fetchAddressDetails();
-
-}, [fetchAddressDetails]);
-
-
-
-
-
-const handleChange = (
-
-    section,
-
-    field,
-
-    value
-
-) => {
-
-    setFormData({
-
-        ...formData,
-
-        [section]: {
-
-            ...formData[section],
-
-            [field]: value
+            console.log(error);
 
         }
 
-    });
-
-};
+    }, [user, manualEdit]);
 
 
 
 
 
-const validateForm = () => {
+    useEffect(() => {
 
-    const permanent =
-    formData.permanent;
+        fetchAddressDetails();
 
-
-
-    if (
-
-        !permanent.houseNo ||
-
-        !permanent.streetColony ||
-
-        !permanent.landmark ||
-
-        !permanent.policeStation ||
-
-        !permanent.villageTownCity ||
-
-        !permanent.district ||
-
-        !permanent.country ||
-
-        !permanent.state ||
-
-        !permanent.pinCode
-
-    ) {
-
-        setError(
-
-            "Please fill all permanent address fields"
-
-        );
+    }, [fetchAddressDetails]);
 
 
 
-        return false;
-
-    }
 
 
+    /* =========================
+       HANDLE CHANGE
+    ========================= */
 
-    if (!formData.sameAddress) {
+    const handleChange = (
 
-        const current =
-        formData.current;
+        section,
+
+        field,
+
+        value
+
+    ) => {
+
+        setFormData((prev) => ({
+
+            ...prev,
+
+            [section]: {
+
+                ...prev[section],
+
+                [field]: value
+
+            }
+
+        }));
+
+    };
+
+
+
+
+
+    /* =========================
+       VALIDATION
+    ========================= */
+
+    const validateForm = () => {
+
+        const p =
+        formData.permanent;
 
 
 
         if (
 
-            !current.houseNo ||
+            !p.houseNo?.trim() ||
 
-            !current.streetColony ||
+            !p.streetColony?.trim() ||
 
-            !current.landmark ||
+            !p.landmark?.trim() ||
 
-            !current.policeStation ||
+            !p.policeStation?.trim() ||
 
-            !current.villageTownCity ||
+            !p.villageTownCity?.trim() ||
 
-            !current.district ||
+            !p.district?.trim() ||
 
-            !current.country ||
+            !p.country?.trim() ||
 
-            !current.state ||
+            !p.state?.trim() ||
 
-            !current.pinCode
+            !p.pinCode?.trim()
 
         ) {
 
             setError(
 
-                "Please fill all current address fields"
+                "Please fill all permanent address fields"
 
             );
 
@@ -279,49 +254,50 @@ const validateForm = () => {
 
         }
 
-    }
+
+
+        if (!formData.sameAddress) {
+
+            const c =
+            formData.current;
 
 
 
-    return true;
+            if (
 
-};
+                !c.houseNo?.trim() ||
+
+                !c.streetColony?.trim() ||
+
+                !c.landmark?.trim() ||
+
+                !c.policeStation?.trim() ||
+
+                !c.villageTownCity?.trim() ||
+
+                !c.district?.trim() ||
+
+                !c.country?.trim() ||
+
+                !c.state?.trim() ||
+
+                !c.pinCode?.trim()
+
+            ) {
+
+                setError(
+
+                    "Please fill all current address fields"
+
+                );
 
 
 
-
-
-const handleSubmit =
-async (e) => {
-
-    e.preventDefault();
-
-
-
-    if (!validateForm()) {
-
-        return;
-
-    }
-
-
-
-    try {
-
-        await axios.post(
-
-            "https://gyanguru-backend.onrender.com/api/student/address-details",
-
-            {
-
-                userId: user._id,
-
-                addressDetails:
-                formData
+                return false;
 
             }
 
-        );
+        }
 
 
 
@@ -329,26 +305,77 @@ async (e) => {
 
 
 
+        return true;
 
-        setManualEdit(false);
-
-        setPreviewMode(true);
-
-    }
-
-    catch (error) {
-
-        console.log(error);
-
-    }
-
-};
+    };
 
 
 
 
 
-return (
+    /* =========================
+       SAVE ADDRESS DETAILS
+    ========================= */
+
+    const handleSubmit =
+    async (e) => {
+
+        e.preventDefault();
+
+
+
+        if (!validateForm()) {
+
+            return;
+
+        }
+
+
+
+        try {
+
+            await axios.post(
+
+                "https://gyanguru-backend.onrender.com/api/student/address-details",
+
+                {
+
+                    userId: user._id,
+
+                    addressDetails:
+                    formData
+
+                }
+
+            );
+
+
+
+            setError("");
+
+
+
+            setManualEdit(false);
+
+
+
+            setPreviewMode(true);
+
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+        }
+
+    };
+
+
+
+
+
+    return (
 
 <div className="form-page">
 
@@ -360,13 +387,17 @@ Address Details
 
 </h1>
 
+
+
 <p>
 
-Fill address carefully.
+Fill your permanent and temporary address carefully.
 
 </p>
 
 </div>
+
+
 
 
 
@@ -386,6 +417,8 @@ error && (
 
 
 
+
+
 {
 
 !previewMode ? (
@@ -397,6 +430,12 @@ className="main-form"
 onSubmit={handleSubmit}
 
 >
+
+
+
+{/* =========================
+   PERMANENT ADDRESS
+========================= */}
 
 <div className="section-title">
 
@@ -444,6 +483,8 @@ key={field}
 
 </label>
 
+
+
 <input
 
 type="text"
@@ -486,6 +527,8 @@ Country
 
 </label>
 
+
+
 <select
 
 value={formData.permanent.country}
@@ -508,7 +551,7 @@ e.target.value
 
 <option value="">
 
-Select
+Select Country
 
 </option>
 
@@ -537,6 +580,8 @@ Others
 State
 
 </label>
+
+
 
 <select
 
@@ -578,6 +623,18 @@ Select State
 
 <option>Kerala</option>
 
+<option>Telangana</option>
+
+<option>Andhra Pradesh</option>
+
+<option>Punjab</option>
+
+<option>Rajasthan</option>
+
+<option>Gujarat</option>
+
+<option>Odisha</option>
+
 </select>
 
 </div>
@@ -585,6 +642,12 @@ Select State
 </div>
 
 
+
+
+
+{/* =========================
+   SAME ADDRESS CHECKBOX
+========================= */}
 
 <div className="same-address-card">
 
@@ -594,28 +657,38 @@ type="checkbox"
 
 checked={formData.sameAddress}
 
-onChange={(e) =>
+onChange={(e) => {
 
-setFormData({
+    setFormData((prev) => ({
 
-...formData,
+        ...prev,
 
-sameAddress:
-e.target.checked
+        sameAddress:
+        e.target.checked
 
-})
+    }));
 
-}
+}}
 
 />
 
 
 
-Current & Temporary Address Same As Permanent
+<span>
+
+Current / Temporary Address Same As Permanent
+
+</span>
 
 </div>
 
 
+
+
+
+{/* =========================
+   CURRENT ADDRESS
+========================= */}
 
 {
 
@@ -669,6 +742,8 @@ key={field}
 
 </label>
 
+
+
 <input
 
 type="text"
@@ -701,6 +776,128 @@ e.target.value
 
 }
 
+
+
+<div className="form-group">
+
+<label>
+
+Country
+
+</label>
+
+
+
+<select
+
+value={formData.current.country}
+
+onChange={(e) =>
+
+handleChange(
+
+"current",
+
+"country",
+
+e.target.value
+
+)
+
+}
+
+>
+
+<option value="">
+
+Select Country
+
+</option>
+
+<option>
+
+India
+
+</option>
+
+<option>
+
+Others
+
+</option>
+
+</select>
+
+</div>
+
+
+
+<div className="form-group">
+
+<label>
+
+State
+
+</label>
+
+
+
+<select
+
+value={formData.current.state}
+
+onChange={(e) =>
+
+handleChange(
+
+"current",
+
+"state",
+
+e.target.value
+
+)
+
+}
+
+>
+
+<option value="">
+
+Select State
+
+</option>
+
+<option>Karnataka</option>
+
+<option>Maharashtra</option>
+
+<option>Bihar</option>
+
+<option>West Bengal</option>
+
+<option>Delhi</option>
+
+<option>Tamil Nadu</option>
+
+<option>Kerala</option>
+
+<option>Telangana</option>
+
+<option>Andhra Pradesh</option>
+
+<option>Punjab</option>
+
+<option>Rajasthan</option>
+
+<option>Gujarat</option>
+
+<option>Odisha</option>
+
+</select>
+
+</div>
+
 </div>
 
 </>
@@ -708,6 +905,8 @@ e.target.value
 )
 
 }
+
+
 
 
 
@@ -745,6 +944,8 @@ Permanent Address
 
 </h3>
 
+
+
 <div className="preview-grid">
 
 {
@@ -759,9 +960,19 @@ formData.permanent
 
 <div key={key}>
 
-<span>{key}</span>
+<span>
 
-<p>{value}</p>
+{key}
+
+</span>
+
+
+
+<p>
+
+{value}
+
+</p>
 
 </div>
 
@@ -772,6 +983,8 @@ formData.permanent
 </div>
 
 </div>
+
+
 
 
 
@@ -787,6 +1000,8 @@ Current Address
 
 </h3>
 
+
+
 <div className="preview-grid">
 
 {
@@ -801,9 +1016,19 @@ formData.current
 
 <div key={key}>
 
-<span>{key}</span>
+<span>
 
-<p>{value}</p>
+{key}
+
+</span>
+
+
+
+<p>
+
+{value}
+
+</p>
 
 </div>
 
@@ -821,17 +1046,21 @@ formData.current
 
 
 
+
+
 <div className="preview-actions">
 
 <button
+
+type="button"
 
 className="edit-btn"
 
 onClick={() => {
 
-setManualEdit(true);
+    setManualEdit(true);
 
-setPreviewMode(false);
+    setPreviewMode(false);
 
 }}
 
@@ -844,6 +1073,8 @@ Edit Details
 
 
 <button
+
+type="button"
 
 className="home-btn"
 

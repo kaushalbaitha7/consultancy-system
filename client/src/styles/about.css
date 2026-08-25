@@ -1,0 +1,389 @@
+/* =========================================================
+   GYANGURU - ABOUT PAGE
+========================================================= */
+
+.about-page {
+  min-height: 100vh;
+  background: #f7fbfe;
+  color: #111111;
+  padding-top: 88px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+  min-height: 500px;
+  padding: 80px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(9, 212, 255, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #011f5d 0%,
+      #14558f 55%,
+      #1b79c1 100%
+    );
+
+  color: #ffffff;
+}
+
+.about-hero-inner {
+  width: min(950px, 100%);
+}
+
+.about-hero-inner > span {
+  color: #09d4ff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2.8px;
+}
+
+.about-hero h1 {
+  margin: 18px 0;
+
+  font-size: clamp(43px, 6vw, 70px);
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.about-hero h1 strong {
+  color: #09d4ff;
+}
+
+.about-hero p {
+  width: min(700px, 100%);
+
+  margin: 25px auto 0;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.about-content {
+  width: min(1200px, calc(100% - 50px));
+
+  margin: 0 auto;
+
+  padding: 90px 0;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.about-intro {
+  display: grid;
+
+  grid-template-columns: 0.85fr 1.15fr;
+
+  gap: 80px;
+
+  align-items: start;
+}
+
+.about-intro > div:first-child > span,
+.about-journey > div:first-child > span,
+.about-cta span {
+  color: #1b79c1;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2.2px;
+}
+
+.about-intro h2 {
+  margin: 15px 0 0;
+
+  font-size: 42px;
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+}
+
+.about-intro p {
+  margin: 0 0 20px;
+
+  color: #66778b;
+
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.about-values {
+  margin-top: 75px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.about-value-card {
+  padding: 32px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe8ef;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(1, 31, 93, 0.045);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.about-value-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #9bc9e6;
+
+  box-shadow:
+    0 20px 45px rgba(1, 31, 93, 0.10);
+}
+
+.about-value-card > span {
+  color: #09c7ef;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.about-value-card h3 {
+  margin: 18px 0 10px;
+
+  font-size: 23px;
+}
+
+.about-value-card p {
+  margin: 0;
+
+  color: #718195;
+
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.about-journey {
+  margin-top: 85px;
+
+  padding: 55px;
+
+  display: grid;
+
+  grid-template-columns: 0.8fr 1.2fr;
+
+  gap: 70px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #011f5d,
+      #14558f
+    );
+
+  color: #ffffff;
+}
+
+.about-journey > div:first-child > span {
+  color: #09d4ff;
+}
+
+.about-journey h2 {
+  margin: 18px 0 0;
+
+  font-size: 43px;
+
+  line-height: 1.05;
+
+  letter-spacing: -1.5px;
+}
+
+.about-journey-text {
+  align-self: center;
+}
+
+.about-journey-text p {
+  margin: 0 0 20px;
+
+  color: rgba(255,255,255,0.73);
+
+  font-size: 14px;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.about-cta {
+  margin-top: 70px;
+
+  padding: 35px 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe8ef;
+
+  border-radius: 18px;
+}
+
+.about-cta h2 {
+  margin: 10px 0 0;
+
+  font-size: 27px;
+}
+
+.primary-button {
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #011f5d;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #1b79c1;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-page {
+    padding-top: 76px;
+  }
+
+  .about-intro {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .about-values {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .about-journey {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .about-hero {
+    min-height: auto;
+
+    padding: 70px 20px;
+  }
+
+  .about-content {
+    width: calc(100% - 30px);
+
+    padding: 65px 0;
+  }
+
+  .about-intro h2 {
+    font-size: 34px;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+
+  .about-journey {
+    padding: 35px 25px;
+  }
+
+  .about-journey h2 {
+    font-size: 34px;
+  }
+
+  .about-cta {
+    padding: 28px 22px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+}

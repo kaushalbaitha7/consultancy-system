@@ -1,0 +1,351 @@
+/* =========================================================
+   GYANGURU - SERVICES PAGE
+========================================================= */
+
+.services-page {
+  min-height: 100vh;
+
+  padding-top: 88px;
+
+  background: #ffffff;
+
+  color: #111111;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.services-hero {
+  padding: 90px 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f2f8fc,
+      #eaf5fb
+    );
+
+  text-align: center;
+}
+
+.services-hero-inner {
+  width: min(950px, 100%);
+
+  margin: 0 auto;
+}
+
+.services-hero span {
+  color: #1b79c1;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2.5px;
+}
+
+.services-hero h1 {
+  margin: 17px 0;
+
+  font-size: clamp(43px, 6vw, 70px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.services-hero h1 strong {
+  color: #1b79c1;
+}
+
+.services-hero p {
+  max-width: 700px;
+
+  margin: 20px auto 0;
+
+  color: #6d7e91;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.services-content {
+  width: min(1200px, calc(100% - 50px));
+
+  margin: 0 auto;
+
+  padding: 90px 0;
+}
+
+
+/* =========================================================
+   SERVICE GRID
+========================================================= */
+
+.services-page-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 22px;
+}
+
+.services-page-card {
+  padding: 34px;
+
+  display: grid;
+
+  grid-template-columns: 55px 1fr;
+
+  gap: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe8ef;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(1,31,93,0.04);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.services-page-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #9dc9e7;
+
+  box-shadow:
+    0 20px 45px rgba(1,31,93,0.09);
+}
+
+.service-page-number {
+  width: 48px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #011f5d;
+
+  color: #09d4ff;
+
+  font-size: 11px;
+
+  font-weight: 900;
+}
+
+.services-page-card h3 {
+  margin: 0 0 10px;
+
+  font-size: 20px;
+}
+
+.services-page-card p {
+  margin: 0;
+
+  color: #6d7e91;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.service-process {
+  margin-top: 75px;
+
+  padding: 50px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #011f5d,
+      #14558f
+    );
+
+  color: #ffffff;
+}
+
+.service-process h2 {
+  margin: 0;
+
+  font-size: 32px;
+
+  letter-spacing: -1px;
+}
+
+.service-process > p {
+  max-width: 650px;
+
+  margin: 14px 0 0;
+
+  color: rgba(255,255,255,0.72);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.process-steps {
+  margin-top: 35px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+.process-step {
+  padding: 20px;
+
+  border:
+    1px solid rgba(255,255,255,0.13);
+
+  border-radius: 12px;
+
+  background:
+    rgba(255,255,255,0.06);
+}
+
+.process-step strong {
+  color: #09d4ff;
+
+  font-size: 11px;
+}
+
+.process-step span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: rgba(255,255,255,0.82);
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.services-cta {
+  margin-top: 60px;
+
+  padding: 35px 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  background: #f3f8fc;
+
+  border: 1px solid #dfe8ef;
+
+  border-radius: 18px;
+}
+
+.services-cta span {
+  color: #1b79c1;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.services-cta h2 {
+  margin: 8px 0 0;
+
+  font-size: 26px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .services-page {
+    padding-top: 76px;
+  }
+
+  .services-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .services-hero {
+    padding: 70px 20px;
+  }
+
+  .services-content {
+    width: calc(100% - 30px);
+
+    padding: 65px 0;
+  }
+
+  .services-page-card {
+    grid-template-columns: 1fr;
+
+    padding: 28px 24px;
+  }
+
+  .service-process {
+    padding: 35px 24px;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .services-cta {
+    padding: 30px 24px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+}

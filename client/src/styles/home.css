@@ -4,9 +4,8 @@
 
 .gyanguru-site {
   padding-top: 88px;
-
+  min-height: 100vh;
   background: #ffffff;
-
   color: #111111;
 }
 
@@ -34,11 +33,15 @@
   gap: 70px;
 
   position: relative;
+
+  box-sizing: border-box;
 }
+
 
 .hero-content {
   max-width: 680px;
 }
+
 
 .hero-label {
   display: flex;
@@ -58,6 +61,7 @@
   letter-spacing: 2px;
 }
 
+
 .hero-label-dot {
   width: 9px;
 
@@ -70,6 +74,7 @@
   box-shadow:
     0 0 0 6px rgba(252, 176, 56, 0.15);
 }
+
 
 .hero-content h1 {
   margin: 0;
@@ -85,9 +90,11 @@
   font-weight: 950;
 }
 
+
 .hero-content h1 span {
   color: #1b79c1;
 }
+
 
 .hero-description {
   max-width: 650px;
@@ -101,6 +108,7 @@
   line-height: 1.8;
 }
 
+
 .hero-actions {
   display: flex;
 
@@ -108,6 +116,7 @@
 
   gap: 14px;
 }
+
 
 .primary-button,
 .secondary-button {
@@ -136,6 +145,7 @@
     box-shadow 0.2s ease;
 }
 
+
 .primary-button {
   color: #ffffff;
 
@@ -145,11 +155,13 @@
     0 12px 28px rgba(27, 121, 193, 0.22);
 }
 
+
 .primary-button:hover {
   background: #011f5d;
 
   transform: translateY(-2px);
 }
+
 
 .secondary-button {
   color: #011f5d;
@@ -159,6 +171,7 @@
   border: 1px solid #cbd9e6;
 }
 
+
 .secondary-button:hover {
   color: #1b79c1;
 
@@ -166,6 +179,7 @@
 
   transform: translateY(-2px);
 }
+
 
 .hero-points {
   margin-top: 40px;
@@ -179,6 +193,7 @@
   gap: 35px;
 }
 
+
 .hero-point {
   display: flex;
 
@@ -186,6 +201,7 @@
 
   gap: 10px;
 }
+
 
 .hero-point > span {
   width: 30px;
@@ -207,6 +223,7 @@
   font-weight: 900;
 }
 
+
 .hero-point strong {
   display: block;
 
@@ -214,6 +231,7 @@
 
   font-size: 12px;
 }
+
 
 .hero-point small {
   display: block;
@@ -233,37 +251,59 @@
 .hero-visual {
   position: relative;
 
-  min-height: 610px;
+  width: 100%;
+
+  min-height: 650px;
 
   display: flex;
 
-  align-items: center;
+  flex-direction: column;
 
-  justify-content: center;
+  align-items: flex-end;
+
+  justify-content: flex-start;
+
+  gap: 24px;
+
+  box-sizing: border-box;
+
+  padding: 15px 0 20px;
 }
+
+
+/* =========================================================
+   NOTICE WRAPPER
+========================================================= */
 
 .notice-wrapper {
-  position: absolute;
+  position: relative;
 
-  top: 30px;
+  width: min(430px, 100%);
 
-  left: -35px;
+  margin-left: auto;
 
-  width: 260px;
+  margin-right: 0;
 
-  z-index: 3;
+  z-index: 10;
 
-  padding: 18px;
+  padding: 24px;
 
-  background: #ffffff;
+  box-sizing: border-box;
 
-  border: 1px solid #e3eaf1;
+  background: rgba(255, 255, 255, 0.98);
 
-  border-radius: 18px;
+  border: 1px solid #dce7ef;
+
+  border-radius: 22px;
 
   box-shadow:
-    0 18px 45px rgba(1, 31, 93, 0.12);
+    0 20px 50px rgba(1, 31, 93, 0.12);
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
 }
+
 
 .notice-heading {
   display: flex;
@@ -277,6 +317,7 @@
   margin-bottom: 12px;
 }
 
+
 .notice-small-title {
   color: #1b79c1;
 
@@ -287,6 +328,7 @@
   letter-spacing: 1.5px;
 }
 
+
 .notice-heading h3 {
   margin: 4px 0 0;
 
@@ -294,6 +336,7 @@
 
   font-size: 16px;
 }
+
 
 .notice-live {
   display: flex;
@@ -315,6 +358,7 @@
   font-weight: 900;
 }
 
+
 .notice-live span {
   width: 5px;
 
@@ -325,23 +369,40 @@
   background: #16a866;
 }
 
+
+/* =========================================================
+   POSTER
+========================================================= */
+
 .poster-window {
+  width: 100%;
+
+  height: 260px;
+
   min-height: 260px;
 
   overflow: hidden;
+
+  position: relative;
 
   border-radius: 13px;
 
   background: #f1f7fc;
 }
 
+
 .poster-slide {
+  width: 100%;
+
+  height: 260px;
+
   min-height: 260px;
 
   position: relative;
 
   animation: posterFade 0.5s ease;
 }
+
 
 .poster-slide img {
   width: 100%;
@@ -353,10 +414,17 @@
   display: block;
 }
 
+
 .poster-fallback {
+  width: 100%;
+
+  height: 260px;
+
   min-height: 260px;
 
   padding: 25px;
+
+  box-sizing: border-box;
 
   display: flex;
 
@@ -376,6 +444,7 @@
   color: #ffffff;
 }
 
+
 .poster-icon {
   width: 38px;
 
@@ -387,6 +456,8 @@
 
   justify-content: center;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
 
   color: #011f5d;
@@ -395,6 +466,7 @@
 
   font-weight: 950;
 }
+
 
 .poster-fallback > span {
   margin-top: 12px;
@@ -408,21 +480,26 @@
   letter-spacing: 2px;
 }
 
+
 .poster-fallback h4 {
   margin: 8px 0;
 
   font-size: 20px;
+
+  line-height: 1.15;
 }
+
 
 .poster-fallback p {
   margin: 0 0 15px;
 
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
 
   font-size: 10px;
 
   line-height: 1.5;
 }
+
 
 .poster-button {
   padding: 8px 11px;
@@ -440,6 +517,7 @@
   text-decoration: none;
 }
 
+
 .poster-bottom {
   margin-top: 12px;
 
@@ -450,11 +528,13 @@
   justify-content: space-between;
 }
 
+
 .poster-dots {
   display: flex;
 
   gap: 5px;
 }
+
 
 .poster-dots button,
 .review-dots button {
@@ -473,6 +553,7 @@
   cursor: pointer;
 }
 
+
 .poster-dots button.active,
 .review-dots button.active {
   width: 20px;
@@ -482,6 +563,7 @@
   background: #1b79c1;
 }
 
+
 .poster-bottom > span {
   color: #8190a2;
 
@@ -489,6 +571,7 @@
 
   font-weight: 800;
 }
+
 
 @keyframes posterFade {
 
@@ -516,7 +599,17 @@
 
   padding: 35px;
 
-  margin-left: 100px;
+  margin-left: auto;
+
+  margin-right: 0;
+
+  margin-top: 0;
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  z-index: 2;
 
   border: 1px solid #dfe7ef;
 
@@ -528,6 +621,7 @@
     0 25px 70px rgba(1, 31, 93, 0.13);
 }
 
+
 .journey-header {
   display: flex;
 
@@ -537,6 +631,7 @@
 
   gap: 20px;
 }
+
 
 .journey-label {
   color: #8190a2;
@@ -548,6 +643,7 @@
   letter-spacing: 1.5px;
 }
 
+
 .journey-header h3 {
   margin: 8px 0 0;
 
@@ -555,6 +651,7 @@
 
   font-size: 24px;
 }
+
 
 .guidance-badge {
   padding: 7px 10px;
@@ -576,6 +673,7 @@
   font-weight: 800;
 }
 
+
 .guidance-badge span {
   width: 6px;
 
@@ -586,9 +684,11 @@
   background: #16a866;
 }
 
+
 .journey-steps {
   margin-top: 28px;
 }
+
 
 .journey-step {
   display: flex;
@@ -601,6 +701,7 @@
 
   position: relative;
 }
+
 
 .journey-step:not(:last-child)::after {
   content: "";
@@ -617,6 +718,7 @@
 
   background: #dce5ed;
 }
+
 
 .step-number {
   width: 34px;
@@ -642,6 +744,7 @@
   font-weight: 900;
 }
 
+
 .journey-step.active .step-number {
   color: #ffffff;
 
@@ -651,6 +754,7 @@
     0 8px 20px rgba(27, 121, 193, 0.22);
 }
 
+
 .journey-step strong {
   display: block;
 
@@ -658,6 +762,7 @@
 
   font-size: 12px;
 }
+
 
 .journey-step small {
   display: block;
@@ -668,6 +773,7 @@
 
   font-size: 9px;
 }
+
 
 .journey-bottom {
   margin-top: 20px;
@@ -684,6 +790,7 @@
   gap: 10px;
 }
 
+
 .journey-bottom > div {
   padding: 12px;
 
@@ -694,6 +801,7 @@
   background: #f5f8fb;
 }
 
+
 .journey-bottom strong {
   display: block;
 
@@ -701,6 +809,7 @@
 
   font-size: 12px;
 }
+
 
 .journey-bottom span {
   display: block;
@@ -725,6 +834,7 @@
   padding: 100px 0;
 }
 
+
 .section-heading span {
   color: #1b79c1;
 
@@ -734,6 +844,7 @@
 
   letter-spacing: 2px;
 }
+
 
 .section-heading h2 {
   margin: 12px 0 0;
@@ -747,6 +858,7 @@
   letter-spacing: -2px;
 }
 
+
 .section-heading p {
   max-width: 600px;
 
@@ -756,6 +868,7 @@
 
   line-height: 1.7;
 }
+
 
 .section-heading.centered {
   text-align: center;
@@ -778,6 +891,7 @@
   background: #ffffff;
 }
 
+
 .about-content p {
   margin: 0 0 20px;
 
@@ -797,6 +911,7 @@
   background: #f7fbfe;
 }
 
+
 .course-grid {
   margin-top: 50px;
 
@@ -807,6 +922,7 @@
 
   gap: 20px;
 }
+
 
 .course-card {
   padding: 30px;
@@ -823,6 +939,7 @@
     border-color 0.2s ease;
 }
 
+
 .course-card:hover {
   transform: translateY(-5px);
 
@@ -832,6 +949,7 @@
     0 18px 40px rgba(1, 31, 93, 0.08);
 }
 
+
 .course-number {
   color: #09d4ff;
 
@@ -840,6 +958,7 @@
   font-weight: 900;
 }
 
+
 .course-card h3 {
   margin: 20px 0 10px;
 
@@ -847,6 +966,7 @@
 
   font-size: 24px;
 }
+
 
 .course-card p {
   min-height: 70px;
@@ -857,6 +977,7 @@
 
   line-height: 1.7;
 }
+
 
 .course-card a {
   color: #1b79c1;
@@ -877,6 +998,7 @@
   background: #ffffff;
 }
 
+
 .services-grid {
   margin-top: 50px;
 
@@ -887,6 +1009,7 @@
 
   gap: 20px;
 }
+
 
 .service-card {
   padding: 30px;
@@ -902,12 +1025,14 @@
     box-shadow 0.2s ease;
 }
 
+
 .service-card:hover {
   transform: translateY(-5px);
 
   box-shadow:
     0 18px 40px rgba(1, 31, 93, 0.08);
 }
+
 
 .service-icon {
   color: #1b79c1;
@@ -917,6 +1042,7 @@
   font-weight: 900;
 }
 
+
 .service-card h3 {
   margin: 20px 0 10px;
 
@@ -924,6 +1050,7 @@
 
   font-size: 17px;
 }
+
 
 .service-card p {
   margin: 0;
@@ -964,9 +1091,11 @@
   color: #ffffff;
 }
 
+
 .college-banner > div {
   max-width: 700px;
 }
+
 
 .college-banner span {
   color: #09d4ff;
@@ -978,6 +1107,7 @@
   letter-spacing: 2px;
 }
 
+
 .college-banner h2 {
   margin: 12px 0;
 
@@ -986,6 +1116,7 @@
   line-height: 1.1;
 }
 
+
 .college-banner p {
   margin: 0;
 
@@ -993,6 +1124,7 @@
 
   line-height: 1.7;
 }
+
 
 .light-button {
   min-height: 50px;
@@ -1029,6 +1161,7 @@
   background: #f7fbfe;
 }
 
+
 .review-slider {
   margin: 50px auto 0;
 
@@ -1040,6 +1173,7 @@
 
   gap: 20px;
 }
+
 
 .review-card {
   flex: 1;
@@ -1058,6 +1192,7 @@
   animation: posterFade 0.45s ease;
 }
 
+
 .review-stars {
   color: #fcb038;
 
@@ -1065,6 +1200,7 @@
 
   font-size: 15px;
 }
+
 
 .review-card blockquote {
   margin: 25px 0;
@@ -1076,6 +1212,7 @@
   line-height: 1.8;
 }
 
+
 .review-person {
   display: flex;
 
@@ -1083,6 +1220,7 @@
 
   gap: 12px;
 }
+
 
 .review-avatar {
   width: 44px;
@@ -1104,6 +1242,7 @@
   font-weight: 900;
 }
 
+
 .review-person strong {
   display: block;
 
@@ -1111,6 +1250,7 @@
 
   font-size: 12px;
 }
+
 
 .review-person span {
   display: block;
@@ -1121,6 +1261,7 @@
 
   font-size: 9px;
 }
+
 
 .review-arrow {
   width: 42px;
@@ -1141,6 +1282,7 @@
 
   font-size: 17px;
 }
+
 
 .review-dots {
   margin-top: 25px;
@@ -1165,6 +1307,7 @@
   padding: 80px 0;
 }
 
+
 .contact-card {
   padding: 65px;
 
@@ -1188,9 +1331,11 @@
     );
 }
 
+
 .contact-card > div:first-child {
   max-width: 750px;
 }
+
 
 .contact-card span {
   color: #09d4ff;
@@ -1202,6 +1347,7 @@
   letter-spacing: 2px;
 }
 
+
 .contact-card h2 {
   margin: 12px 0;
 
@@ -1210,11 +1356,13 @@
   line-height: 1.08;
 }
 
+
 .contact-card p {
   color: rgba(255,255,255,0.75);
 
   line-height: 1.7;
 }
+
 
 .contact-actions {
   display: flex;
@@ -1225,6 +1373,7 @@
 
   min-width: 200px;
 }
+
 
 .contact-primary,
 .contact-secondary {
@@ -1245,11 +1394,13 @@
   text-decoration: none;
 }
 
+
 .contact-primary {
   color: #011f5d;
 
   background: #ffffff;
 }
+
 
 .contact-secondary {
   color: #ffffff;
@@ -1261,7 +1412,7 @@
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE - 1100px
 ========================================================= */
 
 @media (max-width: 1100px) {
@@ -1272,24 +1423,60 @@
     gap: 40px;
   }
 
+
   .hero-content {
     max-width: 800px;
   }
 
+
   .hero-visual {
-    min-height: 600px;
+    min-height: 620px;
+
+    width: 100%;
   }
+
+
+  .notice-wrapper {
+    width: 430px;
+
+    max-width: 100%;
+
+    margin-left: auto;
+
+    margin-right: 0;
+  }
+
+
+  .journey-card {
+    width: 470px;
+
+    max-width: 100%;
+
+    margin-left: auto;
+
+    margin-right: 0;
+
+    margin-top: 0;
+  }
+
 
   .services-grid {
     grid-template-columns:
       repeat(2, 1fr);
   }
 
+
   .course-grid {
     grid-template-columns:
       repeat(2, 1fr);
   }
+
 }
+
+
+/* =========================================================
+   RESPONSIVE - 750px
+========================================================= */
 
 @media (max-width: 750px) {
 
@@ -1297,11 +1484,19 @@
     padding-top: 74px;
   }
 
+
   .hero-section {
     width: calc(100% - 30px);
 
     padding: 60px 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
   }
+
 
   .hero-content h1 {
     font-size: 52px;
@@ -1309,11 +1504,19 @@
     letter-spacing: -2px;
   }
 
+
   .hero-actions {
     flex-direction: column;
 
     align-items: stretch;
   }
+
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
 
   .hero-points {
     flex-direction: column;
@@ -1321,28 +1524,86 @@
     gap: 15px;
   }
 
+
+  /* =========================
+     HERO VISUAL
+  ========================= */
+
   .hero-visual {
+    width: 100%;
+
     min-height: auto;
 
-    display: block;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 24px;
+
+    padding: 0;
   }
+
+
+  /* =========================
+     NOTICE
+  ========================= */
 
   .notice-wrapper {
     position: relative;
 
     top: auto;
+
     left: auto;
 
-    width: auto;
+    width: 100%;
 
-    margin-bottom: 25px;
+    max-width: none;
+
+    margin: 0;
+
+    padding: 20px;
+
+    box-sizing: border-box;
   }
+
+
+  /* =========================
+     JOURNEY
+  ========================= */
 
   .journey-card {
-    width: auto;
+    width: 100%;
 
-    margin-left: 0;
+    max-width: none;
+
+    margin: 0;
+
+    padding: 28px;
+
+    position: relative;
+
+    box-sizing: border-box;
   }
+
+
+  /* =========================
+     POSTER
+  ========================= */
+
+  .poster-window,
+  .poster-slide,
+  .poster-fallback {
+    height: 260px;
+
+    min-height: 260px;
+  }
+
+
+  /* =========================
+     ABOUT
+  ========================= */
 
   .about-section {
     grid-template-columns: 1fr;
@@ -1350,16 +1611,27 @@
     gap: 35px;
   }
 
+
   .section-container {
     width: calc(100% - 30px);
 
     padding: 70px 0;
   }
 
+
+  /* =========================
+     COURSES
+  ========================= */
+
   .course-grid,
   .services-grid {
     grid-template-columns: 1fr;
   }
+
+
+  /* =========================
+     COLLEGES
+  ========================= */
 
   .college-banner {
     padding: 40px 25px;
@@ -1369,6 +1641,11 @@
     align-items: flex-start;
   }
 
+
+  /* =========================
+     CONTACT
+  ========================= */
+
   .contact-card {
     padding: 40px 25px;
 
@@ -1377,25 +1654,207 @@
     align-items: flex-start;
   }
 
+
   .contact-card h2 {
     font-size: 32px;
   }
+
 
   .contact-actions {
     width: 100%;
   }
 
+
+  /* =========================
+     REVIEWS
+  ========================= */
+
   .review-slider {
     gap: 8px;
   }
 
+
   .review-card {
     padding: 28px 20px;
   }
+
 
   .review-arrow {
     width: 36px;
 
     height: 36px;
   }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - 500px
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .hero-section {
+    width: calc(100% - 24px);
+
+    padding: 45px 0 55px;
+  }
+
+
+  .hero-content h1 {
+    font-size: 43px;
+
+    letter-spacing: -2px;
+  }
+
+
+  .hero-description {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+
+  .notice-wrapper {
+    padding: 16px;
+
+    border-radius: 18px;
+  }
+
+
+  .notice-heading h3 {
+    font-size: 15px;
+  }
+
+
+  .poster-window,
+  .poster-slide,
+  .poster-fallback {
+    height: 250px;
+
+    min-height: 250px;
+  }
+
+
+  .poster-fallback {
+    padding: 21px;
+  }
+
+
+  .poster-fallback h4 {
+    font-size: 19px;
+  }
+
+
+  .poster-fallback p {
+    font-size: 9px;
+  }
+
+
+  .journey-card {
+    padding: 23px 19px;
+
+    border-radius: 18px;
+  }
+
+
+  .journey-header h3 {
+    font-size: 21px;
+  }
+
+
+  .guidance-badge {
+    display: none;
+  }
+
+
+  .journey-bottom {
+    gap: 7px;
+  }
+
+
+  .journey-bottom > div {
+    padding: 10px 5px;
+  }
+
+
+  .section-container {
+    width: calc(100% - 24px);
+
+    padding: 60px 0;
+  }
+
+
+  .college-banner {
+    padding: 35px 20px;
+
+    border-radius: 18px;
+  }
+
+
+  .college-banner h2 {
+    font-size: 30px;
+  }
+
+
+  .contact-section {
+    width: calc(100% - 24px);
+
+    padding: 55px 0;
+  }
+
+
+  .contact-card {
+    padding: 35px 20px;
+
+    border-radius: 20px;
+  }
+
+
+  .contact-card h2 {
+    font-size: 29px;
+  }
+
+
+  .review-card blockquote {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero-content h1 {
+    font-size: 38px;
+  }
+
+
+  .notice-wrapper {
+    padding: 14px;
+  }
+
+
+  .poster-window,
+  .poster-slide,
+  .poster-fallback {
+    height: 235px;
+
+    min-height: 235px;
+  }
+
+
+  .poster-fallback {
+    padding: 18px;
+  }
+
+
+  .journey-card {
+    padding: 20px 16px;
+  }
+
 }

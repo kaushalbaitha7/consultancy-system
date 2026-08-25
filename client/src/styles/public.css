@@ -2684,25 +2684,90 @@
 }
 
 .public-page-cta-actions .primary-button {
-  color: #173d70;
+  display: inline-flex;
 
-  background: white;
+  align-items: center;
+  justify-content: center;
 
-  box-shadow: none;
+  min-height: 52px;
+
+  padding: 0 24px;
+
+  color: #173d70 !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid #ffffff !important;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 850;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .public-page-cta-actions .primary-button:hover {
-  background: #f1f6ff;
+  color: #173d70 !important;
+
+  background: #f1f6ff !important;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.16);
 }
+
 
 .public-page-cta-actions .secondary-button {
-  color: white;
+  display: inline-flex;
 
-  background: rgba(255,255,255,0.08);
+  align-items: center;
+  justify-content: center;
 
-  border-color: rgba(255,255,255,0.25);
+  min-height: 52px;
+
+  padding: 0 24px;
+
+  color: #ffffff !important;
+
+  background: rgba(255, 255, 255, 0.08) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 850;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
+.public-page-cta-actions .secondary-button:hover {
+  color: #ffffff !important;
+
+  background: rgba(255, 255, 255, 0.16) !important;
+
+  transform: translateY(-2px);
+}
 
 /* =========================================================
    PUBLIC INTRO

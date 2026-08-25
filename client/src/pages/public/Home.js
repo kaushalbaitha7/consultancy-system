@@ -1,29 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/public.css";
+
+import "../styles/home.css";
+import "../styles/navbar.css";
+import "../styles/footer.css";
+
+import PublicNavbar from "../components/PublicNavbar";
+import BackToTop from "../components/BackToTop";
+
+
+/* =========================================================
+   NOTICE POSTERS
+========================================================= */
 
 const posters = [
   {
     image: "/posters/poster1.jpg",
     title: "Medical Admission 2026",
-    text: "Get expert guidance for your medical admission journey.",
+    text:
+      "Get expert guidance for your medical admission journey.",
   },
   {
     image: "/posters/poster2.jpg",
     title: "NEET Counselling Guidance",
-    text: "Understand your options and choose the right college.",
+    text:
+      "Understand your options and choose the right college.",
   },
   {
     image: "/posters/poster3.jpg",
     title: "UG Medical Admissions",
-    text: "MBBS, BDS, BAMS and Nursing admission assistance.",
+    text:
+      "MBBS, BDS, BAMS and Nursing admission assistance.",
   },
   {
     image: "/posters/poster4.jpg",
     title: "PG Medical Admissions",
-    text: "Professional guidance for postgraduate medical admissions.",
+    text:
+      "Professional guidance for postgraduate medical admissions.",
   },
 ];
+
+
+/* =========================================================
+   STUDENT REVIEWS
+========================================================= */
 
 const reviews = [
   {
@@ -60,6 +80,11 @@ const reviews = [
   },
 ];
 
+
+/* =========================================================
+   MEDICAL COURSES
+========================================================= */
+
 const medicalCourses = [
   {
     title: "MBBS",
@@ -88,204 +113,344 @@ const medicalCourses = [
   },
 ];
 
+
 function Home() {
+
   const [posterIndex, setPosterIndex] = useState(0);
+
   const [reviewIndex, setReviewIndex] = useState(0);
 
+
+  /* =======================================================
+     POSTER AUTO SLIDER
+  ======================================================= */
+
   useEffect(() => {
+
     const posterTimer = setInterval(() => {
-      setPosterIndex((previous) => (previous + 1) % posters.length);
+
+      setPosterIndex((previous) => {
+
+        return (previous + 1) % posters.length;
+
+      });
+
     }, 4000);
 
-    return () => clearInterval(posterTimer);
+
+    return () => {
+
+      clearInterval(posterTimer);
+
+    };
+
   }, []);
+
+
+  /* =======================================================
+     REVIEW AUTO SLIDER
+  ======================================================= */
 
   useEffect(() => {
+
     const reviewTimer = setInterval(() => {
-      setReviewIndex((previous) => (previous + 1) % reviews.length);
+
+      setReviewIndex((previous) => {
+
+        return (previous + 1) % reviews.length;
+
+      });
+
     }, 5000);
 
-    return () => clearInterval(reviewTimer);
+
+    return () => {
+
+      clearInterval(reviewTimer);
+
+    };
+
   }, []);
 
+
   const currentPoster = posters[posterIndex];
+
   const currentReview = reviews[reviewIndex];
 
+
   return (
+
     <div className="gyanguru-site">
 
-      {/* =========================
-          NAVBAR
-      ========================= */}
-      <header className="public-navbar">
-        <div className="navbar-inner">
 
-          <Link to="/" className="brand">
-            <div className="brand-mark">G</div>
+      {/* =================================================
+          FIXED PUBLIC NAVBAR
+      ================================================= */}
 
-            <div className="brand-text">
-              <div className="brand-name">GYANGURU</div>
-              <div className="brand-subtitle">CONSULTANCY</div>
-            </div>
-          </Link>
-
-          <nav className="desktop-navigation">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#courses">Medical Courses</a>
-            <a href="#colleges">Colleges</a>
-            <a href="#services">Services</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#contact">Contact</a>
-          </nav>
-
-          <Link to="/login" className="student-login-button">
-            Student Login
-            <span>→</span>
-          </Link>
-
-        </div>
-      </header>
+      <PublicNavbar />
 
 
-      {/* =========================
-          HERO
-      ========================= */}
       <main>
 
-        <section className="hero-section" id="home">
+
+        {/* =================================================
+            HERO SECTION
+        ================================================= */}
+
+        <section
+          className="hero-section"
+          id="home"
+        >
 
           <div className="hero-content">
 
+
             <div className="hero-label">
+
               <span className="hero-label-dot"></span>
+
               SPECIALISED MEDICAL ADMISSION CONSULTANCY
+
             </div>
 
+
             <h1>
+
               Your Medical
+
               <br />
+
               Career.
-              <span> Our Guidance.</span>
+
+              <span>
+                {" "}
+                Our Guidance.
+              </span>
+
             </h1>
 
+
             <p className="hero-description">
+
               Trusted guidance for MBBS, BDS, BAMS, Nursing and
               postgraduate medical admissions. From college selection
               to counselling and admission, we help students move
               forward with confidence.
+
             </p>
 
+
             <div className="hero-actions">
+
 
               <a
                 href="#courses"
                 className="primary-button"
               >
+
                 Explore Medical Admissions
-                <span>→</span>
+
+                <span>
+                  →
+                </span>
+
               </a>
+
 
               <a
                 href="#contact"
                 className="secondary-button"
               >
+
                 Talk to a Counsellor
+
               </a>
+
 
             </div>
 
+
             <div className="hero-points">
 
-              <div className="hero-point">
-                <span>✓</span>
-                <div>
-                  <strong>Admission Guidance</strong>
-                  <small>End-to-end support</small>
-                </div>
-              </div>
 
               <div className="hero-point">
-                <span>✓</span>
+
+                <span>
+                  ✓
+                </span>
+
                 <div>
-                  <strong>College Selection</strong>
-                  <small>Informed decisions</small>
+
+                  <strong>
+                    Admission Guidance
+                  </strong>
+
+                  <small>
+                    End-to-end support
+                  </small>
+
                 </div>
+
               </div>
 
+
               <div className="hero-point">
-                <span>✓</span>
+
+                <span>
+                  ✓
+                </span>
+
                 <div>
-                  <strong>Counselling Support</strong>
-                  <small>Step-by-step assistance</small>
+
+                  <strong>
+                    College Selection
+                  </strong>
+
+                  <small>
+                    Informed decisions
+                  </small>
+
                 </div>
+
               </div>
+
+
+              <div className="hero-point">
+
+                <span>
+                  ✓
+                </span>
+
+                <div>
+
+                  <strong>
+                    Counselling Support
+                  </strong>
+
+                  <small>
+                    Step-by-step assistance
+                  </small>
+
+                </div>
+
+              </div>
+
 
             </div>
 
           </div>
 
 
-          {/* =========================
-              RIGHT HERO AREA
-          ========================= */}
+          {/* =================================================
+              HERO VISUAL
+          ================================================= */}
+
           <div className="hero-visual">
 
-            {/* NOTICE POSTER */}
+
+            {/* =================================================
+                NOTICE CARD
+            ================================================= */}
+
             <div className="notice-wrapper">
 
+
               <div className="notice-heading">
+
                 <div>
+
                   <span className="notice-small-title">
                     GYANGURU UPDATES
                   </span>
 
-                  <h3>Latest Notices</h3>
+                  <h3>
+                    Latest Notices
+                  </h3>
+
                 </div>
 
+
                 <span className="notice-live">
+
                   <span></span>
+
                   LIVE
+
                 </span>
+
               </div>
 
+
               <div className="poster-window">
+
 
                 <div
                   key={posterIndex}
                   className="poster-slide"
                 >
 
+
                   <img
                     src={currentPoster.image}
                     alt={currentPoster.title}
                     onError={(event) => {
-                      event.currentTarget.style.display = "none";
+
+                      event.currentTarget.style.display =
+                        "none";
+
                     }}
                   />
 
+
                   <div className="poster-fallback">
-                    <div className="poster-icon">G</div>
 
-                    <span>GYANGURU</span>
 
-                    <h4>{currentPoster.title}</h4>
+                    <div className="poster-icon">
+                      G
+                    </div>
 
-                    <p>{currentPoster.text}</p>
 
-                    <button type="button">
+                    <span>
+                      GYANGURU
+                    </span>
+
+
+                    <h4>
+                      {currentPoster.title}
+                    </h4>
+
+
+                    <p>
+                      {currentPoster.text}
+                    </p>
+
+
+                    <a
+                      href="#courses"
+                      className="poster-button"
+                    >
+
                       View Admission Details →
-                    </button>
+
+                    </a>
+
+
                   </div>
+
 
                 </div>
 
+
               </div>
+
 
               <div className="poster-bottom">
 
+
                 <div className="poster-dots">
+
                   {posters.map((poster, index) => (
+
                     <button
                       type="button"
                       key={poster.title}
@@ -294,27 +459,40 @@ function Home() {
                           ? "active"
                           : ""
                       }
-                      onClick={() => setPosterIndex(index)}
+                      onClick={() =>
+                        setPosterIndex(index)
+                      }
                       aria-label={`Show poster ${index + 1}`}
                     />
+
                   ))}
+
                 </div>
+
 
                 <span>
                   Admission Updates
                 </span>
 
+
               </div>
+
 
             </div>
 
 
-            {/* ADMISSION JOURNEY CARD */}
+            {/* =================================================
+                ADMISSION JOURNEY CARD
+            ================================================= */}
+
             <div className="journey-card">
+
 
               <div className="journey-header">
 
+
                 <div>
+
                   <span className="journey-label">
                     YOUR ADMISSION JOURNEY
                   </span>
@@ -322,17 +500,24 @@ function Home() {
                   <h3>
                     From NEET to Admission
                   </h3>
+
                 </div>
 
+
                 <div className="guidance-badge">
+
                   <span></span>
+
                   Guidance
+
                 </div>
+
 
               </div>
 
 
               <div className="journey-steps">
+
 
                 <div className="journey-step active">
 
@@ -341,13 +526,19 @@ function Home() {
                   </div>
 
                   <div>
-                    <strong>Understand</strong>
+
+                    <strong>
+                      Understand
+                    </strong>
+
                     <small>
                       Know your options
                     </small>
+
                   </div>
 
                 </div>
+
 
                 <div className="journey-step">
 
@@ -356,13 +547,19 @@ function Home() {
                   </div>
 
                   <div>
-                    <strong>Select</strong>
+
+                    <strong>
+                      Select
+                    </strong>
+
                     <small>
                       Choose suitable colleges
                     </small>
+
                   </div>
 
                 </div>
+
 
                 <div className="journey-step">
 
@@ -371,13 +568,19 @@ function Home() {
                   </div>
 
                   <div>
-                    <strong>Counselling</strong>
+
+                    <strong>
+                      Counselling
+                    </strong>
+
                     <small>
                       Application support
                     </small>
+
                   </div>
 
                 </div>
+
 
                 <div className="journey-step">
 
@@ -386,105 +589,166 @@ function Home() {
                   </div>
 
                   <div>
-                    <strong>Admission</strong>
+
+                    <strong>
+                      Admission
+                    </strong>
+
                     <small>
                       Move forward confidently
                     </small>
+
                   </div>
 
                 </div>
+
 
               </div>
 
 
               <div className="journey-bottom">
 
-                <div>
-                  <strong>UG</strong>
-                  <span>Medical</span>
-                </div>
 
                 <div>
-                  <strong>PG</strong>
-                  <span>Medical</span>
+
+                  <strong>
+                    UG
+                  </strong>
+
+                  <span>
+                    Medical
+                  </span>
+
                 </div>
 
+
                 <div>
-                  <strong>Guidance</strong>
-                  <span>Support</span>
+
+                  <strong>
+                    PG
+                  </strong>
+
+                  <span>
+                    Medical
+                  </span>
+
                 </div>
+
+
+                <div>
+
+                  <strong>
+                    Guidance
+                  </strong>
+
+                  <span>
+                    Support
+                  </span>
+
+                </div>
+
 
               </div>
 
+
             </div>
 
+
           </div>
+
 
         </section>
 
 
-        {/* =========================
-            ABOUT
-        ========================= */}
-        <section className="about-section section-container" id="about">
+        {/* =================================================
+            ABOUT SECTION
+        ================================================= */}
+
+        <section
+          className="about-section section-container"
+          id="about"
+        >
+
 
           <div className="section-heading">
-            <span>ABOUT GYANGURU</span>
+
+            <span>
+              ABOUT GYANGURU
+            </span>
 
             <h2>
+
               Guidance that makes
+
               <br />
+
               admission simpler.
+
             </h2>
+
           </div>
+
 
           <div className="about-content">
 
             <p>
+
               GyanGuru Consultancy is focused exclusively on
               medical education and admission guidance. We help
               students and families understand their choices,
               evaluate colleges and navigate the admission journey
               with clarity.
+
             </p>
 
+
             <p>
+
               Our approach is simple — understand the student's
               requirements, provide relevant information and support
               every important decision throughout the admission
               process.
+
             </p>
 
           </div>
 
+
         </section>
 
 
-        {/* =========================
-            COURSES
-        ========================= */}
+        {/* =================================================
+            MEDICAL COURSES
+        ================================================= */}
+
         <section
           className="courses-section section-container"
           id="courses"
         >
 
+
           <div className="section-heading centered">
 
-            <span>MEDICAL ADMISSIONS</span>
+            <span>
+              MEDICAL ADMISSIONS
+            </span>
 
             <h2>
               Courses we guide you through.
             </h2>
 
             <p>
+
               Explore medical education pathways with structured
               admission guidance.
+
             </p>
 
           </div>
 
 
           <div className="course-grid">
+
 
             {medicalCourses.map((course, index) => (
 
@@ -493,44 +757,58 @@ function Home() {
                 key={course.title}
               >
 
+
                 <div className="course-number">
-                  0{index + 1}
+
+                  {String(index + 1).padStart(2, "0")}
+
                 </div>
+
 
                 <h3>
                   {course.title}
                 </h3>
 
+
                 <p>
                   {course.description}
                 </p>
+
 
                 <a href="#contact">
                   Get Guidance →
                 </a>
 
+
               </div>
 
             ))}
 
+
           </div>
+
 
         </section>
 
 
-        {/* =========================
+        {/* =================================================
             SERVICES
-        ========================= */}
+        ================================================= */}
+
         <section
           className="services-section"
           id="services"
         >
 
+
           <div className="section-container">
+
 
             <div className="section-heading centered">
 
-              <span>OUR SERVICES</span>
+              <span>
+                OUR SERVICES
+              </span>
 
               <h2>
                 Support at every important step.
@@ -541,106 +819,176 @@ function Home() {
 
             <div className="services-grid">
 
+
               <div className="service-card">
-                <div className="service-icon">01</div>
-                <h3>College Selection</h3>
+
+                <div className="service-icon">
+                  01
+                </div>
+
+                <h3>
+                  College Selection
+                </h3>
+
                 <p>
+
                   Understand college options and make informed
                   admission decisions.
+
                 </p>
+
               </div>
 
+
               <div className="service-card">
-                <div className="service-icon">02</div>
-                <h3>Counselling Guidance</h3>
+
+                <div className="service-icon">
+                  02
+                </div>
+
+                <h3>
+                  Counselling Guidance
+                </h3>
+
                 <p>
+
                   Step-by-step support throughout the counselling
                   and application process.
+
                 </p>
+
               </div>
 
+
               <div className="service-card">
-                <div className="service-icon">03</div>
-                <h3>Admission Assistance</h3>
+
+                <div className="service-icon">
+                  03
+                </div>
+
+                <h3>
+                  Admission Assistance
+                </h3>
+
                 <p>
+
                   Guidance through important admission procedures
                   and documentation.
+
                 </p>
+
               </div>
 
+
               <div className="service-card">
-                <div className="service-icon">04</div>
-                <h3>Student Support</h3>
+
+                <div className="service-icon">
+                  04
+                </div>
+
+                <h3>
+                  Student Support
+                </h3>
+
                 <p>
+
                   Dedicated assistance to help students move
                   confidently towards their chosen medical career.
+
                 </p>
+
               </div>
+
 
             </div>
 
+
           </div>
+
 
         </section>
 
 
-        {/* =========================
+        {/* =================================================
             COLLEGES
-        ========================= */}
+        ================================================= */}
+
         <section
           className="colleges-section section-container"
           id="colleges"
         >
 
+
           <div className="college-banner">
 
+
             <div>
-              <span>COLLEGE INFORMATION</span>
+
+              <span>
+                COLLEGE INFORMATION
+              </span>
 
               <h2>
+
                 Find the right medical college
                 for your journey.
+
               </h2>
 
               <p>
+
                 Explore college information and understand the
                 admission opportunities available to you.
+
               </p>
+
             </div>
 
-            <a
-              href="#contact"
+
+            <Link
+              to="/colleges"
               className="light-button"
             >
+
               Explore Colleges →
-            </a>
+
+            </Link>
+
 
           </div>
+
 
         </section>
 
 
-        {/* =========================
-            REVIEWS
-        ========================= */}
+        {/* =================================================
+            STUDENT REVIEWS
+        ================================================= */}
+
         <section
           className="reviews-section"
           id="reviews"
         >
 
+
           <div className="section-container">
+
 
             <div className="section-heading centered">
 
-              <span>STUDENT REVIEWS</span>
+              <span>
+                STUDENT REVIEWS
+              </span>
 
               <h2>
                 What our students say.
               </h2>
 
               <p>
+
                 Experiences shared by students who trusted
                 GyanGuru for their admission journey.
+
               </p>
 
             </div>
@@ -648,18 +996,23 @@ function Home() {
 
             <div className="review-slider">
 
+
               <button
                 type="button"
                 className="review-arrow"
-                onClick={() =>
+                onClick={() => {
+
                   setReviewIndex(
                     (reviewIndex - 1 + reviews.length) %
-                    reviews.length
-                  )
-                }
+                      reviews.length
+                  );
+
+                }}
                 aria-label="Previous review"
               >
+
                 ←
+
               </button>
 
 
@@ -668,32 +1021,52 @@ function Home() {
                 className="review-card"
               >
 
+
                 <div className="review-stars">
+
                   {"★".repeat(currentReview.rating)}
+
                 </div>
 
+
                 <blockquote>
+
                   “{currentReview.review}”
+
                 </blockquote>
+
 
                 <div className="review-person">
 
+
                   <div className="review-avatar">
+
                     {currentReview.name.charAt(0)}
+
                   </div>
 
+
                   <div>
+
                     <strong>
                       {currentReview.name}
                     </strong>
 
                     <span>
-                      {currentReview.course} ·{" "}
+
+                      {currentReview.course}
+
+                      {" · "}
+
                       {currentReview.location}
+
                     </span>
+
                   </div>
 
+
                 </div>
+
 
               </div>
 
@@ -701,20 +1074,27 @@ function Home() {
               <button
                 type="button"
                 className="review-arrow"
-                onClick={() =>
+                onClick={() => {
+
                   setReviewIndex(
-                    (reviewIndex + 1) % reviews.length
-                  )
-                }
+                    (reviewIndex + 1) %
+                      reviews.length
+                  );
+
+                }}
                 aria-label="Next review"
               >
+
                 →
+
               </button>
+
 
             </div>
 
 
             <div className="review-dots">
+
 
               {reviews.map((review, index) => (
 
@@ -726,28 +1106,36 @@ function Home() {
                       ? "active"
                       : ""
                   }
-                  onClick={() => setReviewIndex(index)}
+                  onClick={() =>
+                    setReviewIndex(index)
+                  }
                   aria-label={`Show review ${index + 1}`}
                 />
 
               ))}
 
+
             </div>
 
+
           </div>
+
 
         </section>
 
 
-        {/* =========================
+        {/* =================================================
             CONTACT CTA
-        ========================= */}
+        ================================================= */}
+
         <section
           className="contact-section"
           id="contact"
         >
 
+
           <div className="contact-card">
+
 
             <div>
 
@@ -756,112 +1144,187 @@ function Home() {
               </span>
 
               <h2>
+
                 Need guidance for your
                 medical admission?
+
               </h2>
 
               <p>
+
                 Speak with our counselling team and understand
                 your next step with clarity.
+
               </p>
 
             </div>
 
+
             <div className="contact-actions">
+
 
               <a
                 href="tel:+919999999999"
                 className="contact-primary"
               >
+
                 Talk to a Counsellor →
+
               </a>
+
 
               <Link
                 to="/login"
                 className="contact-secondary"
               >
+
                 Student Login
+
               </Link>
+
 
             </div>
 
+
           </div>
 
+
         </section>
+
 
       </main>
 
 
-      {/* =========================
+      {/* =================================================
           FOOTER
-      ========================= */}
+      ================================================= */}
+
       <footer className="public-footer">
+
 
         <div className="footer-inner">
 
+
           <div className="footer-brand">
+
 
             <div className="footer-brand-name">
               GYANGURU
             </div>
 
+
             <div className="footer-brand-subtitle">
               CONSULTANCY
             </div>
 
+
             <p>
+
               Medical admission guidance for students
               and families.
+
             </p>
 
-          </div>
-
-
-          <div className="footer-column">
-
-            <h4>Explore</h4>
-
-            <a href="#about">About Us</a>
-            <a href="#courses">Medical Courses</a>
-            <a href="#colleges">Colleges</a>
-            <a href="#services">Services</a>
 
           </div>
 
 
           <div className="footer-column">
 
-            <h4>Support</h4>
 
-            <a href="#reviews">Student Reviews</a>
-            <a href="#contact">Contact</a>
+            <h4>
+              Explore
+            </h4>
+
+
+            <a href="/#about">
+              About Us
+            </a>
+
+
+            <a href="/#courses">
+              Medical Courses
+            </a>
+
+
+            <Link to="/colleges">
+              Colleges
+            </Link>
+
+
+            <a href="/#services">
+              Services
+            </a>
+
+
+          </div>
+
+
+          <div className="footer-column">
+
+
+            <h4>
+              Support
+            </h4>
+
+
+            <a href="/#reviews">
+              Student Reviews
+            </a>
+
+
+            <a href="/#contact">
+              Contact
+            </a>
+
 
             <Link to="/login">
               Student Login
             </Link>
 
+
           </div>
+
 
         </div>
 
 
         <div className="footer-bottom">
 
+
           <span>
-            © {new Date().getFullYear()} GyanGuru Consultancy.
+
+            © {new Date().getFullYear()}
+            {" "}
+            GyanGuru Consultancy.
             All rights reserved.
+
           </span>
+
 
           <span>
             Medical Admission Guidance
           </span>
 
+
         </div>
+
 
       </footer>
 
+
+      {/* =================================================
+          BACK TO TOP
+      ================================================= */}
+
+      <BackToTop />
+
+
     </div>
+
   );
+
 }
+
 
 export default Home;

@@ -1,0 +1,81 @@
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-to-top {
+  position: fixed;
+
+  right: 25px;
+
+  bottom: 25px;
+
+  width: 48px;
+
+  height: 48px;
+
+  z-index: 9998;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 2px solid rgba(9, 212, 255, 0.3);
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  background: #011f5d;
+
+  font-size: 21px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 28px rgba(1, 31, 93, 0.28);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease,
+    background 0.2s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #1b79c1;
+
+  transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+
+  .back-to-top {
+    right: 16px;
+
+    bottom: 16px;
+
+    width: 44px;
+
+    height: 44px;
+
+    font-size: 18px;
+  }
+}

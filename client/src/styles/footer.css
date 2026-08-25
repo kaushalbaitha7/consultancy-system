@@ -1,0 +1,153 @@
+/* =========================================================
+   GYANGURU FOOTER
+========================================================= */
+
+.public-footer {
+  margin-top: 0;
+
+  background: #011f5d;
+
+  color: #ffffff;
+}
+
+.footer-inner {
+  width: min(1250px, calc(100% - 50px));
+
+  margin: 0 auto;
+
+  padding: 70px 0 55px;
+
+  display: grid;
+
+  grid-template-columns:
+    2fr 1fr 1fr;
+
+  gap: 70px;
+}
+
+.footer-brand-name {
+  color: #ffffff;
+
+  font-size: 28px;
+
+  font-weight: 950;
+
+  letter-spacing: 1px;
+}
+
+.footer-brand-subtitle {
+  margin-top: 5px;
+
+  color: #09d4ff;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+}
+
+.footer-brand p {
+  max-width: 330px;
+
+  margin-top: 20px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.footer-column {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.footer-column h4 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 850;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 12px;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: #09d4ff;
+}
+
+.footer-bottom {
+  width: min(1250px, calc(100% - 50px));
+
+  margin: 0 auto;
+
+  padding: 22px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 11px;
+}
+
+@media (max-width: 750px) {
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .footer-inner {
+    width: calc(100% - 35px);
+
+    grid-template-columns: 1fr;
+
+    padding: 50px 0 40px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    width: calc(100% - 35px);
+  }
+}

@@ -1,0 +1,645 @@
+/* =========================================================
+   GYANGURU PUBLIC NAVBAR
+   Fixed + Responsive + Mobile Menu
+========================================================= */
+
+.public-navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+
+  height: 88px;
+
+  z-index: 99999;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  border-bottom:
+    1px solid rgba(1, 31, 93, 0.10);
+
+  box-shadow:
+    0 5px 25px rgba(1, 31, 93, 0.07);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   NAVBAR INNER
+========================================================= */
+
+.navbar-inner {
+  width:
+    min(1450px, calc(100% - 60px));
+
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 57px;
+
+  height: 57px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  border:
+    2px solid rgba(9, 212, 255, 0.55);
+
+  box-shadow:
+    0 7px 20px rgba(1, 31, 93, 0.15);
+}
+
+.brand-mark img {
+  width: 125px;
+
+  height: 57px;
+
+  max-width: none;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: left center;
+}
+
+
+.brand-text {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  line-height: 1;
+}
+
+
+.brand-name {
+  color: #111111;
+
+  font-size: 25px;
+
+  font-weight: 950;
+
+  letter-spacing: -0.8px;
+}
+
+
+.brand-subtitle {
+  margin-top: 5px;
+
+  color: #1b79c1;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 2.4px;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-navigation {
+  margin-left: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 28px;
+}
+
+
+.desktop-navigation a {
+  position: relative;
+
+  color: #26364c;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.desktop-navigation a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -9px;
+
+  width: 0;
+
+  height: 2px;
+
+  border-radius: 5px;
+
+  background: #09d4ff;
+
+  transform: translateX(-50%);
+
+  transition:
+    width 0.25s ease;
+}
+
+
+.desktop-navigation a:hover {
+  color: #1b79c1;
+}
+
+
+.desktop-navigation a:hover::after {
+  width: 22px;
+}
+
+
+/* =========================================================
+   STUDENT LOGIN
+========================================================= */
+
+.student-login-button {
+  min-height: 50px;
+
+  padding: 0 21px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+
+  flex-shrink: 0;
+
+  color: #ffffff !important;
+
+  background: #011f5d;
+
+  border:
+    1px solid #011f5d;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+
+  font-weight: 850;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 20px rgba(1, 31, 93, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.student-login-button span {
+  color: #09d4ff;
+
+  font-size: 17px;
+}
+
+
+.student-login-button:hover {
+  background: #1b79c1;
+
+  border-color: #1b79c1;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(27, 121, 193, 0.25);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-button {
+  width: 46px;
+
+  height: 46px;
+
+  margin-left: auto;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  border: 1px solid #d5e1eb;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px rgba(1, 31, 93, 0.08);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.mobile-menu-button span {
+  width: 20px;
+
+  height: 2px;
+
+  display: block;
+
+  border-radius: 5px;
+
+  background: #011f5d;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+
+/* =========================================================
+   MENU BUTTON → X
+========================================================= */
+
+.mobile-menu-button.active {
+  background: #011f5d;
+
+  border-color: #011f5d;
+}
+
+
+.mobile-menu-button.active span {
+  background: #ffffff;
+}
+
+
+.mobile-menu-button.active span:nth-child(1) {
+  transform:
+    translateY(7px)
+    rotate(45deg);
+}
+
+
+.mobile-menu-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+
+.mobile-menu-button.active span:nth-child(3) {
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION PANEL
+========================================================= */
+
+.mobile-navigation {
+  position: absolute;
+
+  top: calc(100% + 8px);
+
+  right: 0;
+
+  width: min(340px, calc(100vw - 30px));
+
+  padding: 8px;
+
+  display: none;
+
+  background: #ffffff;
+
+  border:
+    1px solid #dfe8ef;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 20px 55px rgba(1, 31, 93, 0.18);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(-8px);
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.mobile-navigation.open {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0);
+}
+
+
+.mobile-navigation-inner {
+  padding: 7px;
+}
+
+
+/* =========================================================
+   MOBILE LINKS
+========================================================= */
+
+.mobile-navigation-inner > a {
+  min-height: 52px;
+
+  padding: 0 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  color: #17283e;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.mobile-navigation-inner > a:hover {
+  color: #1b79c1;
+
+  background: #f0f9fd;
+}
+
+
+.mobile-navigation-inner > a > span:first-child {
+  width: 25px;
+
+  color: #09bfe7;
+
+  font-size: 9px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   MOBILE LOGIN
+========================================================= */
+
+.mobile-navigation-inner .mobile-login-button {
+  margin-top: 8px;
+
+  color: #ffffff;
+
+  background: #011f5d;
+
+  justify-content: space-between;
+}
+
+
+.mobile-navigation-inner .mobile-login-button:hover {
+  color: #ffffff;
+
+  background: #1b79c1;
+}
+
+
+.mobile-navigation-inner .mobile-login-button > span {
+  color: #09d4ff;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .desktop-navigation {
+    gap: 18px;
+  }
+
+  .desktop-navigation a {
+    font-size: 11px;
+  }
+
+  .student-login-button {
+    padding: 0 15px;
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .public-navbar {
+    height: 76px;
+  }
+
+
+  .navbar-inner {
+    width:
+      calc(100% - 28px);
+
+    gap: 10px;
+  }
+
+
+  .desktop-navigation,
+  .desktop-login {
+    display: none;
+  }
+
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+
+  .mobile-navigation {
+    display: block;
+  }
+
+
+  .brand-mark {
+    width: 48px;
+
+    height: 48px;
+  }
+
+
+  .brand-mark img {
+    width: 105px;
+
+    height: 48px;
+  }
+
+
+  .brand-name {
+    font-size: 21px;
+  }
+
+
+  .brand-subtitle {
+    font-size: 6.5px;
+
+    letter-spacing: 1.8px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar-inner {
+    width:
+      calc(100% - 20px);
+  }
+
+
+  .brand {
+    gap: 8px;
+  }
+
+
+  .brand-mark {
+    width: 43px;
+
+    height: 43px;
+  }
+
+
+  .brand-mark img {
+    width: 94px;
+
+    height: 43px;
+  }
+
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+
+  .brand-subtitle {
+    font-size: 5.5px;
+
+    letter-spacing: 1.4px;
+  }
+
+
+  .mobile-menu-button {
+    width: 43px;
+
+    height: 43px;
+  }
+
+
+  .mobile-navigation {
+    width:
+      calc(100vw - 20px);
+  }
+
+}

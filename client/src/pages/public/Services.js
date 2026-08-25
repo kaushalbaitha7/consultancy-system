@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/public.css";
-
+import "../styles/colleges.css";
+import "../styles/navbar.css";
+import "../styles/footer.css";
 const services = [
   {
     number: "01",

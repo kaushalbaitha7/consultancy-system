@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "../styles/home.css";
-import "../styles/navbar.css";
-import "../styles/footer.css";
+import "../../styles/home.css";
+import "../../styles/navbar.css";
+import "../../styles/footer.css";
 
-import PublicNavbar from "../components/PublicNavbar";
-import BackToTop from "../components/BackToTop";
 
+import PublicNavbar from "../../components/PublicNavbar";
+import BackToTop from "../../components/BackToTop";
 
 /* =========================================================
    NOTICE POSTERS

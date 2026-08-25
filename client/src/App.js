@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 /* =========================
-   PUBLIC GYANGURU PAGES
+   PUBLIC GYANGURU WEBSITE
 ========================= */
 
 import Home from "./pages/public/Home";
@@ -39,7 +39,6 @@ function App() {
     <BrowserRouter>
 
       <Routes>
-
 
         {/* =====================================
             PUBLIC WEBSITE
@@ -130,12 +129,12 @@ function App() {
           element={<AddressDetails />}
         />
 
-
       </Routes>
 
     </BrowserRouter>
 
   );
+
 }
 
 export default App;

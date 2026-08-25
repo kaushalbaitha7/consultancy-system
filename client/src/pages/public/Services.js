@@ -1,122 +1,69 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/colleges.css";
-import "../styles/navbar.css";
-import "../styles/footer.css";
+
+import "../../styles/services.css";
+import PublicNavbar from "../../components/PublicNavbar";
+
+
 const services = [
   {
     number: "01",
-    title: "Medical Admission Guidance",
-    description:
-      "Understand the admission journey, important stages and available options with structured guidance.",
-  },
-  {
-    number: "02",
     title: "College Selection",
     description:
-      "Evaluate relevant medical college options according to your academic position and preferences.",
+      "Understand relevant medical college options and evaluate them according to your admission goals."
   },
+
+  {
+    number: "02",
+    title: "Counselling Guidance",
+    description:
+      "Receive structured assistance in understanding counselling stages, choices and important decisions."
+  },
+
   {
     number: "03",
-    title: "Counselling Support",
+    title: "Admission Assistance",
     description:
-      "Receive assistance in understanding counselling procedures and making informed choices.",
+      "Get support in understanding important admission procedures, documents and next steps."
   },
+
   {
     number: "04",
     title: "Course Guidance",
     description:
-      "Understand different medical education pathways including MBBS, BDS, BAMS, Nursing and PG Medical.",
-  },
-  {
-    number: "05",
-    title: "Admission Assistance",
-    description:
-      "Get guidance through important admission stages, documentation and procedural requirements.",
-  },
-  {
-    number: "06",
-    title: "Student & Parent Support",
-    description:
-      "Clear communication and guidance for students and families throughout the admission journey.",
-  },
+      "Understand medical education pathways and identify the direction that best matches your goals."
+  }
 ];
 
+
 function Services() {
+
   return (
-    <div className="gyanguru-site">
 
-      {/* NAVBAR */}
-      <header className="public-navbar">
+    <div className="services-page">
 
-        <div className="navbar-inner">
-
-          <Link to="/" className="brand">
-
-            <div className="brand-mark">
-              G
-            </div>
-
-            <div className="brand-text">
-
-              <div className="brand-name">
-                GYANGURU
-              </div>
-
-              <div className="brand-subtitle">
-                CONSULTANCY
-              </div>
-
-            </div>
-
-          </Link>
-
-
-          <nav className="desktop-navigation">
-
-            <Link to="/">Home</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/courses">Medical Courses</Link>
-            <Link to="/colleges">Colleges</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/reviews">Reviews</Link>
-            <Link to="/contact">Contact</Link>
-
-          </nav>
-
-
-          <Link
-            to="/login"
-            className="student-login-button"
-          >
-            Student Login
-            <span>→</span>
-          </Link>
-
-        </div>
-
-      </header>
+      <PublicNavbar />
 
 
       {/* HERO */}
-      <section className="inner-page-hero services-page-hero">
 
-        <div className="inner-page-content">
+      <section className="services-hero">
+
+        <div className="services-hero-inner">
 
           <span>
             OUR SERVICES
           </span>
 
           <h1>
-            Guidance at every
+            Support at every
             <br />
             <strong>important step.</strong>
           </h1>
 
           <p>
-            From understanding your medical education options
-            to navigating counselling and admission, GyanGuru
-            provides structured support throughout the journey.
+            GyanGuru provides focused guidance for students
+            navigating medical education and admission decisions.
           </p>
 
         </div>
@@ -124,219 +71,124 @@ function Services() {
       </section>
 
 
-      {/* SERVICES INTRO */}
-      <section className="public-intro-section">
+      {/* CONTENT */}
 
-        <div className="section-container">
+      <section className="services-content">
 
-          <div className="public-intro-grid">
 
-            <div>
+        <div className="services-page-grid">
 
-              <span>
-                WHAT WE DO
-              </span>
+          {services.map((service) => (
 
-              <h2>
-                One journey.
-                <br />
-                Complete guidance.
-              </h2>
+            <article
+              className="services-page-card"
+              key={service.number}
+            >
 
-            </div>
+              <div className="service-page-number">
+                {service.number}
+              </div>
 
-            <div>
 
-              <p>
-                Medical admissions can involve many decisions,
-                from choosing the right course and college to
-                understanding counselling and admission procedures.
-              </p>
+              <div>
 
-              <p>
-                Our role is to make those decisions easier to
-                understand by providing clear, relevant and
-                student-focused guidance.
-              </p>
+                <h3>
+                  {service.title}
+                </h3>
 
-            </div>
+                <p>
+                  {service.description}
+                </p>
 
-          </div>
+              </div>
+
+            </article>
+
+          ))}
 
         </div>
 
-      </section>
 
+        {/* PROCESS */}
 
-      {/* SERVICES GRID */}
-      <section className="services-directory-section">
-
-        <div className="section-container">
-
-          <div className="section-heading centered">
-
-            <span>
-              GYANGURU SUPPORT
-            </span>
-
-            <h2>
-              Built around your admission journey.
-            </h2>
-
-          </div>
-
-
-          <div className="services-directory-grid">
-
-            {services.map((service) => (
-
-              <article
-                className="service-large-card"
-                key={service.number}
-              >
-
-                <div className="service-large-number">
-                  {service.number}
-                </div>
-
-                <div>
-
-                  <h3>
-                    {service.title}
-                  </h3>
-
-                  <p>
-                    {service.description}
-                  </p>
-
-                  <Link to="/contact">
-                    Know More →
-                  </Link>
-
-                </div>
-
-              </article>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* PROCESS */}
-      <section className="service-process-section">
-
-        <div className="section-container">
-
-          <div className="section-heading centered">
-
-            <span>
-              SIMPLE PROCESS
-            </span>
-
-            <h2>
-              How GyanGuru works with students.
-            </h2>
-
-          </div>
-
-
-          <div className="service-process-grid">
-
-            <div className="service-process-card">
-
-              <span>01</span>
-
-              <h3>
-                Tell Us
-              </h3>
-
-              <p>
-                Share your academic background and medical
-                admission requirements.
-              </p>
-
-            </div>
-
-
-            <div className="service-process-card">
-
-              <span>02</span>
-
-              <h3>
-                Understand
-              </h3>
-
-              <p>
-                Our counsellors understand your requirements
-                and explain the relevant options.
-              </p>
-
-            </div>
-
-
-            <div className="service-process-card">
-
-              <span>03</span>
-
-              <h3>
-                Choose
-              </h3>
-
-              <p>
-                Compare suitable pathways and make an
-                informed decision.
-              </p>
-
-            </div>
-
-
-            <div className="service-process-card">
-
-              <span>04</span>
-
-              <h3>
-                Proceed
-              </h3>
-
-              <p>
-                Move forward with counselling and admission
-                support.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* CTA */}
-      <section className="public-page-cta">
-
-        <div>
-
-          <span>
-            READY TO BEGIN?
-          </span>
+        <div className="service-process">
 
           <h2>
-            Your next step starts with clarity.
+            A simple approach to guidance.
           </h2>
 
           <p>
-            Speak with our team about your medical admission
-            requirements.
+            We keep the process structured so students can
+            understand their options before taking important
+            admission decisions.
           </p>
+
+
+          <div className="process-steps">
+
+            <div className="process-step">
+
+              <strong>01</strong>
+
+              <span>
+                Understand your requirements
+              </span>
+
+            </div>
+
+
+            <div className="process-step">
+
+              <strong>02</strong>
+
+              <span>
+                Explore relevant options
+              </span>
+
+            </div>
+
+
+            <div className="process-step">
+
+              <strong>03</strong>
+
+              <span>
+                Discuss your choices
+              </span>
+
+            </div>
+
+
+            <div className="process-step">
+
+              <strong>04</strong>
+
+              <span>
+                Proceed with confidence
+              </span>
+
+            </div>
+
+          </div>
 
         </div>
 
-        <div className="public-page-cta-actions">
+
+        {/* CTA */}
+
+        <div className="services-cta">
+
+          <div>
+
+            <span>
+              NEED GUIDANCE?
+            </span>
+
+            <h2>
+              Start with a conversation.
+            </h2>
+
+          </div>
 
           <Link
             to="/contact"
@@ -345,19 +197,13 @@ function Services() {
             Talk to a Counsellor →
           </Link>
 
-          <Link
-            to="/login"
-            className="secondary-button"
-          >
-            Student Login
-          </Link>
-
         </div>
 
       </section>
 
 
       {/* FOOTER */}
+
       <footer className="public-footer">
 
         <div className="footer-inner">
@@ -422,7 +268,10 @@ function Services() {
       </footer>
 
     </div>
+
   );
+
 }
+
 
 export default Services;

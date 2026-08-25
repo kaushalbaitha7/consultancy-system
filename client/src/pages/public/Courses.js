@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/courses.css";
-import "../styles/navbar.css";
-import "../styles/footer.css";
+
+import "../../styles/courses.css";
+import PublicNavbar from "../../components/PublicNavbar";
+
 
 const courses = [
   {
@@ -15,9 +16,10 @@ const courses = [
     points: [
       "Medical admission guidance",
       "College selection support",
-      "Counselling guidance",
-    ],
+      "Counselling guidance"
+    ]
   },
+
   {
     number: "02",
     code: "UG",
@@ -28,9 +30,10 @@ const courses = [
     points: [
       "BDS admission guidance",
       "College option guidance",
-      "Counselling support",
-    ],
+      "Counselling support"
+    ]
   },
+
   {
     number: "03",
     code: "UG",
@@ -41,9 +44,10 @@ const courses = [
     points: [
       "BAMS pathway guidance",
       "College selection",
-      "Admission assistance",
-    ],
+      "Admission assistance"
+    ]
   },
+
   {
     number: "04",
     code: "UG",
@@ -54,9 +58,10 @@ const courses = [
     points: [
       "Course guidance",
       "Institution selection",
-      "Admission support",
-    ],
+      "Admission support"
+    ]
   },
+
   {
     number: "05",
     code: "PG",
@@ -67,63 +72,28 @@ const courses = [
     points: [
       "PG admission guidance",
       "Specialisation awareness",
-      "College selection support",
-    ],
-  },
+      "College selection support"
+    ]
+  }
 ];
 
+
 function Courses() {
+
   return (
-    <div className="gyanguru-site">
 
-      {/* NAVBAR */}
-      <header className="public-navbar">
-        <div className="navbar-inner">
+    <div className="courses-page">
 
-          <Link to="/" className="brand">
-            <div className="brand-mark">
-              G
-            </div>
-
-            <div className="brand-text">
-              <div className="brand-name">
-                GYANGURU
-              </div>
-
-              <div className="brand-subtitle">
-                CONSULTANCY
-              </div>
-            </div>
-          </Link>
-
-          <nav className="desktop-navigation">
-            <Link to="/">Home</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/courses">Medical Courses</Link>
-            <Link to="/colleges">Colleges</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/reviews">Reviews</Link>
-            <Link to="/contact">Contact</Link>
-          </nav>
-
-          <Link
-            to="/login"
-            className="student-login-button"
-          >
-            Student Login
-            <span>→</span>
-          </Link>
-
-        </div>
-      </header>
+      <PublicNavbar />
 
 
       {/* HERO */}
-      <section className="inner-page-hero courses-page-hero">
 
-        <div className="inner-page-content">
+      <section className="courses-hero">
 
-          <span>
+        <div className="courses-hero-inner">
+
+          <span className="courses-hero-label">
             MEDICAL COURSES
           </span>
 
@@ -146,246 +116,148 @@ function Courses() {
 
 
       {/* INTRO */}
-      <section className="public-intro-section">
 
-        <div className="section-container">
+      <section className="courses-content">
 
-          <div className="public-intro-grid">
+        <div className="courses-heading">
 
-            <div>
+          <span>OUR FOCUS</span>
 
-              <span>
-                OUR FOCUS
-              </span>
+          <h2>
+            Medical education,
+            <br />
+            nothing else.
+          </h2>
 
-              <h2>
-                Medical education,
-                <br />
-                nothing else.
-              </h2>
-
-            </div>
-
-            <div>
-
-              <p>
-                GyanGuru Consultancy is focused specifically on
-                medical education and admission guidance.
-              </p>
-
-              <p>
-                Our services cover selected undergraduate and
-                postgraduate medical pathways so that students
-                can receive relevant rather than generic guidance.
-              </p>
-
-            </div>
-
-          </div>
+          <p>
+            GyanGuru Consultancy focuses specifically on medical
+            education and admission guidance so students receive
+            relevant rather than generic support.
+          </p>
 
         </div>
 
-      </section>
+
+        {/* COURSE GRID */}
+
+        <div className="courses-grid">
+
+          {courses.map((course) => (
+
+            <article
+              className="course-item"
+              key={course.number}
+            >
+
+              <div className="course-item-number">
+                {course.number}
+              </div>
+
+              <h3>
+                {course.title}
+              </h3>
+
+              <p>
+                <strong>
+                  {course.subtitle}
+                </strong>
+              </p>
+
+              <p>
+                {course.description}
+              </p>
 
 
-      {/* COURSES */}
-      <section className="courses-directory-section">
+              <ul className="course-points">
 
-        <div className="section-container">
+                {course.points.map((point) => (
 
-          <div className="section-heading centered">
+                  <li key={point}>
+                    ✓ {point}
+                  </li>
 
-            <span>
-              EXPLORE PATHWAYS
-            </span>
+                ))}
 
-            <h2>
-              Choose your medical direction.
-            </h2>
+              </ul>
+
+
+              <Link to="/contact">
+                Get Guidance →
+              </Link>
+
+            </article>
+
+          ))}
+
+        </div>
+
+
+        {/* INFORMATION */}
+
+        <div className="course-info">
+
+          <div>
+
+            <h3>
+              Choosing your pathway
+            </h3>
 
             <p>
-              Start by understanding the course that matches
-              your academic goals.
+              Every student's journey is different. Understanding
+              the course, admission pathway, college options and
+              future direction can help you make a more informed
+              decision.
             </p>
 
           </div>
 
 
-          <div className="courses-directory-grid">
+          <div>
 
-            {courses.map((course) => (
+            <h3>
+              Our guidance
+            </h3>
 
-              <article
-                className="course-large-card"
-                key={course.number}
-              >
+            <ul>
 
-                <div className="course-card-top">
+              <li>
+                Understand your course options
+              </li>
 
-                  <span>
-                    {course.code}
-                  </span>
+              <li>
+                Explore relevant college choices
+              </li>
 
-                  <strong>
-                    {course.number}
-                  </strong>
+              <li>
+                Understand counselling processes
+              </li>
 
-                </div>
+              <li>
+                Receive admission assistance
+              </li>
 
-                <h3>
-                  {course.title}
-                </h3>
-
-                <h4>
-                  {course.subtitle}
-                </h4>
-
-                <p>
-                  {course.description}
-                </p>
-
-                <div className="course-points">
-
-                  {course.points.map((point) => (
-
-                    <div
-                      className="course-point"
-                      key={point}
-                    >
-                      <span>✓</span>
-                      {point}
-                    </div>
-
-                  ))}
-
-                </div>
-
-                <Link to="/contact">
-                  Get Guidance →
-                </Link>
-
-              </article>
-
-            ))}
+            </ul>
 
           </div>
 
         </div>
 
-      </section>
 
+        {/* CTA */}
 
-      {/* ADMISSION JOURNEY */}
-      <section className="course-journey-section">
+        <div className="courses-cta">
 
-        <div className="section-container">
-
-          <div className="section-heading centered">
+          <div>
 
             <span>
-              YOUR JOURNEY
+              NOT SURE WHICH PATH IS RIGHT?
             </span>
 
             <h2>
-              From aspiration to admission.
+              Let's understand your options.
             </h2>
 
           </div>
-
-
-          <div className="course-journey-grid">
-
-            <div className="course-journey-card">
-
-              <strong>01</strong>
-
-              <h3>
-                Explore
-              </h3>
-
-              <p>
-                Understand the medical course and education
-                pathway you are interested in.
-              </p>
-
-            </div>
-
-
-            <div className="course-journey-card">
-
-              <strong>02</strong>
-
-              <h3>
-                Understand
-              </h3>
-
-              <p>
-                Learn about relevant admission requirements,
-                options and important decisions.
-              </p>
-
-            </div>
-
-
-            <div className="course-journey-card">
-
-              <strong>03</strong>
-
-              <h3>
-                Select
-              </h3>
-
-              <p>
-                Review suitable college and admission options
-                according to your circumstances.
-              </p>
-
-            </div>
-
-
-            <div className="course-journey-card">
-
-              <strong>04</strong>
-
-              <h3>
-                Proceed
-              </h3>
-
-              <p>
-                Move forward with counselling and admission
-                assistance.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* CTA */}
-      <section className="public-page-cta">
-
-        <div>
-
-          <span>
-            NOT SURE WHICH PATH IS RIGHT?
-          </span>
-
-          <h2>
-            Let's understand your options.
-          </h2>
-
-          <p>
-            Speak with GyanGuru before making an important
-            medical education decision.
-          </p>
-
-        </div>
-
-        <div className="public-page-cta-actions">
 
           <Link
             to="/contact"
@@ -394,19 +266,13 @@ function Courses() {
             Talk to a Counsellor →
           </Link>
 
-          <Link
-            to="/colleges"
-            className="secondary-button"
-          >
-            Explore Colleges
-          </Link>
-
         </div>
 
       </section>
 
 
       {/* FOOTER */}
+
       <footer className="public-footer">
 
         <div className="footer-inner">
@@ -431,50 +297,24 @@ function Courses() {
 
           <div className="footer-column">
 
-            <h4>
-              Explore
-            </h4>
+            <h4>Explore</h4>
 
-            <Link to="/">
-              Home
-            </Link>
-
-            <Link to="/about">
-              About Us
-            </Link>
-
-            <Link to="/courses">
-              Medical Courses
-            </Link>
-
-            <Link to="/colleges">
-              Colleges
-            </Link>
+            <Link to="/">Home</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/courses">Medical Courses</Link>
+            <Link to="/colleges">Colleges</Link>
 
           </div>
 
 
           <div className="footer-column">
 
-            <h4>
-              Support
-            </h4>
+            <h4>Support</h4>
 
-            <Link to="/services">
-              Services
-            </Link>
-
-            <Link to="/reviews">
-              Reviews
-            </Link>
-
-            <Link to="/contact">
-              Contact
-            </Link>
-
-            <Link to="/login">
-              Student Login
-            </Link>
+            <Link to="/services">Services</Link>
+            <Link to="/reviews">Reviews</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/login">Student Login</Link>
 
           </div>
 
@@ -497,7 +337,10 @@ function Courses() {
       </footer>
 
     </div>
+
   );
+
 }
+
 
 export default Courses;

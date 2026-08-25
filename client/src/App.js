@@ -4,19 +4,33 @@ import {
   Route
 } from "react-router-dom";
 
+/* =========================
+   PUBLIC GYANGURU PAGES
+========================= */
+
+import Home from "./pages/public/Home";
+import About from "./pages/public/About";
+import Courses from "./pages/public/Courses";
+import Colleges from "./pages/public/Colleges";
+import Services from "./pages/public/Services";
+import Reviews from "./pages/public/Reviews";
+import Contact from "./pages/public/Contact";
+
+
+/* =========================
+   STUDENT PORTAL
+========================= */
+
 import Login from "./pages/Login";
-
 import Register from "./pages/Register";
-
 import VerifyOtp from "./pages/VerifyOtp";
 
 import Dashboard from "./pages/Dashboard";
 
 import PersonalDetails from "./pages/PersonalDetails";
-
 import EducationalDetails from "./pages/EducationalDetails";
-
 import AddressDetails from "./pages/AddressDetails";
+
 
 function App() {
 
@@ -26,25 +40,60 @@ function App() {
 
       <Routes>
 
-        {/* LOGIN */}
+
+        {/* =====================================
+            PUBLIC WEBSITE
+        ===================================== */}
 
         <Route
           path="/"
-          element={<Login />}
+          element={<Home />}
+        />
+
+        <Route
+          path="/about"
+          element={<About />}
+        />
+
+        <Route
+          path="/courses"
+          element={<Courses />}
+        />
+
+        <Route
+          path="/colleges"
+          element={<Colleges />}
+        />
+
+        <Route
+          path="/services"
+          element={<Services />}
+        />
+
+        <Route
+          path="/reviews"
+          element={<Reviews />}
+        />
+
+        <Route
+          path="/contact"
+          element={<Contact />}
         />
 
 
+        {/* =====================================
+            STUDENT AUTHENTICATION
+        ===================================== */}
 
-        {/* REGISTER */}
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
         <Route
           path="/register"
           element={<Register />}
         />
-
-
-
-        {/* OTP VERIFY */}
 
         <Route
           path="/verify-otp"
@@ -52,8 +101,9 @@ function App() {
         />
 
 
-
-        {/* DASHBOARD */}
+        {/* =====================================
+            STUDENT DASHBOARD
+        ===================================== */}
 
         <Route
           path="/dashboard"
@@ -61,15 +111,14 @@ function App() {
         />
 
 
-
-        {/* PERSONAL DETAILS */}
+        {/* =====================================
+            STUDENT DETAILS
+        ===================================== */}
 
         <Route
           path="/personal-details"
           element={<PersonalDetails />}
         />
-
-        {/* EDUCATIONAL DETAILS */}
 
         <Route
           path="/educational-details"
@@ -81,12 +130,12 @@ function App() {
           element={<AddressDetails />}
         />
 
+
       </Routes>
 
     </BrowserRouter>
 
   );
-
 }
 
 export default App;

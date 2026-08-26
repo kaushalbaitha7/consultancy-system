@@ -27,7 +27,7 @@
 
   grid-template-columns: 0.72fr 1.28fr;
 
-  align-items: center;
+  align-items: start;
 
   gap: 55px;
 
@@ -39,6 +39,8 @@
 
 .hero-content {
   max-width: 680px;
+  padding-top: 60px;
+  box-sizing: border-box;
 }
 
 

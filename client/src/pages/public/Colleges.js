@@ -1,52 +1,94 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../../styles/colleges.css";
 import PublicNavbar from "../../components/PublicNavbar";
 
 
-const colleges = [
+/* =========================================================
+   GYANGURU COLLEGE CATEGORIES
+========================================================= */
+
+const collegeCategories = [
   {
-    name: "Medical College Information",
-    location: "State-wise College Options",
+    id: "ug-state",
+    number: "01",
+    title: "UG Medical Colleges",
+    subtitle: "State-wise",
     description:
-      "Explore medical college information and understand available admission opportunities."
+      "Explore MBBS and other undergraduate medical admission options across states.",
+    tag: "MBBS",
   },
 
   {
-    name: "UG Medical Colleges",
-    location: "MBBS • BDS • BAMS",
+    id: "ug-deemed",
+    number: "02",
+    title: "Deemed Medical Colleges",
+    subtitle: "UG Medical",
     description:
-      "Review undergraduate medical education options and suitable college pathways."
+      "Explore deemed university medical colleges and understand their admission pathways.",
+    tag: "DEEMED",
   },
 
   {
-    name: "Nursing Institutions",
-    location: "Nursing Education",
+    id: "bams",
+    number: "03",
+    title: "BAMS Colleges",
+    subtitle: "Ayurveda",
     description:
-      "Explore institutions offering nursing education and understand admission options."
+      "Explore undergraduate Ayurveda colleges and understand available admission options.",
+    tag: "BAMS",
   },
 
   {
-    name: "PG Medical Colleges",
-    location: "Postgraduate Medical Education",
+    id: "pg",
+    number: "04",
+    title: "PG Medical Colleges",
+    subtitle: "Postgraduate",
     description:
-      "Understand postgraduate medical college options and specialisation pathways."
+      "Explore postgraduate medical education options and specialisation pathways.",
+    tag: "PG",
   },
 
   {
-    name: "College Counselling",
-    location: "Admission Guidance",
+    id: "dental",
+    number: "05",
+    title: "Dental / BDS Colleges",
+    subtitle: "Dental Education",
     description:
-      "Receive guidance while comparing available colleges and making admission decisions."
+      "Explore BDS colleges and understand undergraduate dental admission opportunities.",
+    tag: "BDS",
   },
 
   {
-    name: "Admission Opportunities",
-    location: "Updated Information",
+    id: "bhms",
+    number: "06",
+    title: "BHMS Colleges",
+    subtitle: "Homeopathy",
     description:
-      "Stay informed about relevant medical admission opportunities and processes."
-  }
+      "Explore Homeopathic medical colleges and understand relevant admission options.",
+    tag: "BHMS",
+  },
+
+  {
+    id: "nursing",
+    number: "07",
+    title: "Nursing Institutions",
+    subtitle: "Nursing Education",
+    description:
+      "Explore nursing institutions and understand undergraduate nursing admission pathways.",
+    tag: "NURSING",
+  },
+
+  {
+    id: "catalogue",
+    number: "08",
+    title: "College Catalogue",
+    subtitle: "Updated Information",
+    description:
+      "Access structured college information including courses, locations and admission details.",
+    tag: "CATALOGUE",
+  },
 ];
 
 
@@ -55,15 +97,32 @@ function Colleges() {
   const [search, setSearch] = useState("");
 
 
-  const filteredColleges = colleges.filter((college) => {
+  /* =======================================================
+     SEARCH
+  ======================================================= */
 
-    const text =
-      `${college.name} ${college.location} ${college.description}`
-        .toLowerCase();
+  const filteredCategories = useMemo(() => {
 
-    return text.includes(search.toLowerCase());
+    const query = search.trim().toLowerCase();
 
-  });
+    if (!query) {
+      return collegeCategories;
+    }
+
+    return collegeCategories.filter((college) => {
+
+      const searchableText = `
+        ${college.title}
+        ${college.subtitle}
+        ${college.description}
+        ${college.tag}
+      `.toLowerCase();
+
+      return searchableText.includes(query);
+
+    });
+
+  }, [search]);
 
 
   return (
@@ -73,88 +132,219 @@ function Colleges() {
       <PublicNavbar />
 
 
-      {/* HERO */}
+      {/* =================================================
+          HERO
+      ================================================= */}
 
       <section className="colleges-hero">
 
         <div className="colleges-hero-inner">
 
-          <span>
-            MEDICAL COLLEGES
-          </span>
+          <div className="colleges-eyebrow">
+
+            <span className="eyebrow-dot"></span>
+
+            MEDICAL COLLEGE DIRECTORY
+
+          </div>
+
 
           <h1>
-            Explore your
+
+            Explore medical
+
             <br />
+
             <strong>college options.</strong>
+
           </h1>
 
+
           <p>
-            Understand medical college options and make informed
-            decisions with guidance from GyanGuru Consultancy.
+
+            Discover medical colleges, understand your options and
+            move towards the right admission pathway with guidance
+            from GyanGuru Consultancy.
+
           </p>
+
+
+          {/* =================================================
+              SEARCH
+          ================================================= */}
+
+          <div className="college-search">
+
+            <div className="college-search-icon">
+              ⌕
+            </div>
+
+            <input
+              type="text"
+              value={search}
+              onChange={(event) =>
+                setSearch(event.target.value)
+              }
+              placeholder="Search colleges, courses or categories..."
+              aria-label="Search colleges"
+            />
+
+            {search && (
+
+              <button
+                type="button"
+                className="college-search-clear"
+                onClick={() => setSearch("")}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+
+            )}
+
+            <button
+              type="button"
+              className="college-search-button"
+            >
+              Search
+            </button>
+
+          </div>
+
+
+          <div className="college-search-hints">
+
+            <span>Popular:</span>
+
+            <button
+              type="button"
+              onClick={() => setSearch("MBBS")}
+            >
+              MBBS
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setSearch("BAMS")}
+            >
+              BAMS
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setSearch("BDS")}
+            >
+              BDS
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setSearch("PG")}
+            >
+              PG Medical
+            </button>
+
+          </div>
 
         </div>
 
       </section>
 
 
-      {/* CONTENT */}
+      {/* =================================================
+          MAIN CONTENT
+      ================================================= */}
 
-      <section className="colleges-content">
+      <main className="colleges-content">
 
 
-        {/* SEARCH */}
+        {/* =================================================
+            SECTION HEADER
+        ================================================= */}
 
-        <div className="college-search-box">
+        <div className="college-section-header">
 
-          <input
-            type="text"
-            value={search}
-            onChange={(event) =>
-              setSearch(event.target.value)
-            }
-            placeholder="Search colleges, courses or locations..."
-          />
+          <div>
+
+            <span>
+              EXPLORE BY CATEGORY
+            </span>
+
+            <h2>
+              Find the right college pathway.
+            </h2>
+
+          </div>
+
+
+          <p>
+            Choose a medical education category
+            to begin exploring your options.
+          </p>
 
         </div>
 
 
-        {/* GRID */}
+        {/* =================================================
+            CATEGORY GRID
+        ================================================= */}
 
         <div className="college-grid">
 
-          {filteredColleges.map((college, index) => (
+          {filteredCategories.map((college) => (
 
             <article
               className="college-card"
-              key={college.name}
+              key={college.id}
             >
 
-              <div className="college-card-image">
-                {String(index + 1).padStart(2, "0")}
+              <div className="college-card-top">
+
+                <div className="college-card-number">
+                  {college.number}
+                </div>
+
+                <span className="college-card-tag">
+                  {college.tag}
+                </span>
+
+              </div>
+
+
+              <div className="college-card-icon">
+
+                <span>
+                  ✦
+                </span>
+
               </div>
 
 
               <div className="college-card-body">
 
-                <h3>
-                  {college.name}
-                </h3>
+                <span className="college-card-subtitle">
+                  {college.subtitle}
+                </span>
 
-                <div className="college-location">
-                  {college.location}
-                </div>
+                <h3>
+                  {college.title}
+                </h3>
 
                 <p>
                   {college.description}
                 </p>
 
+
                 <Link
                   to="/contact"
-                  className="college-card-button"
+                  className="college-card-link"
                 >
-                  Ask About This →
+                  Explore Options
+
+                  <span>
+                    →
+                  </span>
+
                 </Link>
 
               </div>
@@ -166,66 +356,156 @@ function Colleges() {
         </div>
 
 
-        {filteredColleges.length === 0 && (
+        {/* =================================================
+            NO RESULTS
+        ================================================= */}
+
+        {filteredCategories.length === 0 && (
 
           <div className="college-no-results">
 
-            No matching college information found.
+            <div className="no-results-icon">
+              ?
+            </div>
+
+            <h3>
+              No matching category found
+            </h3>
+
+            <p>
+              Try searching for MBBS, BAMS, BDS, PG,
+              Nursing or another medical category.
+            </p>
+
+            <button
+              type="button"
+              onClick={() => setSearch("")}
+            >
+              Clear Search
+            </button>
 
           </div>
 
         )}
 
 
-        {/* NOTE */}
+        {/* =================================================
+            IMPORTANT CATALOGUE STRIP
+        ================================================= */}
 
-        <div className="college-note">
+        <section className="college-catalogue">
 
-          <strong>
-            Important:
-          </strong>{" "}
+          <div className="catalogue-icon">
+            ✓
+          </div>
 
-          College availability, eligibility, counselling rules
-          and admission procedures can vary by course, state,
-          authority and admission year. Students should verify
-          applicable information before making final decisions.
+
+          <div className="catalogue-content">
+
+            <span>
+              GYANGURU COLLEGE CATALOGUE
+            </span>
+
+            <h3>
+              Important college information, organised for you.
+            </h3>
+
+            <p>
+              College availability, courses, eligibility,
+              seats, fees and admission information can vary
+              by course, state, authority and admission year.
+            </p>
+
+          </div>
+
+
+          <Link
+            to="/contact"
+            className="catalogue-button"
+          >
+            View Catalogue
+
+            <span>
+              →
+            </span>
+
+          </Link>
+
+        </section>
+
+
+        {/* =================================================
+            INFORMATION NOTE
+        ================================================= */}
+
+        <div className="college-information-note">
+
+          <span className="information-note-icon">
+            i
+          </span>
+
+          <p>
+            <strong>Important:</strong>{" "}
+            College availability, eligibility, counselling
+            rules and admission procedures may vary by
+            course, state, authority and admission year.
+            Students should verify applicable information
+            before making final admission decisions.
+          </p>
 
         </div>
 
 
-        {/* CTA */}
+        {/* =================================================
+            COUNSELLING CTA
+        ================================================= */}
 
-        <div className="college-cta">
+        <section className="college-cta">
 
-          <div>
+          <div className="college-cta-content">
 
             <span>
               NEED HELP SELECTING?
             </span>
 
             <h2>
-              Discuss your college options with us.
+              Not sure which college is right for you?
             </h2>
+
+            <p>
+              Discuss your options with the GyanGuru
+              counselling team and understand your
+              next step with greater clarity.
+            </p>
 
           </div>
 
+
           <Link
             to="/contact"
-            className="primary-button"
+            className="college-cta-button"
           >
-            Talk to a Counsellor →
+            Talk to a Counsellor
+
+            <span>
+              →
+            </span>
+
           </Link>
 
-        </div>
+        </section>
 
-      </section>
+      </main>
 
 
-      {/* FOOTER */}
+      {/* =================================================
+          FOOTER
+      ================================================= */}
 
       <footer className="public-footer">
 
         <div className="footer-inner">
+
 
           <div className="footer-brand">
 
@@ -247,24 +527,50 @@ function Colleges() {
 
           <div className="footer-column">
 
-            <h4>Explore</h4>
+            <h4>
+              Explore
+            </h4>
 
-            <Link to="/">Home</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/courses">Medical Courses</Link>
-            <Link to="/colleges">Colleges</Link>
+            <Link to="/">
+              Home
+            </Link>
+
+            <Link to="/about">
+              About Us
+            </Link>
+
+            <Link to="/courses">
+              Medical Courses
+            </Link>
+
+            <Link to="/colleges">
+              Colleges
+            </Link>
 
           </div>
 
 
           <div className="footer-column">
 
-            <h4>Support</h4>
+            <h4>
+              Support
+            </h4>
 
-            <Link to="/services">Services</Link>
-            <Link to="/reviews">Reviews</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/login">Student Login</Link>
+            <Link to="/services">
+              Services
+            </Link>
+
+            <Link to="/reviews">
+              Reviews
+            </Link>
+
+            <Link to="/contact">
+              Contact
+            </Link>
+
+            <Link to="/login">
+              Student Login
+            </Link>
 
           </div>
 

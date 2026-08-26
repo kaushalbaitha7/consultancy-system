@@ -6,633 +6,702 @@ import PublicNavbar from "../../components/PublicNavbar";
 
 
 /* =========================================================
-   GYANGURU — DEEMED MEDICAL COLLEGES
-   SOURCE: NEET 2026 DEEMED COLLEGES MBBS FEES & PACKAGE
-   TOTAL LISTED RECORDS: 62
+   GYANGURU
+   DEEMED UNIVERSITY MBBS COLLEGES - 2026
+
+   63 colleges
+   14 States / UTs
+
+   Data basis:
+   MCC NEET UG 2026 Round 1 deemed-university MBBS matrix.
 ========================================================= */
 
 const deemedColleges = [
+
+  /* =======================================================
+     ANDHRA PRADESH
+  ======================================================= */
+
   {
-    sn: 1,
-    name: "GITAM Institute of Medical Sciences & Research (GIMSR)",
+    id: "gitam-gimsr",
+    name: "GITAM Institute of Medical Sciences and Research",
     city: "Visakhapatnam",
     state: "Andhra Pradesh",
-    grade: "A+",
-    seats: "150",
-    fee: "₹25,37,000",
+    domain: "gitam.edu",
   },
-  {
-    sn: 2,
-    name: "Hamdard Institute of Medical Sciences (HIMSR)",
-    city: "New Delhi",
-    state: "Delhi",
-    grade: "A+",
-    seats: "150",
-    fee: "₹16,00,000",
-  },
-  {
-    sn: 3,
-    name: "SBKS Medical Institute & Research Centre (Sumandeep)",
-    city: "Vadodara",
-    state: "Gujarat",
-    grade: "A-B",
-    seats: "250",
-    fee: "₹22,75,000",
-  },
-  {
-    sn: 4,
-    name: "Amrita School of Medicine",
-    city: "Faridabad",
-    state: "Haryana",
-    grade: "A++",
-    seats: "150",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 5,
-    name: "MM Institute of Medical Sciences & Research",
-    city: "Ambala",
-    state: "Haryana",
-    grade: "A",
-    seats: "200",
-    fee: "₹18,00,000",
-  },
-  {
-    sn: 6,
-    name: "Manipal Tata Medical College",
-    city: "Jamshedpur",
-    state: "Jharkhand",
-    grade: "A",
-    seats: "150",
-    fee: "₹16,09,000",
-  },
-  {
-    sn: 7,
-    name: "Kasturba Medical College (KMC)",
-    city: "Manipal",
-    state: "Karnataka",
-    grade: "A++",
-    seats: "250",
-    fee: "₹17,80,000",
-  },
-  {
-    sn: 8,
-    name: "Kasturba Medical College (KMC)",
-    city: "Mangalore",
-    state: "Karnataka",
-    grade: "A++",
-    seats: "250",
-    fee: "₹17,80,000",
-  },
-  {
-    sn: 9,
-    name: "JSS Medical College",
-    city: "Mysuru",
-    state: "Karnataka",
-    grade: "A+",
-    seats: "250",
-    fee: "₹21,95,100",
-  },
-  {
-    sn: 10,
-    name: "Jawaharlal Nehru Medical College (JNMC)",
-    city: "Belagavi",
-    state: "Karnataka",
-    grade: "A+",
-    seats: "200",
-    fee: "₹19,20,000",
-  },
-  {
-    sn: 11,
-    name: "BLDE (Deemed University)",
-    city: "Vijayapura",
-    state: "Karnataka",
-    grade: "A",
-    seats: "200",
-    fee: "₹19,00,000",
-  },
-  {
-    sn: 12,
-    name: "Yenepoya Medical College",
-    city: "Mangalore",
-    state: "Karnataka",
-    grade: "A",
-    seats: "250",
-    fee: "₹23,00,000",
-  },
-  {
-    sn: 13,
-    name: "KS Hegde Medical Academy",
-    city: "Mangalore",
-    state: "Karnataka",
-    grade: "A+",
-    seats: "150",
-    fee: "₹17,50,000",
-  },
-  {
-    sn: 14,
-    name: "Sri Siddhartha Medical College",
-    city: "Tumkur",
-    state: "Karnataka",
-    grade: "A+",
-    seats: "200",
-    fee: "₹18,80,000",
-  },
-  {
-    sn: 15,
-    name: "Rajarajeswari Medical College & Hospital",
-    city: "Bengaluru",
-    state: "Karnataka",
-    grade: "A+",
-    seats: "250",
-    fee: "₹24,50,000",
-  },
-  {
-    sn: 16,
-    name: "KLM JGMM Medical College",
-    city: "Hubballi",
-    state: "Karnataka",
-    grade: "A+",
-    seats: "150",
-    fee: "₹19,20,000",
-  },
-  {
-    sn: 17,
-    name: "Amrita School of Medicine",
-    city: "Kochi",
-    state: "Kerala",
-    grade: "A++",
-    seats: "149",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 18,
-    name: "Dr. D. Y. Patil Medical College",
-    city: "Pune",
-    state: "Maharashtra",
-    grade: "A++",
-    seats: "250",
-    fee: "₹29,00,000",
-  },
-  {
-    sn: 19,
-    name: "Dr. D. Y. Patil Medical College",
-    city: "Navi Mumbai",
-    state: "Maharashtra",
-    grade: "A++",
-    seats: "250",
-    fee: "₹28,00,000",
-  },
-  {
-    sn: 20,
-    name: "Bharati Vidyapeeth Medical College",
-    city: "Pune",
-    state: "Maharashtra",
-    grade: "A+",
-    seats: "150",
-    fee: "₹28,55,600",
-  },
-  {
-    sn: 21,
-    name: "MGM Medical College",
-    city: "Navi Mumbai",
-    state: "Maharashtra",
-    grade: "A",
-    seats: "250",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 22,
-    name: "Krishna Institute of Medical Sciences",
-    city: "Karad",
-    state: "Maharashtra",
-    grade: "A+",
-    seats: "250",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 23,
-    name: "Datta Meghe Medical College",
-    city: "Wanadongri, Nagpur",
-    state: "Maharashtra",
-    grade: "A++",
-    seats: "250",
-    fee: "₹26,00,000",
-  },
-  {
-    sn: 24,
-    name: "Kalinga Institute of Medical Sciences (KIMS)",
-    city: "Bhubaneswar",
-    state: "Odisha",
-    grade: "A+",
-    seats: "250",
-    fee: "₹22,50,000",
-  },
-  {
-    sn: 25,
-    name: "IMS & SUM Hospital",
-    city: "Bhubaneswar",
-    state: "Odisha",
-    grade: "A++",
-    seats: "250",
-    fee: "₹22,95,000",
-  },
-  {
-    sn: 26,
-    name: "Mahatma Gandhi Medical College & Research Institute",
-    city: "Puducherry",
-    state: "Puducherry",
-    grade: "A",
-    seats: "150",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 27,
-    name: "Aarupadai Veedu Medical College",
-    city: "Puducherry",
-    state: "Puducherry",
-    grade: "A",
-    seats: "150",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 28,
-    name: "Sri Ramachandra Medical College",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    grade: "A++",
-    seats: "250",
-    fee: "₹35,00,000",
-  },
-  {
-    sn: 29,
-    name: "SRM Medical College Hospital",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    grade: "A++",
-    seats: "250",
-    fee: "₹31,50,000",
-  },
-  {
-    sn: 30,
-    name: "Saveetha Medical College",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    grade: "A++",
-    seats: "250",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 31,
-    name: "Chettinad Hospital & Research Institute",
-    city: "Kelambakkam",
-    state: "Tamil Nadu",
-    grade: "A",
-    seats: "250",
-    fee: "₹30,00,000",
-  },
-  {
-    sn: 32,
-    name: "Sree Balaji Medical College",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    grade: "A",
-    seats: "250",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 33,
-    name: "ACS Medical College and Hospital",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    grade: "A",
-    seats: "250",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 34,
-    name: "Santosh Medical College",
-    city: "Ghaziabad",
-    state: "Uttar Pradesh",
-    grade: "A",
-    seats: "150",
-    fee: "₹24,00,000",
-  },
-  {
-    sn: 35,
-    name: "Graphic Era Institute of Medical Sciences",
-    city: "Dehradun",
-    state: "Uttarakhand",
-    grade: "A",
-    seats: "150",
-    fee: "₹24,50,000",
-  },
-  {
-    sn: 36,
-    name: "Sri Devaraj Urs Medical College",
-    city: "Kolar",
-    state: "Karnataka",
-    grade: "A",
-    seats: "150",
-    fee: "₹20,20,000",
-  },
-  {
-    sn: 37,
-    name: "Sri Siddhartha Institute of Medical Sciences",
-    city: "Bengaluru",
-    state: "Karnataka",
-    grade: "A+",
-    seats: "150",
-    fee: "₹18,10,000",
-  },
-  {
-    sn: 38,
-    name: "Symbiosis Medical College for Women",
-    city: "Pune",
-    state: "Maharashtra",
-    grade: "A++",
-    seats: "150",
-    fee: "₹10,00,000",
-  },
-  {
-    sn: 39,
-    name: "Rural Medical College (PIMS)",
-    city: "Loni",
-    state: "Maharashtra",
-    grade: "A",
-    seats: "200",
-    fee: "₹19,00,000",
-  },
-  {
-    sn: 40,
-    name: "MGM Medical College",
-    city: "Sambhajinagar",
-    state: "Maharashtra",
-    grade: "A++",
-    seats: "200",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 41,
-    name: "Jawaharlal Nehru Medical College",
-    city: "Wardha",
-    state: "Maharashtra",
-    grade: "A+",
-    seats: "250",
-    fee: "₹27,00,000",
-  },
-  {
-    sn: 42,
-    name: "Dr. D. Y. Patil Medical College",
-    city: "Kolhapur",
-    state: "Maharashtra",
-    grade: "A++",
-    seats: "150",
-    fee: "₹24,10,000",
-  },
-  {
-    sn: 43,
-    name: "Bharati Vidyapeeth Medical College",
-    city: "Sangli",
-    state: "Maharashtra",
-    grade: "A+",
-    seats: "150",
-    fee: "₹25,52,550",
-  },
-  {
-    sn: 44,
-    name: "Sri Lakshmi Narayana Institute of Medical Sciences",
-    city: "Puducherry",
-    state: "Puducherry",
-    grade: "B",
-    seats: "250",
-    fee: "₹26,00,000",
-  },
-  {
-    sn: 45,
-    name: "Vinayaka Mission's Kirupananda Variyar Medical College",
-    city: "Salem",
-    state: "Tamil Nadu",
-    grade: "B",
-    seats: "200",
-    fee: "₹22,50,000",
-  },
-  {
-    sn: 46,
-    name: "Vinayaka Missions Medical College",
-    city: "Karaikal",
-    state: "Puducherry",
-    grade: "A",
-    seats: "200",
-    fee: "₹22,50,000",
-  },
-  {
-    sn: 47,
-    name: "Meenakshi Medical College",
-    city: "Kanchipuram",
-    state: "Tamil Nadu",
-    grade: "B",
-    seats: "250",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 48,
-    name: "Sri Lalithambigai Medical College",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    grade: "B",
-    seats: "200",
-    fee: "₹23,00,000",
-  },
-  {
-    sn: 49,
-    name: "Shri Sathya Sai Medical College",
-    city: "Chengalpattu",
-    state: "Tamil Nadu",
-    grade: "B",
-    seats: "250",
-    fee: "₹22,00,000",
-  },
-  {
-    sn: 50,
-    name: "SRM Medical College (Trichy Campus)",
-    city: "Trichy",
-    state: "Tamil Nadu",
-    grade: "A++",
-    seats: "150",
-    fee: "₹13,50,000",
-  },
-  {
-    sn: 51,
-    name: "Bhaarath Medical College",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    grade: "B",
-    seats: "250",
-    fee: "₹30,00,000",
-  },
-  {
-    sn: 52,
-    name: "Vels Medical College & Hospital",
-    city: "Thiruvallur",
-    state: "Tamil Nadu",
-    grade: "B",
-    seats: "250",
-    fee: "₹30,00,000",
-  },
-  {
-    sn: 53,
-    name: "Dhanalakshmi Srinivasan Medical College",
-    city: "Perambalur",
-    state: "Tamil Nadu",
-    grade: "A",
-    seats: "250",
-    fee: "₹15,00,000 (Mgmt)",
-  },
-  {
-    sn: 54,
-    name: "Veltech Multispeciality Medical College",
-    city: "Avadi",
-    state: "Tamil Nadu",
-    grade: "B",
-    seats: "150",
-    fee: "₹22,00,000",
-  },
-  {
-    sn: 55,
-    name: "Sri Venkateshwaraa Medical College",
-    city: "Puducherry",
-    state: "Puducherry",
-    grade: "B",
-    seats: "250",
-    fee: "₹16,80,000",
-  },
-  {
-    sn: 56,
-    name: "MM College of Medical Sciences",
-    city: "Solan",
-    state: "Himachal Pradesh",
-    grade: "A",
-    seats: "150",
-    fee: "₹15,97,200",
-  },
-  {
-    sn: 57,
-    name: "IMS & SUM Hospital (Campus 2)",
-    city: "Bhubaneswar",
-    state: "Odisha",
-    grade: "A++",
-    seats: "250",
-    fee: "₹17,95,000",
-  },
-  {
-    sn: 58,
-    name: "MGM Medical College",
-    city: "Vashi / Navi Mumbai",
-    state: "Maharashtra",
-    grade: "A++",
-    seats: "100",
-    fee: "₹25,00,000",
-  },
-  {
-    sn: 59,
-    name: "Dhanalakshmi Srinivasan Medical College",
-    city: "Perambalur",
-    state: "Tamil Nadu",
-    grade: "B++",
-    seats: "250",
-    fee: "₹27,00,000",
-  },
-  {
-    sn: 60,
-    name: "Chettinad Institute of Medical Education & Research (CIMER)",
-    city: "KGF",
-    state: "Karnataka",
-    grade: "A++ (CARE / NAAC)",
-    seats: "100",
-    fee: "₹22,22,222",
-  },
-  {
-    sn: 61,
-    name: "Sri Nivasan Medical College",
-    city: "Trichy",
-    state: "Tamil Nadu",
-    grade: "Not specified",
-    seats: "250",
-    fee: "₹16,20,000",
-  },
-  {
-    sn: 62,
-    name: "St. Peter's Medical College",
-    city: "Krishnagiri",
-    state: "Tamil Nadu",
-    grade: "Not specified",
-    seats: "Not specified",
-    fee: "Not specified",
-  },
-];
-
-
-/* =========================================================
-   STATE LIST
-========================================================= */
-
-const states = [
-  "All States",
-  ...Array.from(
-    new Set(deemedColleges.map((college) => college.state))
-  ).sort(),
-];
-
-
-/* =========================================================
-   COMPONENT
-========================================================= */
-
-function DeemedColleges() {
-  const [search, setSearch] = useState("");
-  const [selectedState, setSelectedState] =
-    useState("All States");
 
 
   /* =======================================================
-     SEARCH + STATE FILTER
+     DELHI
+  ======================================================= */
+
+  {
+    id: "himssr-delhi",
+    name: "Hamdard Institute of Medical Sciences & Research",
+    city: "New Delhi",
+    state: "Delhi",
+    domain: "himsr.co.in",
+  },
+
+
+  /* =======================================================
+     GUJARAT
+  ======================================================= */
+
+  {
+    id: "sbks-vadodara",
+    name: "SBKS Medical Institute & Research Centre",
+    city: "Vadodara",
+    state: "Gujarat",
+    domain: "sumandeepuniversity.co.in",
+  },
+
+
+  /* =======================================================
+     HARYANA
+  ======================================================= */
+
+  {
+    id: "mmimsr-mullana",
+    name: "Maharishi Markandeshwar Institute of Medical Sciences & Research",
+    city: "Mullana, Ambala",
+    state: "Haryana",
+    domain: "mmimsr.edu.in",
+  },
+
+  {
+    id: "amrita-faridabad",
+    name: "Amrita School of Medicine",
+    city: "Faridabad",
+    state: "Haryana",
+    domain: "amrita.edu",
+  },
+
+
+  /* =======================================================
+     JHARKHAND
+  ======================================================= */
+
+  {
+    id: "manipal-tata-jamshedpur",
+    name: "Manipal Tata Medical College",
+    city: "Jamshedpur",
+    state: "Jharkhand",
+    domain: "manipal.edu",
+  },
+
+
+  /* =======================================================
+     KARNATAKA
+  ======================================================= */
+
+  {
+    id: "jnmc-belagavi",
+    name: "Jawaharlal Nehru Medical College",
+    city: "Belagavi",
+    state: "Karnataka",
+    domain: "kledeemeduniversity.edu.in",
+  },
+
+  {
+    id: "jss-mysuru",
+    name: "JSS Medical College",
+    city: "Mysuru",
+    state: "Karnataka",
+    domain: "jssuni.edu.in",
+  },
+
+  {
+    id: "ks-hegde",
+    name: "K.S. Hegde Medical Academy",
+    city: "Mangaluru",
+    state: "Karnataka",
+    domain: "nitte.edu.in",
+  },
+
+  {
+    id: "kmc-mangalore",
+    name: "Kasturba Medical College",
+    city: "Mangaluru",
+    state: "Karnataka",
+    domain: "manipal.edu",
+  },
+
+  {
+    id: "kmc-manipal",
+    name: "Kasturba Medical College",
+    city: "Manipal",
+    state: "Karnataka",
+    domain: "manipal.edu",
+  },
+
+  {
+    id: "bm-patil-vijayapura",
+    name: "Shri B.M. Patil Medical College, Hospital & Research Centre",
+    city: "Vijayapura",
+    state: "Karnataka",
+    domain: "bldedu.ac.in",
+  },
+
+  {
+    id: "sdu-kolar",
+    name: "Sri Devaraj Urs Medical College",
+    city: "Kolar",
+    state: "Karnataka",
+    domain: "sdumc.ac.in",
+  },
+
+  {
+    id: "sri-siddhartha-tumkur",
+    name: "Sri Siddhartha Medical College",
+    city: "Tumakuru",
+    state: "Karnataka",
+    domain: "ssahe.edu.in",
+  },
+
+  {
+    id: "yenepoya-mangalore",
+    name: "Yenepoya Medical College",
+    city: "Mangaluru",
+    state: "Karnataka",
+    domain: "yenepoya.edu.in",
+  },
+
+  {
+    id: "rrmch-bangalore",
+    name: "RajaRajeswari Medical College & Hospital",
+    city: "Bengaluru",
+    state: "Karnataka",
+    domain: "rrmch.org",
+  },
+
+  {
+    id: "ssims-begur",
+    name: "Sri Siddhartha Institute of Medical Sciences & Research Centre",
+    city: "Bengaluru",
+    state: "Karnataka",
+    domain: "ssahe.edu.in",
+  },
+
+  {
+    id: "jgmmm-hubballi",
+    name: "Jagadguru Gangadhar Mahaswamigalu Moorusavirmath Medical College",
+    city: "Hubballi",
+    state: "Karnataka",
+    domain: "kledeemeduniversity.edu.in",
+  },
+
+  {
+    id: "chettinad-kolar",
+    name: "Chettinad Institute of Medical Education and Research",
+    city: "Kolar Gold Fields",
+    state: "Karnataka",
+    domain: "care.edu.in",
+  },
+
+
+  /* =======================================================
+     KERALA
+  ======================================================= */
+
+  {
+    id: "amrita-kochi",
+    name: "Amrita School of Medicine",
+    city: "Kochi",
+    state: "Kerala",
+    domain: "amrita.edu",
+  },
+
+
+  /* =======================================================
+     MAHARASHTRA
+  ======================================================= */
+
+  {
+    id: "bvdu-sangli",
+    name: "Bharati Vidyapeeth Deemed University Medical College & Hospital",
+    city: "Sangli",
+    state: "Maharashtra",
+    domain: "bvdu.ac.in",
+  },
+
+  {
+    id: "bvdu-pune",
+    name: "Bharati Vidyapeeth University Medical College",
+    city: "Pune",
+    state: "Maharashtra",
+    domain: "bvdu.ac.in",
+  },
+
+  {
+    id: "dy-patil-pimpri",
+    name: "Dr. D.Y. Patil Medical College, Hospital & Research Centre",
+    city: "Pimpri, Pune",
+    state: "Maharashtra",
+    domain: "dpu.edu.in",
+  },
+
+  {
+    id: "dy-patil-kolhapur",
+    name: "Dr. D.Y. Patil Medical College",
+    city: "Kolhapur",
+    state: "Maharashtra",
+    domain: "dypatilunikop.org",
+  },
+
+  {
+    id: "jnmc-wardha",
+    name: "Jawaharlal Nehru Medical College, Sawangi (Meghe)",
+    city: "Wardha",
+    state: "Maharashtra",
+    domain: "dmiher.edu.in",
+  },
+
+  {
+    id: "krishna-karad",
+    name: "Krishna Institute of Medical Sciences",
+    city: "Karad",
+    state: "Maharashtra",
+    domain: "kvv.edu.in",
+  },
+
+  {
+    id: "mgm-aurangabad",
+    name: "Mahatma Gandhi Missions Medical College",
+    city: "Chhatrapati Sambhajinagar",
+    state: "Maharashtra",
+    domain: "mgmmcha.org",
+  },
+
+  {
+    id: "mgm-navi-mumbai",
+    name: "Mahatma Gandhi Missions Medical College",
+    city: "Navi Mumbai",
+    state: "Maharashtra",
+    domain: "mgmmcnm.edu.in",
+  },
+
+  {
+    id: "rural-medical-loni",
+    name: "Rural Medical College",
+    city: "Loni",
+    state: "Maharashtra",
+    domain: "pims.ac.in",
+  },
+
+  {
+    id: "datta-meghe-nagpur",
+    name: "Datta Meghe Medical College",
+    city: "Nagpur",
+    state: "Maharashtra",
+    domain: "dmiher.edu.in",
+  },
+
+  {
+    id: "symbiosis-smcw",
+    name: "Symbiosis Medical College for Women",
+    city: "Pune",
+    state: "Maharashtra",
+    domain: "siu.edu.in",
+  },
+
+  {
+    id: "mgm-vashi",
+    name: "MGM Medical College",
+    city: "Vashi, Navi Mumbai",
+    state: "Maharashtra",
+    domain: "mgmmcvashi.edu.in",
+  },
+
+  {
+    id: "mgm-nerul",
+    name: "MGM Medical College",
+    city: "Nerul, Navi Mumbai",
+    state: "Maharashtra",
+    domain: "mgmmcnm.edu.in",
+  },
+
+  {
+    id: "dypatil-maval",
+    name: "D.Y. Patil University, School of Medicine",
+    city: "Maval, Pune",
+    state: "Maharashtra",
+    domain: "dpu.edu.in",
+  },
+
+  {
+    id: "mgm-panvel",
+    name: "MGM Medical College",
+    city: "Panvel",
+    state: "Maharashtra",
+    domain: "mgmmcpanvel.in",
+  },
+
+  {
+    id: "dypatil-nerul",
+    name: "Padmashree Dr. D.Y. Patil Medical College",
+    city: "Nerul, Navi Mumbai",
+    state: "Maharashtra",
+    domain: "dypatil.edu",
+  },
+
+
+  /* =======================================================
+     ODISHA
+  ======================================================= */
+
+  {
+    id: "ims-sum-bhubaneswar",
+    name: "Institute of Medical Sciences & SUM Hospital",
+    city: "Bhubaneswar",
+    state: "Odisha",
+    domain: "soa.ac.in",
+  },
+
+  {
+    id: "kims-bhubaneswar",
+    name: "Kalinga Institute of Medical Sciences",
+    city: "Bhubaneswar",
+    state: "Odisha",
+    domain: "kiit.ac.in",
+  },
+
+  {
+    id: "ims-sum-campus-2",
+    name: "Institute of Medical Sciences & SUM Hospital, Campus-II",
+    city: "Phulnakhara, Bhubaneswar",
+    state: "Odisha",
+    domain: "soa.ac.in",
+  },
+
+
+  /* =======================================================
+     PUDUCHERRY
+  ======================================================= */
+
+  {
+    id: "avmc-puducherry",
+    name: "Aarupadai Veedu Medical College",
+    city: "Puducherry",
+    state: "Puducherry",
+    domain: "avmc.edu.in",
+  },
+
+  {
+    id: "mgmcri-puducherry",
+    name: "Mahatma Gandhi Medical College & Research Institute",
+    city: "Puducherry",
+    state: "Puducherry",
+    domain: "mgmcri.ac.in",
+  },
+
+  {
+    id: "slims-puducherry",
+    name: "Sri Lakshmi Narayana Institute of Medical Sciences",
+    city: "Puducherry",
+    state: "Puducherry",
+    domain: "slims.ac.in",
+  },
+
+  {
+    id: "vmmc-karaikal",
+    name: "Vinayaka Missions Medical College",
+    city: "Karaikal",
+    state: "Puducherry",
+    domain: "vmrfdu.edu.in",
+  },
+
+
+  /* =======================================================
+     TAMIL NADU
+  ======================================================= */
+
+  {
+    id: "acs-chennai",
+    name: "ACS Medical College and Hospital",
+    city: "Chennai",
+    state: "Tamil Nadu",
+    domain: "acsmch.ac.in",
+  },
+
+  {
+    id: "chettinad-kanchipuram",
+    name: "Chettinad Hospital & Research Institute",
+    city: "Kanchipuram",
+    state: "Tamil Nadu",
+    domain: "care.edu.in",
+  },
+
+  {
+    id: "meenakshi-kanchipuram",
+    name: "Meenakshi Medical College & Research Institute",
+    city: "Kanchipuram",
+    state: "Tamil Nadu",
+    domain: "mmchri.ac.in",
+  },
+
+  {
+    id: "saveetha-chennai",
+    name: "Saveetha Medical College & Hospital",
+    city: "Chennai",
+    state: "Tamil Nadu",
+    domain: "saveetha.com",
+  },
+
+  {
+    id: "sathya-sai-kanchipuram",
+    name: "Shri Sathya Sai Medical College & Research Institute",
+    city: "Kanchipuram",
+    state: "Tamil Nadu",
+    domain: "sbv.edu.in",
+  },
+
+  {
+    id: "sree-balaji-chennai",
+    name: "Sree Balaji Medical College & Hospital",
+    city: "Chennai",
+    state: "Tamil Nadu",
+    domain: "bharatuniv.ac.in",
+  },
+
+  {
+    id: "sri-ramachandra-chennai",
+    name: "Sri Ramachandra Medical College & Research Institute",
+    city: "Chennai",
+    state: "Tamil Nadu",
+    domain: "sriramachandra.edu.in",
+  },
+
+  {
+    id: "srm-kanchipuram",
+    name: "SRM Medical College Hospital & Research Centre",
+    city: "Kattankulathur",
+    state: "Tamil Nadu",
+    domain: "srmist.edu.in",
+  },
+
+  {
+    id: "vmkv-salem",
+    name: "Vinayaka Missions Kirupananda Variyar Medical College",
+    city: "Salem",
+    state: "Tamil Nadu",
+    domain: "vmrfdu.edu.in",
+  },
+
+  {
+    id: "bhaarath-chennai",
+    name: "Bhaarath Medical College & Hospital",
+    city: "Chennai",
+    state: "Tamil Nadu",
+    domain: "bharatuniv.ac.in",
+  },
+
+  {
+    id: "vels-chennai",
+    name: "VELS Medical College & Hospital",
+    city: "Tiruvallur",
+    state: "Tamil Nadu",
+    domain: "velsuniv.ac.in",
+  },
+
+  {
+    id: "lalithambigai-chennai",
+    name: "Sri Lalithambigai Medical College & Hospital",
+    city: "Chennai",
+    state: "Tamil Nadu",
+    domain: "drmgrdu.ac.in",
+  },
+
+  {
+    id: "jr-medical-villupuram",
+    name: "J.R. Medical College & Hospital",
+    city: "Villupuram",
+    state: "Tamil Nadu",
+    domain: "jrmedicalcollege.com",
+  },
+
+  {
+    id: "dhanalakshmi-perambalur",
+    name: "Dhanalakshmi Srinivasan Institute of Medical Sciences & Hospital",
+    city: "Perambalur",
+    state: "Tamil Nadu",
+    domain: "dsgroup.org",
+  },
+
+  {
+    id: "st-peters-hosur",
+    name: "St. Peter's Medical College, Hospital & Research Institute",
+    city: "Hosur",
+    state: "Tamil Nadu",
+    domain: "stpetersmedicalcollege.com",
+  },
+
+  {
+    id: "srinivasan-trichy",
+    name: "Srinivasan Medical College & Hospital",
+    city: "Tiruchirappalli",
+    state: "Tamil Nadu",
+    domain: "srinivasanmedicalcollege.com",
+  },
+
+
+  /* =======================================================
+     TELANGANA
+  ======================================================= */
+
+  {
+    id: "malla-reddy-women",
+    name: "Malla Reddy Medical College for Women",
+    city: "Hyderabad",
+    state: "Telangana",
+    domain: "mrims.edu.in",
+  },
+
+  {
+    id: "malla-reddy-institute",
+    name: "Malla Reddy Institute of Medical Sciences",
+    city: "Hyderabad",
+    state: "Telangana",
+    domain: "mrims.edu.in",
+  },
+
+
+  /* =======================================================
+     UTTAR PRADESH
+  ======================================================= */
+
+  {
+    id: "santosh-ghaziabad",
+    name: "Santosh Medical College",
+    city: "Ghaziabad",
+    state: "Uttar Pradesh",
+    domain: "santosh.ac.in",
+  },
+
+
+  /* =======================================================
+     UTTARAKHAND
+  ======================================================= */
+
+  {
+    id: "graphic-era-dehradun",
+    name: "Graphic Era Institute of Medical Sciences",
+    city: "Dehradun",
+    state: "Uttarakhand",
+    domain: "geims.geu.ac.in",
+  },
+
+];
+
+
+function makeSlug(college) {
+  return college.id;
+}
+
+
+function getLogoUrl(domain) {
+
+  if (!domain) {
+    return null;
+  }
+
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+}
+
+
+function getInitials(name) {
+
+  const words = name
+    .replace(/[^a-zA-Z0-9 ]/g, "")
+    .split(" ")
+    .filter(Boolean);
+
+  if (words.length === 1) {
+    return words[0].substring(0, 2).toUpperCase();
+  }
+
+  return (
+    words[0][0] +
+    words[1][0]
+  ).toUpperCase();
+
+}
+
+
+function DeemedColleges() {
+
+  const [search, setSearch] = useState("");
+  const [stateFilter, setStateFilter] = useState("All");
+
+
+  /* =======================================================
+     STATES
+  ======================================================= */
+
+  const states = useMemo(() => {
+
+    return [
+      "All",
+      ...Array.from(
+        new Set(
+          deemedColleges.map(
+            (college) => college.state
+          )
+        )
+      ).sort()
+    ];
+
+  }, []);
+
+
+  /* =======================================================
+     FILTER
   ======================================================= */
 
   const filteredColleges = useMemo(() => {
-    const query = search.trim().toLowerCase();
 
-    return deemedColleges.filter((college) => {
-      const matchesSearch =
-        !query ||
-        `
-          ${college.name}
-          ${college.city}
-          ${college.state}
-          ${college.grade}
-          ${college.seats}
-          ${college.fee}
-        `
-          .toLowerCase()
-          .includes(query);
+    const query = search
+      .trim()
+      .toLowerCase();
 
-      const matchesState =
-        selectedState === "All States" ||
-        college.state === selectedState;
 
-      return matchesSearch && matchesState;
-    });
-  }, [search, selectedState]);
+    return deemedColleges.filter(
+      (college) => {
+
+        const matchesSearch =
+          !query ||
+          `${college.name}
+           ${college.city}
+           ${college.state}`
+            .toLowerCase()
+            .includes(query);
+
+
+        const matchesState =
+          stateFilter === "All" ||
+          college.state === stateFilter;
+
+
+        return (
+          matchesSearch &&
+          matchesState
+        );
+
+      }
+    );
+
+  }, [search, stateFilter]);
 
 
   return (
+
     <div className="deemed-page">
 
       <PublicNavbar />
 
 
       {/* =================================================
-          PAGE HERO
+          HERO
       ================================================= */}
 
       <section className="deemed-hero">
@@ -640,34 +709,113 @@ function DeemedColleges() {
         <div className="deemed-hero-inner">
 
           <div className="deemed-eyebrow">
+
             <span className="deemed-eyebrow-dot"></span>
 
-            DEEMED MEDICAL COLLEGES
+            GYANGURU MEDICAL COLLEGE DIRECTORY
 
           </div>
 
 
           <h1>
-            Explore deemed
+
+            Deemed Colleges of
+
             <br />
-            <strong>medical colleges.</strong>
+
+            <strong>UG Medical.</strong>
+
           </h1>
 
 
           <p>
-            Compare deemed medical colleges with important
-            admission information including grade, available
-            seats and indicative annual MBBS fee.
+
+            Explore deemed-university medical colleges
+            participating in NEET UG counselling and
+            discover your MBBS admission options.
+
           </p>
 
 
-          {/* =================================================
-              SEARCH
-          ================================================= */}
+          <div className="deemed-hero-stats">
+
+            <div>
+              <strong>63</strong>
+              <span>Colleges</span>
+            </div>
+
+            <div>
+              <strong>14</strong>
+              <span>States / UTs</span>
+            </div>
+
+            <div>
+              <strong>MBBS</strong>
+              <span>UG Medical</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =================================================
+          DIRECTORY
+      ================================================= */}
+
+      <main className="deemed-content">
+
+
+        {/* =================================================
+            DIRECTORY HEADER
+        ================================================= */}
+
+        <section className="deemed-directory-header">
+
+          <div>
+
+            <span>
+              DEEMED UNIVERSITY DIRECTORY
+            </span>
+
+            <h2>
+              Explore all deemed medical colleges.
+            </h2>
+
+            <p>
+              Select a college to open its dedicated
+              GyanGuru information page.
+            </p>
+
+          </div>
+
+
+          <div className="deemed-count">
+
+            Showing
+
+            <strong>
+              {filteredColleges.length}
+            </strong>
+
+            of 63
+
+          </div>
+
+        </section>
+
+
+        {/* =================================================
+            SEARCH + FILTER
+        ================================================= */}
+
+        <section className="deemed-controls">
 
           <div className="deemed-search">
 
-            <span className="deemed-search-icon">
+            <span>
               ⌕
             </span>
 
@@ -677,249 +825,178 @@ function DeemedColleges() {
               onChange={(event) =>
                 setSearch(event.target.value)
               }
-              placeholder="Search college, city, state..."
-              aria-label="Search deemed medical colleges"
+              placeholder="Search college, city or state..."
             />
 
             {search && (
+
               <button
                 type="button"
-                className="deemed-clear"
                 onClick={() => setSearch("")}
-                aria-label="Clear search"
               >
                 ×
               </button>
+
             )}
 
-            <button
-              type="button"
-              className="deemed-search-button"
-            >
-              Search
-            </button>
-
           </div>
 
 
-          {/* =================================================
-              FILTERS
-          ================================================= */}
+          <select
+            value={stateFilter}
+            onChange={(event) =>
+              setStateFilter(event.target.value)
+            }
+            className="deemed-state-filter"
+          >
 
-          <div className="deemed-filter-row">
+            {states.map((state) => (
 
-            <div className="deemed-filter">
-
-              <label htmlFor="state-filter">
-                State
-              </label>
-
-              <select
-                id="state-filter"
-                value={selectedState}
-                onChange={(event) =>
-                  setSelectedState(event.target.value)
-                }
+              <option
+                key={state}
+                value={state}
               >
-                {states.map((state) => (
-                  <option
-                    key={state}
-                    value={state}
-                  >
-                    {state}
-                  </option>
-                ))}
-              </select>
+                {state === "All"
+                  ? "All States / UTs"
+                  : state}
+              </option>
 
-            </div>
+            ))}
 
+          </select>
 
-            <div className="deemed-result-count">
-
-              <strong>
-                {filteredColleges.length}
-              </strong>
-
-              <span>
-                colleges found
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =================================================
-          COLLEGE DIRECTORY
-      ================================================= */}
-
-      <main className="deemed-directory">
-
-        <div className="deemed-directory-header">
-
-          <div>
-
-            <span>
-              2026 MBBS DIRECTORY
-            </span>
-
-            <h2>
-              Deemed Medical Colleges
-            </h2>
-
-            <p>
-              College information for admission planning
-              and counselling guidance.
-            </p>
-
-          </div>
-
-
-          <div className="deemed-total">
-
-            <strong>
-              {deemedColleges.length}
-            </strong>
-
-            <span>
-              Listed Records
-            </span>
-
-          </div>
-
-        </div>
+        </section>
 
 
         {/* =================================================
-            CARDS
+            COLLEGE GRID
         ================================================= */}
 
-        {filteredColleges.length > 0 ? (
+        <section className="deemed-grid">
 
-          <div className="deemed-college-grid">
+          {filteredColleges.map(
+            (college, index) => (
 
-            {filteredColleges.map((college) => (
-
-              <article
-                className="deemed-college-card"
-                key={`${college.sn}-${college.name}-${college.city}`}
+              <Link
+                key={college.id}
+                to={`/colleges/deemed/${makeSlug(college)}`}
+                className="deemed-card"
               >
-
-                {/* CARD TOP */}
 
                 <div className="deemed-card-top">
 
-                  <div className="deemed-card-logo">
+                  <span className="deemed-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-                    <img
-                      src="/logo.png"
-                      alt="GyanGuru"
-                    />
-
-                  </div>
-
-
-                  <span className="deemed-card-number">
-                    {String(college.sn).padStart(2, "0")}
+                  <span className="deemed-badge">
+                    DEEMED
                   </span>
 
                 </div>
 
 
-                {/* COLLEGE NAME */}
+                {/* =================================================
+                    LOGO
+                ================================================= */}
 
-                <div className="deemed-card-heading">
+                <div className="deemed-logo-wrap">
+
+                  <img
+                    src={getLogoUrl(college.domain)}
+                    alt={`${college.name} official logo`}
+                    className="deemed-logo"
+                    loading="lazy"
+                    onError={(event) => {
+
+                      event.currentTarget.style.display =
+                        "none";
+
+                      const fallback =
+                        event.currentTarget
+                          .nextElementSibling;
+
+                      if (fallback) {
+                        fallback.style.display =
+                          "flex";
+                      }
+
+                    }}
+                  />
+
+
+                  <div className="deemed-logo-fallback">
+
+                    {getInitials(college.name)}
+
+                  </div>
+
+                </div>
+
+
+                {/* =================================================
+                    CARD BODY
+                ================================================= */}
+
+                <div className="deemed-card-body">
+
+                  <span className="deemed-course">
+                    UG MEDICAL • MBBS
+                  </span>
+
 
                   <h3>
                     {college.name}
                   </h3>
 
-                  <p>
+
+                  <div className="deemed-location">
+
+                    <span>
+                      ●
+                    </span>
+
                     {college.city}, {college.state}
-                  </p>
-
-                </div>
-
-
-                {/* DETAILS */}
-
-                <div className="deemed-card-details">
-
-                  <div className="deemed-detail">
-
-                    <span>
-                      GRADE
-                    </span>
-
-                    <strong className="grade-value">
-                      {college.grade}
-                    </strong>
 
                   </div>
 
 
-                  <div className="deemed-detail">
+                  <div className="deemed-card-footer">
 
                     <span>
-                      SEATS
+                      View College
                     </span>
 
-                    <strong>
-                      {college.seats}
-                    </strong>
-
-                  </div>
-
-
-                  <div className="deemed-detail deemed-fee">
-
-                    <span>
-                      FEE / YEAR
+                    <span className="deemed-arrow">
+                      →
                     </span>
-
-                    <strong>
-                      {college.fee}
-                    </strong>
 
                   </div>
 
                 </div>
 
+              </Link>
 
-                {/* CARD FOOTER */}
+            )
+          )}
 
-                <div className="deemed-card-footer">
+        </section>
 
-                  <span>
-                    MBBS · DEEMED
-                  </span>
 
-                  <Link to="/contact">
-                    Get Guidance →
-                  </Link>
+        {/* =================================================
+            NO RESULTS
+        ================================================= */}
 
-                </div>
-
-              </article>
-
-            ))}
-
-          </div>
-
-        ) : (
+        {filteredColleges.length === 0 && (
 
           <div className="deemed-no-results">
 
-            <div className="deemed-no-results-icon">
-              G
+            <div>
+              ?
             </div>
 
             <h3>
-              No colleges found
+              No college found
             </h3>
 
             <p>
@@ -929,8 +1006,10 @@ function DeemedColleges() {
             <button
               type="button"
               onClick={() => {
+
                 setSearch("");
-                setSelectedState("All States");
+                setStateFilter("All");
+
               }}
             >
               Reset Search
@@ -940,44 +1019,177 @@ function DeemedColleges() {
 
         )}
 
+
+        {/* =================================================
+            INFORMATION STRIP
+        ================================================= */}
+
+        <section className="deemed-information">
+
+          <div className="deemed-information-icon">
+            i
+          </div>
+
+
+          <div>
+
+            <span>
+              ADMISSION INFORMATION
+            </span>
+
+            <h3>
+              College details will be organised
+              inside each college page.
+            </h3>
+
+            <p>
+              Fees, seat matrix, NEET counselling,
+              eligibility, admission pathway, campus
+              information and other relevant details
+              can be added to each individual college
+              profile.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        {/* =================================================
+            COUNSELLING CTA
+        ================================================= */}
+
+        <section className="deemed-cta">
+
+          <div>
+
+            <span>
+              NEED HELP CHOOSING?
+            </span>
+
+            <h2>
+              Not sure which deemed college
+              suits your profile?
+            </h2>
+
+            <p>
+              Speak with the GyanGuru counselling team
+              and understand your available options.
+            </p>
+
+          </div>
+
+
+          <Link
+            to="/contact"
+            className="deemed-cta-button"
+          >
+            Talk to a Counsellor →
+          </Link>
+
+        </section>
+
       </main>
 
 
       {/* =================================================
-          BOTTOM CTA
+          FOOTER
       ================================================= */}
 
-      <section className="deemed-cta">
+      <footer className="public-footer">
 
-        <div>
+        <div className="footer-inner">
 
-          <span>
-            NEED ADMISSION GUIDANCE?
-          </span>
+          <div className="footer-brand">
 
-          <h2>
-            Let GyanGuru help you choose wisely.
-          </h2>
+            <div className="footer-brand-name">
+              GYANGURU
+            </div>
 
-          <p>
-            Understand your options before making an
-            important medical admission decision.
-          </p>
+            <div className="footer-brand-subtitle">
+              CONSULTANCY
+            </div>
+
+            <p>
+              Medical admission guidance for students
+              and families.
+            </p>
+
+          </div>
+
+
+          <div className="footer-column">
+
+            <h4>
+              Explore
+            </h4>
+
+            <Link to="/">
+              Home
+            </Link>
+
+            <Link to="/about">
+              About Us
+            </Link>
+
+            <Link to="/courses">
+              Medical Courses
+            </Link>
+
+            <Link to="/colleges">
+              Colleges
+            </Link>
+
+          </div>
+
+
+          <div className="footer-column">
+
+            <h4>
+              Support
+            </h4>
+
+            <Link to="/services">
+              Services
+            </Link>
+
+            <Link to="/reviews">
+              Reviews
+            </Link>
+
+            <Link to="/contact">
+              Contact
+            </Link>
+
+            <Link to="/login">
+              Student Login
+            </Link>
+
+          </div>
 
         </div>
 
 
-        <Link
-          to="/contact"
-          className="deemed-cta-button"
-        >
-          Talk to a Counsellor →
-        </Link>
+        <div className="footer-bottom">
 
-      </section>
+          <span>
+            © {new Date().getFullYear()}
+            GyanGuru Consultancy.
+            All rights reserved.
+          </span>
+
+          <span>
+            Medical Admission Guidance
+          </span>
+
+        </div>
+
+      </footer>
 
     </div>
+
   );
+
 }
 
 

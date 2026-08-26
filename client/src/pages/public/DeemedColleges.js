@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "../../styles/deemedColleges.css";
+import "../../styles/deemed-colleges.css";
 import PublicNavbar from "../../components/PublicNavbar";
 
 

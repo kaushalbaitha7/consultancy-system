@@ -4,22 +4,24 @@ import {
   Route
 } from "react-router-dom";
 
-/* =========================
+
+/* =========================================================
    PUBLIC GYANGURU WEBSITE
-========================= */
+========================================================= */
 
 import Home from "./pages/public/Home";
 import About from "./pages/public/About";
 import Courses from "./pages/public/Courses";
 import Colleges from "./pages/public/Colleges";
+import DeemedColleges from "./pages/public/DeemedColleges";
 import Services from "./pages/public/Services";
 import Reviews from "./pages/public/Reviews";
 import Contact from "./pages/public/Contact";
 
 
-/* =========================
+/* =========================================================
    STUDENT PORTAL
-========================= */
+========================================================= */
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -40,9 +42,10 @@ function App() {
 
       <Routes>
 
-        {/* =====================================
+
+        {/* =================================================
             PUBLIC WEBSITE
-        ===================================== */}
+        ================================================= */}
 
         <Route
           path="/"
@@ -64,6 +67,33 @@ function App() {
           element={<Colleges />}
         />
 
+
+        {/* =================================================
+            DEEMED UG MEDICAL COLLEGES
+        ================================================= */}
+
+        <Route
+          path="/colleges/deemed"
+          element={<DeemedColleges />}
+        />
+
+
+        {/* =================================================
+            FUTURE INDIVIDUAL DEEMED COLLEGE PAGES
+        =================================================
+
+        We will connect the 63 individual colleges here
+        later using a reusable college detail page.
+
+        Example:
+
+        /colleges/deemed/kmc-manipal
+        /colleges/deemed/jss-mysuru
+        /colleges/deemed/gitam-gimsr
+
+        ================================================= */}
+
+
         <Route
           path="/services"
           element={<Services />}
@@ -80,9 +110,9 @@ function App() {
         />
 
 
-        {/* =====================================
+        {/* =================================================
             STUDENT AUTHENTICATION
-        ===================================== */}
+        ================================================= */}
 
         <Route
           path="/login"
@@ -100,9 +130,9 @@ function App() {
         />
 
 
-        {/* =====================================
+        {/* =================================================
             STUDENT DASHBOARD
-        ===================================== */}
+        ================================================= */}
 
         <Route
           path="/dashboard"
@@ -110,9 +140,9 @@ function App() {
         />
 
 
-        {/* =====================================
+        {/* =================================================
             STUDENT DETAILS
-        ===================================== */}
+        ================================================= */}
 
         <Route
           path="/personal-details"
@@ -129,6 +159,7 @@ function App() {
           element={<AddressDetails />}
         />
 
+
       </Routes>
 
     </BrowserRouter>
@@ -136,5 +167,6 @@ function App() {
   );
 
 }
+
 
 export default App;

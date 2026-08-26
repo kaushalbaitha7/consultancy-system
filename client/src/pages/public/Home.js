@@ -116,9 +116,11 @@ const medicalCourses = [
 
 function Home() {
 
-  const [posterIndex, setPosterIndex] = useState(0);
+const [posterIndex, setPosterIndex] = useState(0);
 
-  const [reviewIndex, setReviewIndex] = useState(0);
+const [posterError, setPosterError] = useState(false);
+
+const [reviewIndex, setReviewIndex] = useState(0);
 
 
   /* =======================================================
@@ -173,9 +175,13 @@ function Home() {
   }, []);
 
 
-  const currentPoster = posters[posterIndex];
+ const currentPoster = posters[posterIndex];
 
-  const currentReview = reviews[reviewIndex];
+const currentReview = reviews[reviewIndex];
+
+useEffect(() => {
+  setPosterError(false);
+}, [posterIndex]);
 
 
   return (
@@ -390,52 +396,40 @@ function Home() {
                 >
 
 
-                  <img
-                    src={currentPoster.image}
-                    alt={currentPoster.title}
-                    onError={(event) => {
+                  {!posterError ? (
+  <img
+    src={currentPoster.image}
+    alt={currentPoster.title}
+    onError={() => {
+      setPosterError(true);
+    }}
+  />
+) : (
+  <div className="poster-fallback">
+    <div className="poster-icon">
+      G
+    </div>
 
-                      event.currentTarget.style.display =
-                        "none";
+    <span>
+      GYANGURU
+    </span>
 
-                    }}
-                  />
+    <h4>
+      {currentPoster.title}
+    </h4>
 
+    <p>
+      {currentPoster.text}
+    </p>
 
-                  <div className="poster-fallback">
-
-
-                    <div className="poster-icon">
-                      G
-                    </div>
-
-
-                    <span>
-                      GYANGURU
-                    </span>
-
-
-                    <h4>
-                      {currentPoster.title}
-                    </h4>
-
-
-                    <p>
-                      {currentPoster.text}
-                    </p>
-
-
-                    <a
-                      href="#courses"
-                      className="poster-button"
-                    >
-
-                      View Admission Details →
-
-                    </a>
-
-
-                  </div>
+    <a
+      href="#courses"
+      className="poster-button"
+    >
+      View Admission Details →
+    </a>
+  </div>
+)}
 
 
                 </div>

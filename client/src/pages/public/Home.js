@@ -175,7 +175,7 @@ const [reviewIndex, setReviewIndex] = useState(0);
   }, []);
 
 
- const currentPoster = posters[posterIndex];
+const currentPoster = posters[posterIndex];
 
 const currentReview = reviews[reviewIndex];
 
@@ -195,18 +195,126 @@ useEffect(() => {
 
       <PublicNavbar />
 
+            <main>
 
-      <main>
+            {/* =================================================
+                ADMISSION JOURNEY BAR
+            ================================================= */}
+
+            <section className="admission-journey-bar">
+
+                <div className="journey-bar-inner">
+
+                <div className="journey-bar-heading">
+
+                    <span>
+                    YOUR ADMISSION JOURNEY
+                    </span>
+
+                    <h2>
+                    From NEET to Admission
+                    </h2>
+
+                </div>
 
 
-        {/* =================================================
-            HERO SECTION
-        ================================================= */}
+                <div className="journey-progress">
 
-        <section
-          className="hero-section"
-          id="home"
-        >
+                    <div className="journey-line">
+                    <div className="journey-line-progress"></div>
+                    </div>
+
+
+                    <div className="journey-item active">
+
+                    <div className="journey-circle">
+                        01
+                    </div>
+
+                    <div className="journey-item-text">
+                        <strong>
+                        Understand
+                        </strong>
+
+                        <small>
+                        Know your options
+                        </small>
+                    </div>
+
+                    </div>
+
+
+                    <div className="journey-item active">
+
+                    <div className="journey-circle">
+                        02
+                    </div>
+
+                    <div className="journey-item-text">
+                        <strong>
+                        Select
+                        </strong>
+
+                        <small>
+                        Choose suitable colleges
+                        </small>
+                    </div>
+
+                    </div>
+
+
+                    <div className="journey-item active">
+
+                    <div className="journey-circle">
+                        03
+                    </div>
+
+                    <div className="journey-item-text">
+                        <strong>
+                        Counselling
+                        </strong>
+
+                        <small>
+                        Application support
+                        </small>
+                    </div>
+
+                    </div>
+
+
+                    <div className="journey-item active">
+
+                    <div className="journey-circle">
+                        04
+                    </div>
+
+                    <div className="journey-item-text">
+                        <strong>
+                        Admission
+                        </strong>
+
+                        <small>
+                        Move forward confidently
+                        </small>
+                    </div>
+
+                    </div>
+
+                </div>
+
+                </div>
+
+            </section>
+
+
+  {/* =================================================
+      HERO SECTION
+  ================================================= */}
+
+  <section
+    className="hero-section"
+    id="home"
+  >
 
           <div className="hero-content">
 
@@ -475,177 +583,7 @@ useEffect(() => {
             </div>
 
 
-            {/* =================================================
-                ADMISSION JOURNEY CARD
-            ================================================= */}
-
-            <div className="journey-card">
-
-
-              <div className="journey-header">
-
-
-                <div>
-
-                  <span className="journey-label">
-                    YOUR ADMISSION JOURNEY
-                  </span>
-
-                  <h3>
-                    From NEET to Admission
-                  </h3>
-
-                </div>
-
-
-                <div className="guidance-badge">
-
-                  <span></span>
-
-                  Guidance
-
-                </div>
-
-
-              </div>
-
-
-              <div className="journey-steps">
-
-
-                <div className="journey-step active">
-
-                  <div className="step-number">
-                    01
-                  </div>
-
-                  <div>
-
-                    <strong>
-                      Understand
-                    </strong>
-
-                    <small>
-                      Know your options
-                    </small>
-
-                  </div>
-
-                </div>
-
-
-                <div className="journey-step">
-
-                  <div className="step-number">
-                    02
-                  </div>
-
-                  <div>
-
-                    <strong>
-                      Select
-                    </strong>
-
-                    <small>
-                      Choose suitable colleges
-                    </small>
-
-                  </div>
-
-                </div>
-
-
-                <div className="journey-step">
-
-                  <div className="step-number">
-                    03
-                  </div>
-
-                  <div>
-
-                    <strong>
-                      Counselling
-                    </strong>
-
-                    <small>
-                      Application support
-                    </small>
-
-                  </div>
-
-                </div>
-
-
-                <div className="journey-step">
-
-                  <div className="step-number">
-                    04
-                  </div>
-
-                  <div>
-
-                    <strong>
-                      Admission
-                    </strong>
-
-                    <small>
-                      Move forward confidently
-                    </small>
-
-                  </div>
-
-                </div>
-
-
-              </div>
-
-
-              <div className="journey-bottom">
-
-
-                <div>
-
-                  <strong>
-                    UG
-                  </strong>
-
-                  <span>
-                    Medical
-                  </span>
-
-                </div>
-
-
-                <div>
-
-                  <strong>
-                    PG
-                  </strong>
-
-                  <span>
-                    Medical
-                  </span>
-
-                </div>
-
-
-                <div>
-
-                  <strong>
-                    Guidance
-                  </strong>
-
-                  <span>
-                    Support
-                  </span>
-
-                </div>
-
-
-              </div>
-
-
-            </div>
+            
 
 
           </div>

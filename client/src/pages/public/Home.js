@@ -120,6 +120,8 @@ const [posterIndex, setPosterIndex] = useState(0);
 
 const [posterError, setPosterError] = useState(false);
 
+const [selectedPoster, setSelectedPoster] = useState(null);
+
 const [reviewIndex, setReviewIndex] = useState(0);
 
 
@@ -511,12 +513,16 @@ useEffect(() => {
     onError={() => {
       setPosterError(true);
     }}
+    onClick={() => {
+      setSelectedPoster(currentPoster);
+    }}
+    className="clickable-poster"
   />
 ) : (
-  <div className="poster-fallback">
-    <div className="poster-icon">
-      G
-    </div>
+                    <div className="poster-fallback">
+                        <div className="poster-icon">
+                        G
+                        </div>
 
     <span>
       GYANGURU
@@ -1125,6 +1131,65 @@ useEffect(() => {
 
 
       </main>
+
+
+      {/* =================================================
+          FULL NOTICE VIEWER
+      ================================================= */}
+
+      {selectedPoster && (
+
+        <div
+          className="notice-modal"
+          onClick={() => setSelectedPoster(null)}
+        >
+
+          <div
+            className="notice-modal-content"
+            onClick={(event) => event.stopPropagation()}
+          >
+
+            <button
+              type="button"
+              className="notice-modal-close"
+              onClick={() => setSelectedPoster(null)}
+              aria-label="Close notice"
+            >
+              ×
+            </button>
+
+
+            <div className="notice-modal-header">
+
+              <div>
+
+                <span>
+                  GYANGURU NOTICE
+                </span>
+
+                <h2>
+                  {selectedPoster.title}
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div className="notice-modal-document">
+
+              <img
+                src={selectedPoster.image}
+                alt={selectedPoster.title}
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
 
 
       {/* =================================================

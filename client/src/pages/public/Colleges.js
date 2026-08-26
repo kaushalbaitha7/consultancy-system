@@ -18,6 +18,7 @@ const collegeCategories = [
     description:
       "Explore MBBS and other undergraduate medical admission options across states.",
     tag: "MBBS",
+    route: "/colleges/ug-state",
   },
 
   {
@@ -28,6 +29,7 @@ const collegeCategories = [
     description:
       "Explore deemed university medical colleges and understand their admission pathways.",
     tag: "DEEMED",
+    route: "/colleges/deemed",
   },
 
   {
@@ -38,6 +40,7 @@ const collegeCategories = [
     description:
       "Explore undergraduate Ayurveda colleges and understand available admission options.",
     tag: "BAMS",
+    route: "/colleges/bams",
   },
 
   {
@@ -48,6 +51,7 @@ const collegeCategories = [
     description:
       "Explore postgraduate medical education options and specialisation pathways.",
     tag: "PG",
+    route: "/colleges/pg",
   },
 
   {
@@ -58,6 +62,7 @@ const collegeCategories = [
     description:
       "Explore BDS colleges and understand undergraduate dental admission opportunities.",
     tag: "BDS",
+    route: "/colleges/dental",
   },
 
   {
@@ -68,6 +73,7 @@ const collegeCategories = [
     description:
       "Explore Homeopathic medical colleges and understand relevant admission options.",
     tag: "BHMS",
+    route: "/colleges/bhms",
   },
 
   {
@@ -78,6 +84,7 @@ const collegeCategories = [
     description:
       "Explore nursing institutions and understand undergraduate nursing admission pathways.",
     tag: "NURSING",
+    route: "/colleges/nursing",
   },
 
   {
@@ -88,6 +95,7 @@ const collegeCategories = [
     description:
       "Access structured college information including courses, locations and admission details.",
     tag: "CATALOGUE",
+    route: "/colleges/catalogue",
   },
 ];
 
@@ -179,6 +187,7 @@ function Colleges() {
               ⌕
             </div>
 
+
             <input
               type="text"
               value={search}
@@ -188,6 +197,7 @@ function Colleges() {
               placeholder="Search colleges, courses or categories..."
               aria-label="Search colleges"
             />
+
 
             {search && (
 
@@ -202,6 +212,7 @@ function Colleges() {
 
             )}
 
+
             <button
               type="button"
               className="college-search-button"
@@ -214,7 +225,10 @@ function Colleges() {
 
           <div className="college-search-hints">
 
-            <span>Popular:</span>
+            <span>
+              Popular:
+            </span>
+
 
             <button
               type="button"
@@ -223,6 +237,7 @@ function Colleges() {
               MBBS
             </button>
 
+
             <button
               type="button"
               onClick={() => setSearch("BAMS")}
@@ -230,12 +245,14 @@ function Colleges() {
               BAMS
             </button>
 
+
             <button
               type="button"
               onClick={() => setSearch("BDS")}
             >
               BDS
             </button>
+
 
             <button
               type="button"
@@ -270,6 +287,7 @@ function Colleges() {
               EXPLORE BY CATEGORY
             </span>
 
+
             <h2>
               Find the right college pathway.
             </h2>
@@ -293,9 +311,18 @@ function Colleges() {
 
           {filteredCategories.map((college) => (
 
-            <article
+            /*
+             * IMPORTANT:
+             * The entire card is now clickable.
+             *
+             * Each category has its own route so that we can
+             * create its individual page later.
+             */
+
+            <Link
               className="college-card"
               key={college.id}
+              to={college.route}
             >
 
               <div className="college-card-top">
@@ -303,6 +330,7 @@ function Colleges() {
                 <div className="college-card-number">
                   {college.number}
                 </div>
+
 
                 <span className="college-card-tag">
                   {college.tag}
@@ -326,30 +354,33 @@ function Colleges() {
                   {college.subtitle}
                 </span>
 
+
                 <h3>
                   {college.title}
                 </h3>
+
 
                 <p>
                   {college.description}
                 </p>
 
 
-                <Link
-                  to="/contact"
-                  className="college-card-link"
-                >
+                {/* This is now only a visual CTA.
+                    The complete card is the Link. */}
+
+                <div className="college-card-link">
+
                   Explore Options
 
                   <span>
                     →
                   </span>
 
-                </Link>
+                </div>
 
               </div>
 
-            </article>
+            </Link>
 
           ))}
 
@@ -368,14 +399,17 @@ function Colleges() {
               ?
             </div>
 
+
             <h3>
               No matching category found
             </h3>
+
 
             <p>
               Try searching for MBBS, BAMS, BDS, PG,
               Nursing or another medical category.
             </p>
+
 
             <button
               type="button"
@@ -406,9 +440,11 @@ function Colleges() {
               GYANGURU COLLEGE CATALOGUE
             </span>
 
+
             <h3>
               Important college information, organised for you.
             </h3>
+
 
             <p>
               College availability, courses, eligibility,
@@ -420,9 +456,10 @@ function Colleges() {
 
 
           <Link
-            to="/contact"
+            to="/colleges/catalogue"
             className="catalogue-button"
           >
+
             View Catalogue
 
             <span>
@@ -444,13 +481,19 @@ function Colleges() {
             i
           </span>
 
+
           <p>
-            <strong>Important:</strong>{" "}
+
+            <strong>
+              Important:
+            </strong>{" "}
+
             College availability, eligibility, counselling
             rules and admission procedures may vary by
             course, state, authority and admission year.
             Students should verify applicable information
             before making final admission decisions.
+
           </p>
 
         </div>
@@ -468,9 +511,11 @@ function Colleges() {
               NEED HELP SELECTING?
             </span>
 
+
             <h2>
               Not sure which college is right for you?
             </h2>
+
 
             <p>
               Discuss your options with the GyanGuru
@@ -485,6 +530,7 @@ function Colleges() {
             to="/contact"
             className="college-cta-button"
           >
+
             Talk to a Counsellor
 
             <span>
@@ -513,9 +559,11 @@ function Colleges() {
               GYANGURU
             </div>
 
+
             <div className="footer-brand-subtitle">
               CONSULTANCY
             </div>
+
 
             <p>
               Medical admission guidance for students
@@ -531,17 +579,21 @@ function Colleges() {
               Explore
             </h4>
 
+
             <Link to="/">
               Home
             </Link>
+
 
             <Link to="/about">
               About Us
             </Link>
 
+
             <Link to="/courses">
               Medical Courses
             </Link>
+
 
             <Link to="/colleges">
               Colleges
@@ -556,17 +608,21 @@ function Colleges() {
               Support
             </h4>
 
+
             <Link to="/services">
               Services
             </Link>
+
 
             <Link to="/reviews">
               Reviews
             </Link>
 
+
             <Link to="/contact">
               Contact
             </Link>
+
 
             <Link to="/login">
               Student Login
@@ -584,6 +640,7 @@ function Colleges() {
             All rights reserved.
           </span>
 
+
           <span>
             Medical Admission Guidance
           </span>
@@ -595,7 +652,6 @@ function Colleges() {
     </div>
 
   );
-
 }
 
 

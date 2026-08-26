@@ -1,13 +1,11 @@
 /* =========================================================
-   GYANGURU
-   DEEMED MEDICAL COLLEGES
+   GYANGURU — DEEMED COLLEGES
 ========================================================= */
 
 .deemed-page {
   min-height: 100vh;
-  padding-top: 88px;
-  background: #f7fbfe;
-  color: #111111;
+  background: #f7fafc;
+  color: #101828;
 }
 
 
@@ -16,68 +14,77 @@
 ========================================================= */
 
 .deemed-hero {
-  padding: 78px 25px 72px;
-
+  padding: 150px 30px 65px;
   background:
     radial-gradient(
-      circle at 15% 20%,
-      rgba(9, 212, 255, 0.12),
-      transparent 30%
+      circle at 80% 10%,
+      rgba(9, 212, 255, 0.10),
+      transparent 35%
     ),
     linear-gradient(
-      135deg,
-      #011f5d,
-      #104d87,
-      #1b79c1
+      180deg,
+      #ffffff 0%,
+      #f4f9fd 100%
     );
-
-  color: #ffffff;
 }
 
 .deemed-hero-inner {
-  width: min(1200px, 100%);
+  width: min(1250px, 100%);
   margin: 0 auto;
 }
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
 
 .deemed-eyebrow {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
 
-  color: #09d4ff;
+  color: #1479c9;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
 
-  letter-spacing: 2.5px;
+  letter-spacing: 2.2px;
 }
 
 .deemed-eyebrow-dot {
-  width: 9px;
-  height: 9px;
+  width: 11px;
+  height: 11px;
 
   border-radius: 50%;
 
   background: #fcb038;
 
   box-shadow:
-    0 0 0 7px rgba(252, 176, 56, 0.12);
+    0 0 0 7px rgba(252, 176, 56, 0.13);
 }
 
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
 .deemed-hero h1 {
-  max-width: 850px;
+  max-width: 760px;
 
   margin: 22px 0 18px;
 
-  font-size: clamp(48px, 7vw, 82px);
+  color: #101010;
 
+  font-size: clamp(48px, 6vw, 76px);
   line-height: 0.98;
 
-  letter-spacing: -4px;
+  font-weight: 950;
+
+  letter-spacing: -3px;
 }
 
 .deemed-hero h1 strong {
-  color: #09d4ff;
+  color: #187bc4;
 }
 
 .deemed-hero p {
@@ -85,305 +92,318 @@
 
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.78);
+  color: #62758b;
 
-  font-size: 15px;
-
+  font-size: 17px;
   line-height: 1.8;
 }
 
 
 /* =========================================================
-   HERO STATS
+   SEARCH
 ========================================================= */
 
-.deemed-hero-stats {
-  margin-top: 42px;
+.deemed-search {
+  width: min(760px, 100%);
+
+  margin-top: 35px;
+
+  min-height: 58px;
 
   display: flex;
-  align-items: stretch;
+  align-items: center;
 
-  width: fit-content;
+  background: #ffffff;
 
-  border:
-    1px solid rgba(255,255,255,0.15);
+  border: 1px solid #d7e2eb;
 
-  border-radius: 14px;
+  border-radius: 12px;
+
+  box-shadow:
+    0 12px 35px rgba(1, 31, 93, 0.08);
 
   overflow: hidden;
-
-  background:
-    rgba(255,255,255,0.07);
-
-  backdrop-filter: blur(12px);
 }
 
-.deemed-hero-stats div {
-  min-width: 125px;
-
-  padding: 17px 24px;
+.deemed-search-icon {
+  width: 54px;
 
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  border-right:
-    1px solid rgba(255,255,255,0.12);
+  color: #187bc4;
+
+  font-size: 24px;
 }
 
-.deemed-hero-stats div:last-child {
-  border-right: 0;
+.deemed-search input {
+  flex: 1;
+
+  height: 56px;
+
+  min-width: 0;
+
+  border: 0;
+  outline: 0;
+
+  color: #162438;
+
+  background: transparent;
+
+  font-size: 14px;
 }
 
-.deemed-hero-stats strong {
+.deemed-search input::placeholder {
+  color: #91a0af;
+}
+
+.deemed-clear {
+  width: 38px;
+  height: 38px;
+
+  border: 0;
+  border-radius: 50%;
+
+  color: #68798b;
+  background: #f1f5f8;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.deemed-search-button {
+  height: 44px;
+
+  margin-right: 7px;
+  padding: 0 22px;
+
+  border: 0;
+  border-radius: 8px;
+
   color: #ffffff;
+  background: #011f5d;
 
-  font-size: 21px;
+  font-size: 12px;
+  font-weight: 850;
 
-  font-weight: 900;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-.deemed-hero-stats span {
-  margin-top: 4px;
-
-  color: rgba(255,255,255,0.62);
-
-  font-size: 9px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.8px;
+.deemed-search-button:hover {
+  background: #187bc4;
+  transform: translateY(-1px);
 }
 
 
 /* =========================================================
-   CONTENT
+   FILTER ROW
 ========================================================= */
 
-.deemed-content {
-  width:
-    min(1250px, calc(100% - 50px));
+.deemed-filter-row {
+  margin-top: 20px;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 20px;
+}
+
+.deemed-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.deemed-filter label {
+  color: #728397;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.deemed-filter select {
+  min-width: 220px;
+
+  height: 45px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d7e2eb;
+  border-radius: 9px;
+
+  outline: none;
+
+  color: #1c2b3d;
+  background: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.deemed-filter select:focus {
+  border-color: #187bc4;
+}
+
+.deemed-result-count {
+  min-height: 45px;
+
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+  border: 1px solid #dfe8ef;
+}
+
+.deemed-result-count strong {
+  color: #187bc4;
+  font-size: 18px;
+}
+
+.deemed-result-count span {
+  color: #738396;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DIRECTORY
+========================================================= */
+
+.deemed-directory {
+  width: min(1250px, calc(100% - 60px));
 
   margin: 0 auto;
 
-  padding: 75px 0 90px;
+  padding: 70px 0 90px;
 }
 
-
-/* =========================================================
-   DIRECTORY HEADER
-========================================================= */
-
 .deemed-directory-header {
+  margin-bottom: 32px;
+
   display: flex;
-
   align-items: flex-end;
-
   justify-content: space-between;
 
   gap: 30px;
-
-  margin-bottom: 30px;
 }
 
 .deemed-directory-header > div:first-child > span {
-  color: #1b79c1;
+  color: #187bc4;
 
-  font-size: 9px;
-
+  font-size: 10px;
   font-weight: 900;
 
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
 }
 
 .deemed-directory-header h2 {
-  margin: 9px 0 8px;
+  margin: 8px 0 7px;
 
   color: #111111;
 
-  font-size: 32px;
+  font-size: 34px;
+  line-height: 1.1;
 
-  letter-spacing: -1.2px;
+  letter-spacing: -1px;
 }
 
 .deemed-directory-header p {
   margin: 0;
 
-  color: #738397;
-
-  font-size: 13px;
-}
-
-.deemed-count {
-  padding: 11px 15px;
-
-  flex-shrink: 0;
-
-  border:
-    1px solid #dce6ee;
-
-  border-radius: 10px;
-
-  background: #ffffff;
-
-  color: #78889a;
-
-  font-size: 11px;
-
-  white-space: nowrap;
-}
-
-.deemed-count strong {
-  margin: 0 5px;
-
-  color: #011f5d;
+  color: #74869a;
 
   font-size: 14px;
 }
 
+.deemed-total {
+  min-width: 120px;
 
-/* =========================================================
-   CONTROLS
-========================================================= */
-
-.deemed-controls {
-  margin-bottom: 30px;
+  padding: 15px 18px;
 
   display: flex;
+  flex-direction: column;
 
-  align-items: center;
-
-  gap: 13px;
-}
-
-.deemed-search {
-  min-height: 54px;
-
-  flex: 1;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 11px;
-
-  padding: 0 16px;
+  border: 1px solid #dbe5ed;
+  border-radius: 12px;
 
   background: #ffffff;
 
-  border:
-    1px solid #d9e4ec;
-
-  border-radius: 11px;
+  text-align: right;
 
   box-shadow:
-    0 8px 25px rgba(1,31,93,0.035);
+    0 10px 30px rgba(1, 31, 93, 0.06);
 }
 
-.deemed-search > span {
-  color: #1b79c1;
+.deemed-total strong {
+  color: #011f5d;
 
-  font-size: 20px;
+  font-size: 25px;
 }
 
-.deemed-search input {
-  width: 100%;
+.deemed-total span {
+  color: #7d8d9d;
 
-  border: 0;
+  font-size: 9px;
+  font-weight: 900;
 
-  outline: 0;
-
-  background: transparent;
-
-  color: #17283e;
-
-  font-size: 13px;
-}
-
-.deemed-search input::placeholder {
-  color: #9aa9b8;
-}
-
-.deemed-search button {
-  width: 28px;
-  height: 28px;
-
-  border: 0;
-
-  border-radius: 50%;
-
-  background: #eef5f9;
-
-  color: #65778a;
-
-  cursor: pointer;
-}
-
-.deemed-state-filter {
-  min-height: 54px;
-
-  min-width: 190px;
-
-  padding: 0 15px;
-
-  border:
-    1px solid #d9e4ec;
-
-  border-radius: 11px;
-
-  outline: none;
-
-  background: #ffffff;
-
-  color: #25384e;
-
-  font-size: 12px;
-
-  cursor: pointer;
+  letter-spacing: 1px;
 }
 
 
 /* =========================================================
-   GRID
+   COLLEGE GRID
 ========================================================= */
 
-.deemed-grid {
+.deemed-college-grid {
   display: grid;
 
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  gap: 20px;
+  gap: 22px;
 }
 
 
 /* =========================================================
-   CARD
+   COLLEGE CARD
 ========================================================= */
 
-.deemed-card {
-  min-height: 335px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  overflow: hidden;
-
+.deemed-college-card {
   position: relative;
 
-  color: inherit;
+  min-width: 0;
 
-  text-decoration: none;
+  padding: 23px;
+
+  display: flex;
+  flex-direction: column;
 
   background: #ffffff;
 
-  border:
-    1px solid #d8e3eb;
+  border: 1px solid #dce6ee;
 
   border-radius: 18px;
 
   box-shadow:
-    0 8px 25px rgba(1,31,93,0.045);
+    0 12px 35px rgba(1, 31, 93, 0.07);
+
+  overflow: hidden;
 
   transition:
     transform 0.25s ease,
@@ -391,17 +411,35 @@
     border-color 0.25s ease;
 }
 
-.deemed-card:hover {
-  color: inherit;
+.deemed-college-card::before {
+  content: "";
 
-  text-decoration: none;
+  position: absolute;
 
-  transform: translateY(-7px);
+  top: 0;
+  left: 0;
+  right: 0;
 
-  border-color: #a9d9eb;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #011f5d,
+      #187bc4,
+      #09d4ff
+    );
+
+  opacity: 0.85;
+}
+
+.deemed-college-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #bcd5e5;
 
   box-shadow:
-    0 22px 48px rgba(1,31,93,0.12);
+    0 20px 50px rgba(1, 31, 93, 0.12);
 }
 
 
@@ -410,162 +448,147 @@
 ========================================================= */
 
 .deemed-card-top {
-  padding: 17px 18px 0;
-
   display: flex;
 
   align-items: center;
-
   justify-content: space-between;
+
+  margin-bottom: 18px;
 }
 
-.deemed-number {
-  color: #9aa8b6;
-
-  font-size: 10px;
-
-  font-weight: 900;
-
-  letter-spacing: 1px;
-}
-
-.deemed-badge {
-  padding: 6px 9px;
-
-  border-radius: 20px;
-
-  color: #176e9e;
-
-  background: #eef9fd;
-
-  font-size: 8px;
-
-  font-weight: 900;
-
-  letter-spacing: 1px;
-}
-
-
-/* =========================================================
-   LOGO
-========================================================= */
-
-.deemed-logo-wrap {
-  width: 92px;
-  height: 92px;
-
-  margin: 22px auto 15px;
+.deemed-card-logo {
+  width: 48px;
+  height: 48px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  position: relative;
-
-  overflow: hidden;
-
-  border:
-    1px solid #d9e6ee;
 
   border-radius: 50%;
 
   background: #ffffff;
 
+  border: 1px solid #d9e8f0;
+
   box-shadow:
-    0 8px 20px rgba(1,31,93,0.08);
+    0 6px 18px rgba(1, 31, 93, 0.10);
+
+  overflow: hidden;
 }
 
-.deemed-logo {
-  width: 72px;
-  height: 72px;
-
-  object-fit: contain;
-
-  display: block;
-}
-
-.deemed-logo-fallback {
+.deemed-card-logo img {
   width: 100%;
   height: 100%;
 
-  display: none;
+  object-fit: contain;
+}
 
+.deemed-card-number {
+  min-width: 35px;
+  height: 35px;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  background:
-    linear-gradient(
-      135deg,
-      #011f5d,
-      #1b79c1
-    );
+  border-radius: 50%;
 
-  color: #ffffff;
+  color: #187bc4;
 
-  font-size: 22px;
+  background: #eef7fc;
 
-  font-weight: 950;
-
-  letter-spacing: -1px;
+  font-size: 10px;
+  font-weight: 900;
 }
 
 
 /* =========================================================
-   BODY
+   COLLEGE HEADING
 ========================================================= */
 
-.deemed-card-body {
-  flex: 1;
-
-  padding: 0 21px 20px;
-
-  display: flex;
-
-  flex-direction: column;
+.deemed-card-heading {
+  min-height: 91px;
 }
 
-.deemed-course {
-  color: #1b79c1;
+.deemed-card-heading h3 {
+  margin: 0 0 8px;
 
-  font-size: 8px;
-
-  font-weight: 900;
-
-  letter-spacing: 1.5px;
-}
-
-.deemed-card h3 {
-  margin: 8px 0 10px;
-
-  color: #101b2b;
+  color: #152033;
 
   font-size: 17px;
+  line-height: 1.35;
 
-  line-height: 1.3;
-
-  letter-spacing: -0.25px;
+  font-weight: 850;
 }
 
-.deemed-location {
+.deemed-card-heading p {
+  margin: 0;
+
+  color: #7b8b9b;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.deemed-card-details {
+  margin-top: 17px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.8fr 0.8fr 1.4fr;
+
+  border-top: 1px solid #e8eef3;
+  border-bottom: 1px solid #e8eef3;
+}
+
+.deemed-detail {
+  min-height: 72px;
+
+  padding: 13px 10px;
+
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  align-items: center;
-
-  gap: 6px;
-
-  color: #77889a;
-
-  font-size: 10px;
-
-  line-height: 1.4;
+  border-right: 1px solid #e8eef3;
 }
 
-.deemed-location span {
-  color: #09bfe7;
+.deemed-detail:last-child {
+  border-right: 0;
+}
 
-  font-size: 7px;
+.deemed-detail span {
+  margin-bottom: 7px;
+
+  color: #8493a3;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.deemed-detail strong {
+  color: #142237;
+
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.deemed-detail .grade-value {
+  color: #187bc4;
+}
+
+.deemed-fee strong {
+  color: #011f5d;
+
+  font-size: 12px;
 }
 
 
@@ -574,50 +597,38 @@
 ========================================================= */
 
 .deemed-card-footer {
-  margin-top: auto;
-
   padding-top: 17px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: space-between;
 
-  border-top:
-    1px solid #edf1f4;
+  gap: 10px;
+}
 
-  color: #011f5d;
+.deemed-card-footer > span {
+  color: #9aa7b4;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.deemed-card-footer a {
+  color: #187bc4;
 
   font-size: 10px;
-
   font-weight: 850;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
 }
 
-.deemed-arrow {
-  width: 28px;
-  height: 28px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  color: #ffffff;
-
-  background: #011f5d;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
-}
-
-.deemed-card:hover .deemed-arrow {
-  transform: translateX(3px);
-
-  background: #1b79c1;
+.deemed-card-footer a:hover {
+  color: #011f5d;
 }
 
 
@@ -626,65 +637,63 @@
 ========================================================= */
 
 .deemed-no-results {
-  padding: 70px 25px;
+  padding: 70px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   text-align: center;
 
   background: #ffffff;
 
-  border:
-    1px solid #dce6ed;
-
+  border: 1px solid #dce6ee;
   border-radius: 18px;
 }
 
-.deemed-no-results > div {
-  width: 48px;
-  height: 48px;
-
-  margin: 0 auto 15px;
+.deemed-no-results-icon {
+  width: 55px;
+  height: 55px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   border-radius: 50%;
 
-  color: #ffffff;
+  color: #011f5d;
+  background: #fcb038;
 
-  background: #011f5d;
-
-  font-weight: 900;
+  font-size: 21px;
+  font-weight: 950;
 }
 
 .deemed-no-results h3 {
-  margin: 0;
+  margin: 17px 0 7px;
 
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .deemed-no-results p {
-  margin: 8px 0 20px;
+  margin: 0;
 
-  color: #78899a;
+  color: #7a8999;
 
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .deemed-no-results button {
-  padding: 11px 17px;
+  margin-top: 20px;
+
+  padding: 11px 20px;
 
   border: 0;
-
   border-radius: 8px;
 
+  color: #ffffff;
   background: #011f5d;
 
-  color: #ffffff;
-
   font-size: 11px;
-
   font-weight: 800;
 
   cursor: pointer;
@@ -692,100 +701,23 @@
 
 
 /* =========================================================
-   INFORMATION
-========================================================= */
-
-.deemed-information {
-  margin-top: 55px;
-
-  padding: 28px 32px;
-
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 20px;
-
-  border:
-    1px solid #dce7ee;
-
-  border-radius: 16px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff,
-      #f4fbfe
-    );
-}
-
-.deemed-information-icon {
-  width: 38px;
-  height: 38px;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  color: #011f5d;
-
-  background: #fcb038;
-
-  font-weight: 900;
-}
-
-.deemed-information span {
-  color: #1b79c1;
-
-  font-size: 8px;
-
-  font-weight: 900;
-
-  letter-spacing: 1.5px;
-}
-
-.deemed-information h3 {
-  margin: 7px 0;
-
-  font-size: 19px;
-}
-
-.deemed-information p {
-  max-width: 850px;
-
-  margin: 0;
-
-  color: #748598;
-
-  font-size: 11px;
-
-  line-height: 1.7;
-}
-
-
-/* =========================================================
-   CTA
+   BOTTOM CTA
 ========================================================= */
 
 .deemed-cta {
-  margin-top: 28px;
+  width: min(1250px, calc(100% - 60px));
 
-  padding: 38px 42px;
+  margin: 0 auto 80px;
+
+  padding: 42px 45px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
-  gap: 25px;
+  gap: 30px;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
   background:
     linear-gradient(
@@ -794,71 +726,70 @@
       #1b79c1
     );
 
-  color: #ffffff;
+  box-shadow:
+    0 25px 60px rgba(1, 31, 93, 0.18);
 }
 
-.deemed-cta > div > span {
+.deemed-cta span {
   color: #09d4ff;
 
-  font-size: 8px;
-
+  font-size: 9px;
   font-weight: 900;
 
   letter-spacing: 2px;
 }
 
 .deemed-cta h2 {
-  max-width: 680px;
+  margin: 8px 0;
 
-  margin: 9px 0;
+  color: #ffffff;
 
   font-size: 28px;
-
-  line-height: 1.15;
 }
 
 .deemed-cta p {
   margin: 0;
 
-  color: rgba(255,255,255,0.72);
+  color: rgba(255, 255, 255, 0.75);
 
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .deemed-cta-button {
   flex-shrink: 0;
 
-  padding: 15px 20px;
+  padding: 14px 22px;
 
   border-radius: 9px;
 
+  color: #011f5d;
   background: #ffffff;
 
-  color: #011f5d;
-
   font-size: 11px;
-
   font-weight: 900;
 
   text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .deemed-cta-button:hover {
-  color: #011f5d;
+  transform: translateY(-2px);
 
-  background: #09d4ff;
-
-  text-decoration: none;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
 @media (max-width: 1050px) {
 
-  .deemed-grid {
+  .deemed-college-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
@@ -866,104 +797,104 @@
 }
 
 
-@media (max-width: 900px) {
+/* =========================================================
+   MOBILE
+========================================================= */
 
-  .deemed-page {
-    padding-top: 76px;
-  }
+@media (max-width: 700px) {
 
   .deemed-hero {
-    padding:
-      60px 20px;
+    padding: 125px 20px 45px;
   }
 
-  .deemed-content {
-    width:
-      calc(100% - 30px);
+  .deemed-hero h1 {
+    font-size: 47px;
+    letter-spacing: -2px;
+  }
 
-    padding:
-      60px 0 75px;
+  .deemed-hero p {
+    font-size: 14px;
+  }
+
+  .deemed-search {
+    min-height: 54px;
+  }
+
+  .deemed-search-button {
+    padding: 0 14px;
+  }
+
+  .deemed-filter-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .deemed-filter select {
+    width: 100%;
+  }
+
+  .deemed-result-count {
+    width: fit-content;
+  }
+
+  .deemed-directory {
+    width: min(100% - 30px, 600px);
+
+    padding-top: 45px;
   }
 
   .deemed-directory-header {
     align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 18px;
-  }
-
-  .deemed-controls {
     flex-direction: column;
   }
 
-  .deemed-search,
-  .deemed-state-filter {
-    width: 100%;
-
-    box-sizing: border-box;
-  }
-
-}
-
-
-@media (max-width: 620px) {
-
-  .deemed-grid {
+  .deemed-college-grid {
     grid-template-columns: 1fr;
   }
 
-  .deemed-hero h1 {
-    font-size: 48px;
-
-    letter-spacing: -2.5px;
-  }
-
-  .deemed-hero-stats {
-    width: 100%;
-  }
-
-  .deemed-hero-stats div {
-    min-width: 0;
-
-    flex: 1;
-
-    padding:
-      14px 10px;
-  }
-
-  .deemed-hero-stats strong {
-    font-size: 17px;
-  }
-
-  .deemed-hero-stats span {
-    font-size: 8px;
-  }
-
-  .deemed-information {
-    padding: 23px;
-
-    flex-direction: column;
-  }
-
   .deemed-cta {
+    width: min(100% - 30px, 600px);
+
+    margin-bottom: 45px;
+
     padding: 30px 25px;
 
-    flex-direction: column;
-
     align-items: flex-start;
+    flex-direction: column;
   }
 
   .deemed-cta h2 {
     font-size: 24px;
   }
 
-  .deemed-cta-button {
-    width: 100%;
+}
 
-    box-sizing: border-box;
 
-    text-align: center;
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .deemed-card-details {
+    grid-template-columns:
+      0.8fr 0.8fr 1.2fr;
+  }
+
+  .deemed-detail {
+    padding: 11px 7px;
+  }
+
+  .deemed-detail strong {
+    font-size: 12px;
+  }
+
+  .deemed-fee strong {
+    font-size: 10px;
+  }
+
+  .deemed-card-heading h3 {
+    font-size: 15px;
   }
 
 }

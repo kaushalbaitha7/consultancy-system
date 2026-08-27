@@ -1,0 +1,1132 @@
+/* =========================================================
+   GYANGURU COLLEGE PROFILE
+========================================================= */
+
+.college-details-page {
+  min-height: 100vh;
+  background: #f7fafc;
+  color: #142033;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.college-profile-header {
+  padding: 125px 30px 45px;
+
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(9, 212, 255, 0.13),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f0f7fb
+    );
+
+  border-bottom: 1px solid #dce8ef;
+}
+
+.college-profile-inner {
+  width: min(1250px, 100%);
+  margin: 0 auto;
+}
+
+.college-back {
+  display: inline-flex;
+
+  margin-bottom: 25px;
+
+  color: #187bc4;
+
+  font-size: 11px;
+  font-weight: 850;
+
+  text-decoration: none;
+}
+
+.college-back:hover {
+  color: #011f5d;
+}
+
+
+/* =========================================================
+   IDENTITY
+========================================================= */
+
+.college-identity {
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+}
+
+.college-profile-logo {
+  width: 105px;
+  height: 105px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid #cfe2ec;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 15px 35px rgba(1, 31, 93, 0.10);
+
+  overflow: hidden;
+}
+
+.college-profile-logo img {
+  width: 76px;
+  height: 76px;
+
+  object-fit: contain;
+}
+
+.college-profile-logo span {
+  color: #187bc4;
+
+  font-size: 25px;
+  font-weight: 950;
+}
+
+.college-profile-title {
+  min-width: 0;
+}
+
+.college-profile-label {
+  color: #187bc4;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.8px;
+}
+
+.college-profile-title h1 {
+  max-width: 850px;
+
+  margin: 9px 0 10px;
+
+  color: #101010;
+
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.05;
+
+  font-weight: 950;
+
+  letter-spacing: -1.8px;
+}
+
+.college-profile-title p {
+  margin: 0;
+
+  color: #65788d;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   QUICK INFORMATION
+========================================================= */
+
+.college-quick-info {
+  margin-top: 38px;
+
+  background: #ffffff;
+
+  border: 1px solid #d8e5ed;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 15px 40px rgba(1, 31, 93, 0.07);
+
+  overflow: hidden;
+}
+
+.quick-info-heading {
+  padding: 16px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e7eef3;
+}
+
+.quick-info-heading span {
+  color: #187bc4;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.quick-info-heading strong {
+  color: #7c8c9d;
+
+  font-size: 10px;
+}
+
+.quick-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+}
+
+.quick-info-item {
+  min-width: 0;
+
+  padding: 19px 18px;
+
+  border-right: 1px solid #e7eef3;
+}
+
+.quick-info-item:last-child {
+  border-right: 0;
+}
+
+.quick-info-item span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #8795a4;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.quick-info-item strong {
+  display: block;
+
+  color: #142033;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quick-info-item .quick-grade {
+  color: #187bc4;
+}
+
+
+/* =========================================================
+   INTERNAL NAV
+========================================================= */
+
+.college-section-navigation {
+  position: sticky;
+
+  top: 88px;
+
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid #dce6ed;
+
+  box-shadow:
+    0 7px 25px rgba(1, 31, 93, 0.06);
+
+  backdrop-filter: blur(15px);
+}
+
+.college-section-navigation-inner {
+  width: min(1250px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  overflow-x: auto;
+}
+
+.college-section-navigation-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.college-section-link {
+  position: relative;
+
+  padding: 17px 17px;
+
+  color: #6d7d8e;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.college-section-link:hover {
+  color: #187bc4;
+}
+
+.college-section-link.active {
+  color: #011f5d;
+}
+
+.college-section-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 17px;
+  right: 17px;
+  bottom: 0;
+
+  height: 3px;
+
+  border-radius: 5px 5px 0 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #011f5d,
+      #09d4ff
+    );
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.college-profile-content {
+  width: min(1150px, calc(100% - 50px));
+
+  margin: 0 auto;
+
+  padding: 60px 0 90px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.profile-section-heading {
+  margin-bottom: 30px;
+}
+
+.profile-section-heading > span {
+  color: #187bc4;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.7px;
+}
+
+.profile-section-heading h2 {
+  margin: 8px 0 9px;
+
+  color: #111111;
+
+  font-size: 34px;
+  line-height: 1.1;
+
+  letter-spacing: -1px;
+}
+
+.profile-section-heading p {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: #728296;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.second-heading {
+  margin-top: 55px;
+}
+
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.overview-layout {
+  display: grid;
+
+  grid-template-columns:
+    1.35fr 0.65fr;
+
+  gap: 22px;
+}
+
+.profile-card {
+  padding: 27px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7ee;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 12px 35px rgba(1, 31, 93, 0.055);
+}
+
+.profile-card > span {
+  color: #187bc4;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+.profile-card p {
+  margin: 14px 0 0;
+
+  color: #687a8d;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.profile-card h3 {
+  margin: 13px 0 0;
+
+  color: #152033;
+
+  font-size: 20px;
+}
+
+.location-placeholder {
+  height: 100px;
+
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  color: #7d8d9c;
+
+  background:
+    linear-gradient(
+      135deg,
+      #edf7fb,
+      #f7fafc
+    );
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   SNAPSHOT
+========================================================= */
+
+.snapshot-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.snapshot-card {
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7ee;
+
+  border-radius: 13px;
+}
+
+.snapshot-card span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #8a98a7;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.snapshot-card strong {
+  color: #011f5d;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.profile-note {
+  margin-top: 25px;
+
+  padding: 18px 20px;
+
+  border-left: 3px solid #09d4ff;
+
+  background: #eef8fc;
+
+  border-radius: 0 10px 10px 0;
+}
+
+.profile-note strong {
+  color: #187bc4;
+
+  font-size: 10px;
+}
+
+.profile-note p {
+  margin: 5px 0 0;
+
+  color: #66798d;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DATA TABLE
+========================================================= */
+
+.data-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7ee;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 12px 35px rgba(1, 31, 93, 0.05);
+}
+
+.college-data-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 750px;
+}
+
+.college-data-table th {
+  padding: 15px 16px;
+
+  color: #ffffff;
+
+  background: #011f5d;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-align: left;
+}
+
+.college-data-table td {
+  padding: 15px 16px;
+
+  color: #506277;
+
+  border-bottom: 1px solid #edf1f4;
+
+  font-size: 11px;
+}
+
+.college-data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.college-data-table tbody tr:hover {
+  background: #f7fbfd;
+}
+
+.college-data-table td strong {
+  color: #011f5d;
+}
+
+
+/* =========================================================
+   ADMISSION
+========================================================= */
+
+.admission-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 17px;
+}
+
+.info-card {
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7ee;
+
+  border-radius: 15px;
+}
+
+.info-card > span {
+  color: #187bc4;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.info-card p {
+  margin: 11px 0 0;
+
+  color: #65778b;
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   DOCUMENTS
+========================================================= */
+
+.document-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+.document-item {
+  padding: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #dfe8ee;
+
+  border-radius: 11px;
+}
+
+.document-item span {
+  color: #09bfe7;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.document-item strong {
+  color: #3c4f63;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   HOSPITAL
+========================================================= */
+
+.hospital-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+.hospital-item {
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7ee;
+
+  border-radius: 13px;
+}
+
+.hospital-item span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #8594a3;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.hospital-item strong {
+  color: #142033;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   FACILITIES
+========================================================= */
+
+.facility-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.facility-card {
+  min-height: 115px;
+
+  padding: 19px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #eef8fc
+    );
+
+  border: 1px solid #d8e8ef;
+
+  border-radius: 14px;
+}
+
+.facility-card > span {
+  color: #09bfe7;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.facility-card strong {
+  color: #142033;
+
+  font-size: 12px;
+}
+
+.facility-card p {
+  margin: 0;
+
+  color: #8493a2;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   EMPTY DATA
+========================================================= */
+
+.empty-profile-data {
+  padding: 65px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #dce7ee;
+
+  border-radius: 16px;
+}
+
+.empty-profile-data > div {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #011f5d;
+
+  background: #fcb038;
+
+  font-size: 17px;
+  font-weight: 950;
+}
+
+.empty-profile-data h3 {
+  margin: 15px 0 7px;
+
+  color: #18263a;
+
+  font-size: 18px;
+}
+
+.empty-profile-data p {
+  max-width: 550px;
+
+  margin: 0;
+
+  color: #7a8999;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.college-profile-cta {
+  margin-top: 65px;
+
+  padding: 38px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #011f5d,
+      #187bc4
+    );
+
+  box-shadow:
+    0 20px 50px rgba(1, 31, 93, 0.16);
+}
+
+.college-profile-cta span {
+  color: #09d4ff;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1.8px;
+}
+
+.college-profile-cta h2 {
+  margin: 7px 0;
+
+  color: #ffffff;
+
+  font-size: 25px;
+}
+
+.college-profile-cta p {
+  margin: 0;
+
+  color: rgba(255,255,255,0.72);
+
+  font-size: 11px;
+}
+
+.college-profile-cta-button {
+  flex-shrink: 0;
+
+  padding: 14px 20px;
+
+  border-radius: 8px;
+
+  color: #011f5d;
+
+  background: #ffffff;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.college-profile-footer {
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #07172f;
+
+  color: #ffffff;
+}
+
+.college-profile-footer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.college-profile-footer strong {
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.college-profile-footer span {
+  margin-top: 3px;
+
+  color: #09d4ff;
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.college-profile-footer p {
+  margin: 0;
+
+  color: rgba(255,255,255,0.55);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .quick-info-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .quick-info-item:nth-child(3) {
+    border-right: 0;
+  }
+
+  .overview-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .snapshot-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .hospital-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .facility-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .college-profile-header {
+    padding:
+      110px
+      18px
+      30px;
+  }
+
+  .college-identity {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .college-profile-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .college-profile-logo img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .college-profile-title h1 {
+    font-size: 25px;
+
+    letter-spacing: -0.8px;
+  }
+
+  .college-profile-title p {
+    font-size: 11px;
+  }
+
+  .college-quick-info {
+    margin-top: 25px;
+  }
+
+  .quick-info-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .quick-info-item {
+    border-bottom:
+      1px solid #e7eef3;
+  }
+
+  .quick-info-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .quick-info-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .college-section-navigation {
+    top: 76px;
+  }
+
+  .college-section-navigation-inner {
+    width: calc(100% - 20px);
+  }
+
+  .college-section-link {
+    padding:
+      15px 12px;
+  }
+
+  .college-section-link.active::after {
+    left: 12px;
+    right: 12px;
+  }
+
+  .college-profile-content {
+    width: calc(100% - 30px);
+
+    padding-top: 40px;
+  }
+
+  .profile-section-heading h2 {
+    font-size: 27px;
+  }
+
+  .snapshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .document-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hospital-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .facility-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .college-profile-cta {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 28px 23px;
+  }
+
+  .college-profile-cta h2 {
+    font-size: 21px;
+  }
+
+  .college-profile-footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+}

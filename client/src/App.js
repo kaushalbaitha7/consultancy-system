@@ -14,6 +14,7 @@ import About from "./pages/public/About";
 import Courses from "./pages/public/Courses";
 import Colleges from "./pages/public/Colleges";
 import DeemedColleges from "./pages/public/DeemedColleges";
+import CollegeDetails from "./pages/public/CollegeDetails";
 import Services from "./pages/public/Services";
 import Reviews from "./pages/public/Reviews";
 import Contact from "./pages/public/Contact";
@@ -52,15 +53,18 @@ function App() {
           element={<Home />}
         />
 
+
         <Route
           path="/about"
           element={<About />}
         />
 
+
         <Route
           path="/courses"
           element={<Courses />}
         />
+
 
         <Route
           path="/colleges"
@@ -79,30 +83,60 @@ function App() {
 
 
         {/* =================================================
-            FUTURE INDIVIDUAL DEEMED COLLEGE PAGES
-        =================================================
+            INDIVIDUAL DEEMED COLLEGE PROFILE
 
-        We will connect the 63 individual colleges here
-        later using a reusable college detail page.
+            One reusable page handles ALL colleges.
 
-        Example:
+            Example:
 
-        /colleges/deemed/kmc-manipal
-        /colleges/deemed/jss-mysuru
-        /colleges/deemed/gitam-gimsr
+            /colleges/deemed/gitam-gimsr
+            /colleges/deemed/jss-mysuru
+            /colleges/deemed/kmc-manipal
 
         ================================================= */}
 
+        <Route
+          path="/colleges/deemed/:collegeId"
+          element={<CollegeDetails />}
+        />
+
+
+        {/* =================================================
+            INDIVIDUAL COLLEGE SECTIONS
+
+            Example:
+
+            /colleges/deemed/gitam-gimsr/cutoff
+            /colleges/deemed/gitam-gimsr/fees
+            /colleges/deemed/gitam-gimsr/admission
+            /colleges/deemed/gitam-gimsr/hospital
+            /colleges/deemed/gitam-gimsr/facilities
+
+            The same CollegeDetails component handles
+            every section.
+        ================================================= */}
+
+        <Route
+          path="/colleges/deemed/:collegeId/:section"
+          element={<CollegeDetails />}
+        />
+
+
+        {/* =================================================
+            PUBLIC SERVICES
+        ================================================= */}
 
         <Route
           path="/services"
           element={<Services />}
         />
 
+
         <Route
           path="/reviews"
           element={<Reviews />}
         />
+
 
         <Route
           path="/contact"
@@ -119,10 +153,12 @@ function App() {
           element={<Login />}
         />
 
+
         <Route
           path="/register"
           element={<Register />}
         />
+
 
         <Route
           path="/verify-otp"
@@ -149,10 +185,12 @@ function App() {
           element={<PersonalDetails />}
         />
 
+
         <Route
           path="/educational-details"
           element={<EducationalDetails />}
         />
+
 
         <Route
           path="/address-details"

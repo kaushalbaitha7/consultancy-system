@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Link,
-  useLocation,
   useParams,
 } from "react-router-dom";
 
@@ -195,8 +194,6 @@ function CollegeDetails() {
     section,
   } = useParams();
 
-
-  const location = useLocation();
 
 
   const college =

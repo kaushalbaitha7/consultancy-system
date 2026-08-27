@@ -521,15 +521,12 @@
 ========================================================= */
 
 .notice-wrapper {
-
   position: relative;
 
   width: 100%;
-
-  max-width: 720px;
+  max-width: 570px;
 
   margin-left: auto;
-
   margin-right: 0;
 
   z-index: 10;
@@ -541,16 +538,13 @@
   background: rgba(255, 255, 255, 0.98);
 
   border: 1px solid #dce7ef;
-
   border-radius: 24px;
 
   box-shadow:
     0 20px 55px rgba(1, 31, 93, 0.11);
 
   backdrop-filter: blur(14px);
-
   -webkit-backdrop-filter: blur(14px);
-
 }
 
 
@@ -625,7 +619,10 @@
 
 .poster-window {
   width: 100%;
-  height: 560px;
+
+  aspect-ratio: 210 / 297;
+
+  height: auto;
 
   overflow: hidden;
 
@@ -660,10 +657,11 @@
   display: block;
 
   object-fit: contain;
-
   object-position: center;
 
   background: #ffffff;
+
+  cursor: zoom-in;
 }
 
 
@@ -1457,14 +1455,12 @@
 
 
   .notice-wrapper {
-    width: 430px;
+  width: 570px;
+  max-width: 100%;
 
-    max-width: 100%;
-
-    margin-left: auto;
-
-    margin-right: 0;
-  }
+  margin-left: auto;
+  margin-right: 0;
+}
 
 
 
@@ -1496,13 +1492,100 @@
   .hero-section {
     width: calc(100% - 30px);
 
-    padding: 60px 0;
+    padding: 35px 0 50px;
 
     display: grid;
 
     grid-template-columns: 1fr;
 
     gap: 40px;
+  }
+
+  .hero-content {
+  padding-top: 10px;
+}
+  /* =========================
+     MOBILE JOURNEY
+  ========================= */
+
+  .admission-journey-bar {
+    top: 74px;
+    padding: 12px 10px;
+    overflow: hidden;
+  }
+
+  .journey-bar-inner {
+  width: 100%;
+  gap: 8px;
+  flex-direction: column;
+}
+  .journey-bar-heading {
+    min-width: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .journey-bar-heading span {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+  }
+
+  .journey-bar-heading h2 {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .journey-progress {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .journey-line {
+    left: 12%;
+    right: 12%;
+    top: 15px;
+    height: 2px;
+  }
+
+  .journey-item {
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+
+  .journey-circle {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+    font-size: 8px;
+  }
+
+  .journey-item-text {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .journey-item-text strong {
+    width: 100%;
+    font-size: 8px;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .journey-item-text small {
+    display: none;
   }
 
 
@@ -1578,17 +1661,19 @@
 
 
 
-  /* =========================
-     POSTER
-  ========================= */
+ .poster-window {
+  aspect-ratio: 210 / 297;
+  height: auto;
+}
 
-  .poster-window,
-  .poster-slide,
-  .poster-fallback {
-    height: 260px;
+.poster-slide {
+  height: 100%;
+}
 
-    min-height: 260px;
-  }
+.poster-fallback {
+  min-height: 0;
+  height: 100%;
+}
 
 
   /* =========================
@@ -1685,10 +1770,12 @@
 @media (max-width: 500px) {
 
   .hero-section {
-    width: calc(100% - 24px);
-
-    padding: 45px 0 55px;
-  }
+  width: calc(100% - 30px);
+  padding: 25px 0 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
 
 
   .hero-content h1 {
@@ -1717,13 +1804,19 @@
   }
 
 
-  .poster-window,
-  .poster-slide,
-  .poster-fallback {
-    height: 250px;
+  .poster-window {
+  aspect-ratio: 210 / 297;
+  height: auto;
+}
 
-    min-height: 250px;
-  }
+.poster-slide {
+  height: 100%;
+}
+
+.poster-fallback {
+  min-height: 0;
+  height: 100%;
+}
 
 
   .poster-fallback {
@@ -1802,13 +1895,19 @@
   }
 
 
-  .poster-window,
-  .poster-slide,
-  .poster-fallback {
-    height: 235px;
+  .poster-window {
+  aspect-ratio: 210 / 297;
+  height: auto;
+}
 
-    min-height: 235px;
-  }
+.poster-slide {
+  height: 100%;
+}
+
+.poster-fallback {
+  min-height: 0;
+  height: 100%;
+}
 
 
   .poster-fallback {
@@ -1876,17 +1975,18 @@
 .notice-modal-content {
   position: relative;
 
-  width: min(1100px, 94vw);
+  width: min(700px, 94vw);
 
-  max-height: 94vh;
+  height: min(94vh, 980px);
 
   padding: 18px;
 
   display: flex;
-
   flex-direction: column;
 
   overflow: hidden;
+
+  box-sizing: border-box;
 
   background: #ffffff;
 
@@ -2002,7 +2102,7 @@
 
   overflow: auto;
 
-  padding: 5px;
+  padding: 4px;
 
   background: #eef4f8;
 
@@ -2020,19 +2120,19 @@
   display: block;
 
   width: auto;
-
-  max-width: 100%;
-
   height: auto;
 
-  max-height: calc(94vh - 100px);
+  max-width: 100%;
+  max-height: 100%;
 
   object-fit: contain;
 
-  border-radius: 4px;
+  border-radius: 3px;
 
   box-shadow:
     0 15px 40px rgba(1, 31, 93, 0.18);
+
+  cursor: zoom-out;
 }
 
 

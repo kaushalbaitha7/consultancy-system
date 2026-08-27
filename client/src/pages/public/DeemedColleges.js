@@ -9,12 +9,16 @@ import PublicNavbar from "../../components/PublicNavbar";
    GYANGURU
    DEEMED UNIVERSITY MBBS COLLEGES - 2026
 
-   63 colleges
-   14 States / UTs
+   Existing college directory preserved.
+   Added:
+   - Grade
+   - Seats
+   - Fee / Year
 
    Data basis:
-   MCC NEET UG 2026 Round 1 deemed-university MBBS matrix.
+   Supplied 2026 deemed-university MBBS fee sheet.
 ========================================================= */
+
 
 const deemedColleges = [
 
@@ -28,6 +32,10 @@ const deemedColleges = [
     city: "Visakhapatnam",
     state: "Andhra Pradesh",
     domain: "gitam.edu",
+
+    grade: "A+",
+    seats: 150,
+    fee: "₹25,37,000",
   },
 
 
@@ -41,6 +49,10 @@ const deemedColleges = [
     city: "New Delhi",
     state: "Delhi",
     domain: "himsr.co.in",
+
+    grade: "A+",
+    seats: 150,
+    fee: "₹16,00,000",
   },
 
 
@@ -54,6 +66,10 @@ const deemedColleges = [
     city: "Vadodara",
     state: "Gujarat",
     domain: "sumandeepuniversity.co.in",
+
+    grade: "A-B",
+    seats: 250,
+    fee: "₹22,75,000",
   },
 
 
@@ -67,6 +83,10 @@ const deemedColleges = [
     city: "Mullana, Ambala",
     state: "Haryana",
     domain: "mmimsr.edu.in",
+
+    grade: "A",
+    seats: 200,
+    fee: "₹18,00,000",
   },
 
   {
@@ -75,6 +95,10 @@ const deemedColleges = [
     city: "Faridabad",
     state: "Haryana",
     domain: "amrita.edu",
+
+    grade: "A++",
+    seats: 150,
+    fee: "₹25,00,000",
   },
 
 
@@ -88,6 +112,10 @@ const deemedColleges = [
     city: "Jamshedpur",
     state: "Jharkhand",
     domain: "manipal.edu",
+
+    grade: "A",
+    seats: 150,
+    fee: "₹16,09,000",
   },
 
 
@@ -101,6 +129,10 @@ const deemedColleges = [
     city: "Belagavi",
     state: "Karnataka",
     domain: "kledeemeduniversity.edu.in",
+
+    grade: "A+",
+    seats: 200,
+    fee: "₹19,20,000",
   },
 
   {
@@ -109,6 +141,10 @@ const deemedColleges = [
     city: "Mysuru",
     state: "Karnataka",
     domain: "jssuni.edu.in",
+
+    grade: "A+",
+    seats: 250,
+    fee: "₹21,95,100",
   },
 
   {
@@ -117,6 +153,10 @@ const deemedColleges = [
     city: "Mangaluru",
     state: "Karnataka",
     domain: "nitte.edu.in",
+
+    grade: "A+",
+    seats: 150,
+    fee: "₹17,50,000",
   },
 
   {
@@ -125,6 +165,10 @@ const deemedColleges = [
     city: "Mangaluru",
     state: "Karnataka",
     domain: "manipal.edu",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹17,80,000",
   },
 
   {
@@ -133,6 +177,10 @@ const deemedColleges = [
     city: "Manipal",
     state: "Karnataka",
     domain: "manipal.edu",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹17,80,000",
   },
 
   {
@@ -141,6 +189,10 @@ const deemedColleges = [
     city: "Vijayapura",
     state: "Karnataka",
     domain: "bldedu.ac.in",
+
+    grade: "A",
+    seats: 200,
+    fee: "₹19,00,000",
   },
 
   {
@@ -149,6 +201,10 @@ const deemedColleges = [
     city: "Kolar",
     state: "Karnataka",
     domain: "sdumc.ac.in",
+
+    grade: "A",
+    seats: 150,
+    fee: "₹20,20,000",
   },
 
   {
@@ -157,6 +213,10 @@ const deemedColleges = [
     city: "Tumakuru",
     state: "Karnataka",
     domain: "ssahe.edu.in",
+
+    grade: "A+",
+    seats: 200,
+    fee: "₹18,80,000",
   },
 
   {
@@ -165,6 +225,10 @@ const deemedColleges = [
     city: "Mangaluru",
     state: "Karnataka",
     domain: "yenepoya.edu.in",
+
+    grade: "A",
+    seats: 250,
+    fee: "₹23,00,000",
   },
 
   {
@@ -173,6 +237,10 @@ const deemedColleges = [
     city: "Bengaluru",
     state: "Karnataka",
     domain: "rrmch.org",
+
+    grade: "A+",
+    seats: 250,
+    fee: "₹24,50,000",
   },
 
   {
@@ -181,6 +249,10 @@ const deemedColleges = [
     city: "Bengaluru",
     state: "Karnataka",
     domain: "ssahe.edu.in",
+
+    grade: "A+",
+    seats: 150,
+    fee: "₹18,10,000",
   },
 
   {
@@ -189,6 +261,10 @@ const deemedColleges = [
     city: "Hubballi",
     state: "Karnataka",
     domain: "kledeemeduniversity.edu.in",
+
+    grade: "A+",
+    seats: 150,
+    fee: "₹19,20,000",
   },
 
   {
@@ -197,6 +273,10 @@ const deemedColleges = [
     city: "Kolar Gold Fields",
     state: "Karnataka",
     domain: "care.edu.in",
+
+    grade: "A++ (CARE / NAAC)",
+    seats: 100,
+    fee: "₹22,22,222",
   },
 
 
@@ -210,6 +290,10 @@ const deemedColleges = [
     city: "Kochi",
     state: "Kerala",
     domain: "amrita.edu",
+
+    grade: "A++",
+    seats: 149,
+    fee: "₹25,00,000",
   },
 
 
@@ -223,6 +307,10 @@ const deemedColleges = [
     city: "Sangli",
     state: "Maharashtra",
     domain: "bvdu.ac.in",
+
+    grade: "A+",
+    seats: 150,
+    fee: "₹25,52,550",
   },
 
   {
@@ -231,6 +319,10 @@ const deemedColleges = [
     city: "Pune",
     state: "Maharashtra",
     domain: "bvdu.ac.in",
+
+    grade: "A+",
+    seats: 150,
+    fee: "₹28,55,600",
   },
 
   {
@@ -239,6 +331,10 @@ const deemedColleges = [
     city: "Pimpri, Pune",
     state: "Maharashtra",
     domain: "dpu.edu.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹29,00,000",
   },
 
   {
@@ -247,6 +343,10 @@ const deemedColleges = [
     city: "Kolhapur",
     state: "Maharashtra",
     domain: "dypatilunikop.org",
+
+    grade: "A++",
+    seats: 150,
+    fee: "₹24,10,000",
   },
 
   {
@@ -255,6 +355,10 @@ const deemedColleges = [
     city: "Wardha",
     state: "Maharashtra",
     domain: "dmiher.edu.in",
+
+    grade: "A+",
+    seats: 250,
+    fee: "₹27,00,000",
   },
 
   {
@@ -263,6 +367,10 @@ const deemedColleges = [
     city: "Karad",
     state: "Maharashtra",
     domain: "kvv.edu.in",
+
+    grade: "A+",
+    seats: 250,
+    fee: "₹25,00,000",
   },
 
   {
@@ -271,6 +379,10 @@ const deemedColleges = [
     city: "Chhatrapati Sambhajinagar",
     state: "Maharashtra",
     domain: "mgmmcha.org",
+
+    grade: "A++",
+    seats: 200,
+    fee: "₹25,00,000",
   },
 
   {
@@ -279,6 +391,10 @@ const deemedColleges = [
     city: "Navi Mumbai",
     state: "Maharashtra",
     domain: "mgmmcnm.edu.in",
+
+    grade: "A",
+    seats: 250,
+    fee: "₹25,00,000",
   },
 
   {
@@ -287,6 +403,10 @@ const deemedColleges = [
     city: "Loni",
     state: "Maharashtra",
     domain: "pims.ac.in",
+
+    grade: "A",
+    seats: 200,
+    fee: "₹19,00,000",
   },
 
   {
@@ -295,6 +415,10 @@ const deemedColleges = [
     city: "Nagpur",
     state: "Maharashtra",
     domain: "dmiher.edu.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹26,00,000",
   },
 
   {
@@ -303,6 +427,10 @@ const deemedColleges = [
     city: "Pune",
     state: "Maharashtra",
     domain: "siu.edu.in",
+
+    grade: "A++",
+    seats: 150,
+    fee: "₹10,00,000",
   },
 
   {
@@ -311,6 +439,10 @@ const deemedColleges = [
     city: "Vashi, Navi Mumbai",
     state: "Maharashtra",
     domain: "mgmmcvashi.edu.in",
+
+    grade: "A++",
+    seats: 100,
+    fee: "₹25,00,000",
   },
 
   {
@@ -319,6 +451,10 @@ const deemedColleges = [
     city: "Nerul, Navi Mumbai",
     state: "Maharashtra",
     domain: "mgmmcnm.edu.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹28,00,000",
   },
 
   {
@@ -327,6 +463,10 @@ const deemedColleges = [
     city: "Maval, Pune",
     state: "Maharashtra",
     domain: "dpu.edu.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹29,00,000",
   },
 
   {
@@ -335,6 +475,10 @@ const deemedColleges = [
     city: "Panvel",
     state: "Maharashtra",
     domain: "mgmmcpanvel.in",
+
+    grade: "—",
+    seats: "—",
+    fee: "—",
   },
 
   {
@@ -343,6 +487,10 @@ const deemedColleges = [
     city: "Nerul, Navi Mumbai",
     state: "Maharashtra",
     domain: "dypatil.edu",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹28,00,000",
   },
 
 
@@ -356,6 +504,10 @@ const deemedColleges = [
     city: "Bhubaneswar",
     state: "Odisha",
     domain: "soa.ac.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹22,95,000",
   },
 
   {
@@ -364,6 +516,10 @@ const deemedColleges = [
     city: "Bhubaneswar",
     state: "Odisha",
     domain: "kiit.ac.in",
+
+    grade: "A+",
+    seats: 250,
+    fee: "₹22,50,000",
   },
 
   {
@@ -372,6 +528,10 @@ const deemedColleges = [
     city: "Phulnakhara, Bhubaneswar",
     state: "Odisha",
     domain: "soa.ac.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹17,95,000",
   },
 
 
@@ -385,6 +545,10 @@ const deemedColleges = [
     city: "Puducherry",
     state: "Puducherry",
     domain: "avmc.edu.in",
+
+    grade: "A",
+    seats: 150,
+    fee: "₹25,00,000",
   },
 
   {
@@ -393,6 +557,10 @@ const deemedColleges = [
     city: "Puducherry",
     state: "Puducherry",
     domain: "mgmcri.ac.in",
+
+    grade: "A",
+    seats: 150,
+    fee: "₹25,00,000",
   },
 
   {
@@ -401,6 +569,10 @@ const deemedColleges = [
     city: "Puducherry",
     state: "Puducherry",
     domain: "slims.ac.in",
+
+    grade: "B",
+    seats: 250,
+    fee: "₹26,00,000",
   },
 
   {
@@ -409,6 +581,10 @@ const deemedColleges = [
     city: "Karaikal",
     state: "Puducherry",
     domain: "vmrfdu.edu.in",
+
+    grade: "A",
+    seats: 200,
+    fee: "₹22,50,000",
   },
 
 
@@ -422,6 +598,10 @@ const deemedColleges = [
     city: "Chennai",
     state: "Tamil Nadu",
     domain: "acsmch.ac.in",
+
+    grade: "A",
+    seats: 250,
+    fee: "₹25,00,000",
   },
 
   {
@@ -430,6 +610,10 @@ const deemedColleges = [
     city: "Kanchipuram",
     state: "Tamil Nadu",
     domain: "care.edu.in",
+
+    grade: "A",
+    seats: 250,
+    fee: "₹30,00,000",
   },
 
   {
@@ -438,6 +622,10 @@ const deemedColleges = [
     city: "Kanchipuram",
     state: "Tamil Nadu",
     domain: "mmchri.ac.in",
+
+    grade: "B",
+    seats: 250,
+    fee: "₹25,00,000",
   },
 
   {
@@ -446,6 +634,10 @@ const deemedColleges = [
     city: "Chennai",
     state: "Tamil Nadu",
     domain: "saveetha.com",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹25,00,000",
   },
 
   {
@@ -454,6 +646,10 @@ const deemedColleges = [
     city: "Kanchipuram",
     state: "Tamil Nadu",
     domain: "sbv.edu.in",
+
+    grade: "B",
+    seats: 250,
+    fee: "₹22,00,000",
   },
 
   {
@@ -462,6 +658,10 @@ const deemedColleges = [
     city: "Chennai",
     state: "Tamil Nadu",
     domain: "bharatuniv.ac.in",
+
+    grade: "A",
+    seats: 250,
+    fee: "₹25,00,000",
   },
 
   {
@@ -470,6 +670,10 @@ const deemedColleges = [
     city: "Chennai",
     state: "Tamil Nadu",
     domain: "sriramachandra.edu.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹35,00,000",
   },
 
   {
@@ -478,6 +682,10 @@ const deemedColleges = [
     city: "Kattankulathur",
     state: "Tamil Nadu",
     domain: "srmist.edu.in",
+
+    grade: "A++",
+    seats: 250,
+    fee: "₹31,50,000",
   },
 
   {
@@ -486,6 +694,10 @@ const deemedColleges = [
     city: "Salem",
     state: "Tamil Nadu",
     domain: "vmrfdu.edu.in",
+
+    grade: "B",
+    seats: 200,
+    fee: "₹22,50,000",
   },
 
   {
@@ -494,6 +706,10 @@ const deemedColleges = [
     city: "Chennai",
     state: "Tamil Nadu",
     domain: "bharatuniv.ac.in",
+
+    grade: "B",
+    seats: 250,
+    fee: "₹30,00,000",
   },
 
   {
@@ -502,6 +718,10 @@ const deemedColleges = [
     city: "Tiruvallur",
     state: "Tamil Nadu",
     domain: "velsuniv.ac.in",
+
+    grade: "B",
+    seats: 250,
+    fee: "₹30,00,000",
   },
 
   {
@@ -510,6 +730,10 @@ const deemedColleges = [
     city: "Chennai",
     state: "Tamil Nadu",
     domain: "drmgrdu.ac.in",
+
+    grade: "B",
+    seats: 200,
+    fee: "₹23,00,000",
   },
 
   {
@@ -518,6 +742,10 @@ const deemedColleges = [
     city: "Villupuram",
     state: "Tamil Nadu",
     domain: "jrmedicalcollege.com",
+
+    grade: "—",
+    seats: "—",
+    fee: "—",
   },
 
   {
@@ -526,6 +754,10 @@ const deemedColleges = [
     city: "Perambalur",
     state: "Tamil Nadu",
     domain: "dsgroup.org",
+
+    grade: "A",
+    seats: 250,
+    fee: "₹15,00,000 (Mgmt)",
   },
 
   {
@@ -534,6 +766,10 @@ const deemedColleges = [
     city: "Hosur",
     state: "Tamil Nadu",
     domain: "stpetersmedicalcollege.com",
+
+    grade: "—",
+    seats: "—",
+    fee: "—",
   },
 
   {
@@ -542,6 +778,10 @@ const deemedColleges = [
     city: "Tiruchirappalli",
     state: "Tamil Nadu",
     domain: "srinivasanmedicalcollege.com",
+
+    grade: "—",
+    seats: 250,
+    fee: "₹16,20,000",
   },
 
 
@@ -555,6 +795,10 @@ const deemedColleges = [
     city: "Hyderabad",
     state: "Telangana",
     domain: "mrims.edu.in",
+
+    grade: "—",
+    seats: "—",
+    fee: "—",
   },
 
   {
@@ -563,6 +807,10 @@ const deemedColleges = [
     city: "Hyderabad",
     state: "Telangana",
     domain: "mrims.edu.in",
+
+    grade: "—",
+    seats: "—",
+    fee: "—",
   },
 
 
@@ -576,6 +824,10 @@ const deemedColleges = [
     city: "Ghaziabad",
     state: "Uttar Pradesh",
     domain: "santosh.ac.in",
+
+    grade: "A",
+    seats: 150,
+    fee: "₹24,00,000",
   },
 
 
@@ -589,6 +841,10 @@ const deemedColleges = [
     city: "Dehradun",
     state: "Uttarakhand",
     domain: "geims.geu.ac.in",
+
+    grade: "A",
+    seats: 150,
+    fee: "₹24,50,000",
   },
 
 ];
@@ -624,7 +880,6 @@ function getInitials(name) {
     words[0][0] +
     words[1][0]
   ).toUpperCase();
-
 }
 
 
@@ -740,18 +995,29 @@ function DeemedColleges() {
           <div className="deemed-hero-stats">
 
             <div>
+
               <strong>63</strong>
+
               <span>Colleges</span>
+
             </div>
 
+
             <div>
+
               <strong>14</strong>
+
               <span>States / UTs</span>
+
             </div>
 
+
             <div>
+
               <strong>MBBS</strong>
+
               <span>UG Medical</span>
+
             </div>
 
           </div>
@@ -856,9 +1122,11 @@ function DeemedColleges() {
                 key={state}
                 value={state}
               >
+
                 {state === "All"
                   ? "All States / UTs"
                   : state}
+
               </option>
 
             ))}
@@ -886,11 +1154,16 @@ function DeemedColleges() {
                 <div className="deemed-card-top">
 
                   <span className="deemed-number">
+
                     {String(index + 1).padStart(2, "0")}
+
                   </span>
 
+
                   <span className="deemed-badge">
+
                     DEEMED
+
                   </span>
 
                 </div>
@@ -917,8 +1190,10 @@ function DeemedColleges() {
                           .nextElementSibling;
 
                       if (fallback) {
+
                         fallback.style.display =
                           "flex";
+
                       }
 
                     }}
@@ -941,12 +1216,16 @@ function DeemedColleges() {
                 <div className="deemed-card-body">
 
                   <span className="deemed-course">
+
                     UG MEDICAL • MBBS
+
                   </span>
 
 
                   <h3>
+
                     {college.name}
+
                   </h3>
 
 
@@ -960,6 +1239,182 @@ function DeemedColleges() {
 
                   </div>
 
+
+                  {/* =================================================
+                      GRADE + SEATS + FEE
+                      Uses inline styling so existing CSS remains
+                      completely untouched.
+                  ================================================= */}
+
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns:
+                        "0.7fr 0.7fr 1.6fr",
+                      marginTop: "15px",
+                      borderTop:
+                        "1px solid #edf1f4",
+                      borderBottom:
+                        "1px solid #edf1f4",
+                    }}
+                  >
+
+                    {/* GRADE */}
+
+                    <div
+                      style={{
+                        minWidth: 0,
+                        padding:
+                          "10px 8px",
+                        display: "flex",
+                        flexDirection:
+                          "column",
+                        justifyContent:
+                          "center",
+                        gap: "4px",
+                      }}
+                    >
+
+                      <span
+                        style={{
+                          color:
+                            "#8a99a8",
+                          fontSize:
+                            "7px",
+                          fontWeight:
+                            900,
+                          letterSpacing:
+                            "1px",
+                        }}
+                      >
+                        GRADE
+                      </span>
+
+                      <strong
+                        style={{
+                          color:
+                            "#187bc4",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            900,
+                        }}
+                      >
+                        {college.grade || "—"}
+                      </strong>
+
+                    </div>
+
+
+                    {/* SEATS */}
+
+                    <div
+                      style={{
+                        minWidth: 0,
+                        padding:
+                          "10px 8px",
+                        display: "flex",
+                        flexDirection:
+                          "column",
+                        justifyContent:
+                          "center",
+                        gap: "4px",
+                        borderLeft:
+                          "1px solid #edf1f4",
+                      }}
+                    >
+
+                      <span
+                        style={{
+                          color:
+                            "#8a99a8",
+                          fontSize:
+                            "7px",
+                          fontWeight:
+                            900,
+                          letterSpacing:
+                            "1px",
+                        }}
+                      >
+                        SEATS
+                      </span>
+
+                      <strong
+                        style={{
+                          color:
+                            "#011f5d",
+                          fontSize:
+                            "12px",
+                          fontWeight:
+                            900,
+                        }}
+                      >
+                        {college.seats || "—"}
+                      </strong>
+
+                    </div>
+
+
+                    {/* FEE */}
+
+                    <div
+                      style={{
+                        minWidth: 0,
+                        padding:
+                          "10px 8px",
+                        display: "flex",
+                        flexDirection:
+                          "column",
+                        justifyContent:
+                          "center",
+                        gap: "4px",
+                        borderLeft:
+                          "1px solid #edf1f4",
+                      }}
+                    >
+
+                      <span
+                        style={{
+                          color:
+                            "#8a99a8",
+                          fontSize:
+                            "7px",
+                          fontWeight:
+                            900,
+                          letterSpacing:
+                            "1px",
+                        }}
+                      >
+                        FEE / YEAR
+                      </span>
+
+                      <strong
+                        style={{
+                          color:
+                            "#011f5d",
+                          fontSize:
+                            "11px",
+                          fontWeight:
+                            900,
+                          whiteSpace:
+                            "nowrap",
+                          overflow:
+                            "hidden",
+                          textOverflow:
+                            "ellipsis",
+                        }}
+                      >
+                        {college.fee || "—"}
+                      </strong>
+
+                    </div>
+
+                  </div>
+
+
+                  {/* =================================================
+                      EXISTING FOOTER
+                  ================================================= */}
 
                   <div className="deemed-card-footer">
 
@@ -1099,6 +1554,7 @@ function DeemedColleges() {
       <footer className="public-footer">
 
         <div className="footer-inner">
+
 
           <div className="footer-brand">
 

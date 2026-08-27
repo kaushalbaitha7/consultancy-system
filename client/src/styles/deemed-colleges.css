@@ -360,35 +360,261 @@
    CARD
 ========================================================= */
 
+/* =========================================================
+   GYANGURU COLLEGE CARD — PREMIUM BLUE SHADE
+========================================================= */
+
 .deemed-card {
-  min-height: 335px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  overflow: hidden;
-
   position: relative;
 
-  color: inherit;
+  min-width: 0;
 
+  padding: 23px;
+
+  display: block;
+
+  color: inherit;
   text-decoration: none;
 
-  background: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #ffffff 68%,
+      #f0f8fc 100%
+    );
 
-  border:
-    1px solid #d8e3eb;
+  border: 1px solid #d5e6ef;
 
   border-radius: 18px;
 
   box-shadow:
-    0 8px 25px rgba(1,31,93,0.045);
+    0 12px 28px rgba(1, 31, 93, 0.08),
+    8px 12px 35px rgba(9, 212, 255, 0.06);
+
+  overflow: hidden;
 
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
     border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   BLUE SIDE SHADE
+========================================================= */
+
+.deemed-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 7px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #09d4ff 0%,
+      #187bc4 48%,
+      #011f5d 100%
+    );
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   SOFT BLUE INNER GLOW
+========================================================= */
+
+.deemed-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: -80px;
+  right: -80px;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(9, 212, 255, 0.12) 0%,
+      rgba(9, 212, 255, 0.04) 40%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.deemed-card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: #a9d8ea;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #ffffff 60%,
+      #eaf7fc 100%
+    );
+
+  box-shadow:
+    0 20px 45px rgba(1, 31, 93, 0.13),
+    10px 18px 45px rgba(9, 212, 255, 0.10);
+}
+
+
+/* =========================================================
+   KEEP CONTENT ABOVE SHADE
+========================================================= */
+
+.deemed-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.deemed-number {
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef9fd,
+      #dff3fa
+    );
+
+  border: 1px solid #cce8f2;
+
+  color: #187bc4;
+
+  box-shadow:
+    0 4px 12px rgba(9, 212, 255, 0.08);
+}
+
+
+/* =========================================================
+   DEEMED BADGE
+========================================================= */
+
+.deemed-badge {
+
+  color: #187bc4;
+
+  background: #eef8fc;
+
+  border: 1px solid #cde8f2;
+
+}
+
+
+/* =========================================================
+   LOGO CONTAINER
+========================================================= */
+
+.deemed-logo-wrap {
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f1f9fc
+    );
+
+  border: 1px solid #d5e8f0;
+
+  box-shadow:
+    0 8px 22px rgba(1, 31, 93, 0.09);
+}
+
+
+/* =========================================================
+   COURSE LABEL
+========================================================= */
+
+.deemed-course {
+
+  color: #187bc4;
+}
+
+
+/* =========================================================
+   LOCATION DOT
+========================================================= */
+
+.deemed-location span {
+
+  color: #09bfe7;
+}
+
+
+/* =========================================================
+   GRADE / SEATS / FEE STRIP
+========================================================= */
+
+.deemed-card-info {
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(238, 248, 252, 0.75),
+      rgba(255, 255, 255, 0.85)
+    );
+
+  border-top: 1px solid #dcecf3 !important;
+
+  border-bottom: 1px solid #dcecf3 !important;
+
+  border-radius: 8px;
+
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.deemed-card-footer {
+
+  border-top: 0;
+}
+
+.deemed-card-footer .deemed-arrow {
+
+  color: #187bc4;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.deemed-card:hover
+.deemed-card-footer
+.deemed-arrow {
+
+  color: #011f5d;
+
+  transform: translateX(4px);
 }
 
 .deemed-card:hover {

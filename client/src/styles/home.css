@@ -1817,3 +1817,291 @@
 
 
 }
+
+/* =========================================================
+   CLICKABLE NOTICE POSTER
+========================================================= */
+
+.clickable-poster {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: contain;
+
+  cursor: zoom-in;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.clickable-poster:hover {
+  opacity: 0.94;
+  transform: scale(1.015);
+}
+
+
+/* =========================================================
+   FULL NOTICE VIEWER
+========================================================= */
+
+.notice-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(1, 15, 35, 0.82);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  animation: noticeModalFade 0.22s ease;
+}
+
+
+/* =========================================================
+   NOTICE CONTENT
+========================================================= */
+
+.notice-modal-content {
+  position: relative;
+
+  width: min(1100px, 94vw);
+
+  max-height: 94vh;
+
+  padding: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.notice-modal-header {
+  flex-shrink: 0;
+
+  padding: 8px 55px 15px 8px;
+}
+
+.notice-modal-header span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #1b79c1;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.notice-modal-header h2 {
+  margin: 0;
+
+  color: #111111;
+
+  font-size: 22px;
+
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.notice-modal-close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 42px;
+  height: 42px;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dce5ed;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #011f5d;
+
+  font-size: 27px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 18px rgba(1, 31, 93, 0.12);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.notice-modal-close:hover {
+  color: #ffffff;
+
+  background: #011f5d;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   FULL A4 / A3 DOCUMENT
+========================================================= */
+
+.notice-modal-document {
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: auto;
+
+  padding: 5px;
+
+  background: #eef4f8;
+
+  border-radius: 12px;
+}
+
+
+/*
+   IMPORTANT:
+   Do NOT use object-fit: cover here.
+   A4/A3 notices must remain completely visible.
+*/
+
+.notice-modal-document img {
+  display: block;
+
+  width: auto;
+
+  max-width: 100%;
+
+  height: auto;
+
+  max-height: calc(94vh - 100px);
+
+  object-fit: contain;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 15px 40px rgba(1, 31, 93, 0.18);
+}
+
+
+/* =========================================================
+   MODAL ANIMATION
+========================================================= */
+
+@keyframes noticeModalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   MOBILE NOTICE VIEWER
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .notice-modal {
+    padding: 10px;
+  }
+
+  .notice-modal-content {
+    width: 100%;
+
+    max-height: 96vh;
+
+    padding: 10px;
+
+    border-radius: 14px;
+  }
+
+  .notice-modal-header {
+    padding:
+      5px
+      48px
+      12px
+      5px;
+  }
+
+  .notice-modal-header h2 {
+    font-size: 17px;
+  }
+
+  .notice-modal-document {
+    padding: 3px;
+
+    border-radius: 9px;
+  }
+
+  .notice-modal-document img {
+    max-width: 100%;
+
+    max-height: calc(96vh - 90px);
+  }
+
+  .notice-modal-close {
+    width: 38px;
+    height: 38px;
+
+    top: 9px;
+    right: 9px;
+
+    font-size: 23px;
+  }
+}

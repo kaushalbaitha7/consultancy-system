@@ -1,6 +1,15 @@
 /* =========================================================
    GYANGURU AI CHAT
-   FINAL RESPONSIVE VERSION
+   FINAL RESPONSIVE CSS
+   ---------------------------------------------------------
+   Desktop:
+   - Round floating AI button at bottom-right
+   - When opened, button disappears
+   - Chat becomes a right-side panel
+
+   Mobile:
+   - Round floating button
+   - Chat becomes a full-screen panel below navbar
 ========================================================= */
 
 
@@ -31,8 +40,8 @@
   background:
     linear-gradient(
       145deg,
-      #011f5d,
-      #126bb4
+      #011f5d 0%,
+      #126bb4 100%
     );
 
   box-shadow:
@@ -47,11 +56,14 @@
 
   transition:
     transform 0.22s ease,
-    box-shadow 0.22s ease;
+    box-shadow 0.22s ease,
+    opacity 0.2s ease;
 }
 
 
-/* subtle breathing effect */
+/* =========================================================
+   BUTTON PULSE
+========================================================= */
 
 .ai-chat-floating-button:not(.active) {
   animation: aiButtonPulse 3s ease-in-out infinite;
@@ -76,8 +88,14 @@
 }
 
 
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
 .ai-chat-floating-button:hover {
-  transform: translateY(-3px) scale(1.04);
+  transform:
+    translateY(-3px)
+    scale(1.04);
 
   box-shadow:
     0 18px 40px rgba(1, 31, 93, 0.38),
@@ -85,15 +103,18 @@
 }
 
 
-.ai-chat-floating-button.active {
-  animation: none;
+/* =========================================================
+   WHEN CHAT IS OPEN
+   HIDE FLOATING BUTTON
+========================================================= */
 
-  transform: scale(0.94);
+.ai-chat-floating-button.active {
+  display: none;
 }
 
 
 /* =========================================================
-   AI ICON
+   AI SPARKLE ICON
 ========================================================= */
 
 .ai-chat-sparkle {
@@ -114,11 +135,13 @@
   font-weight: 950;
 
   box-shadow:
-    0 3px 12px rgba(0,0,0,0.15);
+    0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
 
-/* Hide text on floating button */
+/* =========================================================
+   HIDE BUTTON TEXT
+========================================================= */
 
 .ai-chat-button-text {
   display: none;
@@ -127,75 +150,76 @@
 
 /* =========================================================
    CHAT WINDOW
+   DESKTOP RIGHT-SIDE PANEL
 ========================================================= */
 
 .ai-chat-window {
   position: fixed;
 
-  right: 24px;
-
   /*
-     Floating button:
-     bottom 28px + height 64px = 92px
-     Add 14px gap
+     Your navbar is approximately 119px high
+     on the desktop layout.
   */
-  bottom: 106px;
+  top: 119px;
 
-  width: 390px;
-  height: 570px;
+  right: 0;
+  bottom: 0;
 
-  max-width: calc(100vw - 32px);
-  max-height: calc(100vh - 130px);
+  width: 31vw;
+
+  min-width: 360px;
+  max-width: 520px;
+
+  height: calc(100vh - 119px);
 
   display: flex;
   flex-direction: column;
 
   overflow: hidden;
 
-  border: 1px solid #d9e6ef;
+  border-top: 1px solid #d9e6ef;
+  border-left: 1px solid #d9e6ef;
 
-  border-radius: 22px;
+  border-radius:
+    0 0 0 22px;
 
   background: #ffffff;
 
   box-shadow:
-    0 25px 70px rgba(1, 31, 93, 0.24),
-    0 6px 25px rgba(1, 31, 93, 0.10);
+    -12px 0 40px rgba(1, 31, 93, 0.12);
 
-  z-index: 99998;
+  z-index: 99990;
 
   animation:
-    aiChatOpen 0.22s ease-out;
+    aiChatPanelOpen 0.25s ease-out;
 }
 
 
 /* =========================================================
-   CHAT OPEN ANIMATION
+   PANEL OPEN ANIMATION
 ========================================================= */
 
-@keyframes aiChatOpen {
+@keyframes aiChatPanelOpen {
 
   from {
     opacity: 0;
 
     transform:
-      translateY(14px)
-      scale(0.97);
+      translateX(35px);
   }
 
   to {
     opacity: 1;
 
     transform:
-      translateY(0)
-      scale(1);
+      translateX(0);
   }
 
 }
 
 
 /* =========================================================
-   HEADER
+   CHAT HEADER
 ========================================================= */
 
 .ai-chat-header {
@@ -214,12 +238,12 @@
   background:
     linear-gradient(
       135deg,
-      #011f5d,
-      #176fb6
+      #011f5d 0%,
+      #176fb6 100%
     );
 
   border-bottom:
-    1px solid rgba(255,255,255,0.12);
+    1px solid rgba(255, 255, 255, 0.12);
 }
 
 
@@ -234,6 +258,10 @@
   gap: 11px;
 }
 
+
+/* =========================================================
+   AI LOGO
+========================================================= */
 
 .ai-chat-logo {
   width: 40px;
@@ -252,21 +280,21 @@
   background: #09d4ff;
 
   box-shadow:
-    0 4px 15px rgba(0,0,0,0.16);
+    0 4px 15px rgba(0, 0, 0, 0.16);
 
   font-size: 20px;
   font-weight: 950;
 }
 
 
-/*
-   Your current JS uses a normal div inside the brand.
-   This also keeps the header looking correct.
-*/
+/* =========================================================
+   BRAND TEXT
+========================================================= */
 
 .ai-chat-brand > div:last-child {
   display: flex;
   flex-direction: column;
+
   gap: 3px;
 }
 
@@ -276,15 +304,19 @@
 
   font-size: 15px;
   font-weight: 900;
+
+  line-height: 1.2;
 }
 
 
 .ai-chat-brand span {
   color:
-    rgba(255,255,255,0.72);
+    rgba(255, 255, 255, 0.72);
 
   font-size: 9px;
   font-weight: 650;
+
+  line-height: 1.2;
 }
 
 
@@ -296,24 +328,28 @@
   width: 34px;
   height: 34px;
 
+  padding: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   border:
     1px solid
-    rgba(255,255,255,0.18);
+    rgba(255, 255, 255, 0.18);
 
   border-radius: 9px;
 
   color: #ffffff;
 
   background:
-    rgba(255,255,255,0.08);
+    rgba(255, 255, 255, 0.08);
 
   font-family: inherit;
 
   font-size: 18px;
+
+  line-height: 1;
 
   cursor: pointer;
 
@@ -325,9 +361,10 @@
 
 .ai-chat-close:hover {
   background:
-    rgba(255,255,255,0.20);
+    rgba(255, 255, 255, 0.20);
 
-  transform: rotate(4deg);
+  transform:
+    scale(1.05);
 }
 
 
@@ -433,12 +470,13 @@
 
   background: #effbfe;
 
-  transform: translateY(-1px);
+  transform:
+    translateY(-1px);
 }
 
 
 /* =========================================================
-   MESSAGES
+   MESSAGE CONTAINER
 ========================================================= */
 
 .ai-chat-messages {
@@ -457,6 +495,10 @@
 }
 
 
+/* =========================================================
+   MESSAGE SCROLLBAR
+========================================================= */
+
 .ai-chat-messages::-webkit-scrollbar {
   width: 5px;
 }
@@ -471,6 +513,11 @@
   border-radius: 10px;
 
   background: #c9d9e4;
+}
+
+
+.ai-chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #aebfcc;
 }
 
 
@@ -500,7 +547,7 @@
 
 
 /* =========================================================
-   AI AVATAR
+   AI MESSAGE AVATAR
 ========================================================= */
 
 .ai-message-avatar {
@@ -547,9 +594,12 @@
 }
 
 
+/* =========================================================
+   ASSISTANT MESSAGE
+========================================================= */
+
 .ai-chat-message.assistant
 .ai-message-bubble {
-
   color: #263c52;
 
   background: #ffffff;
@@ -560,31 +610,34 @@
   border-bottom-left-radius: 4px;
 
   box-shadow:
-    0 3px 10px rgba(1,31,93,0.04);
+    0 3px 10px rgba(1, 31, 93, 0.04);
 }
 
 
+/* =========================================================
+   USER MESSAGE
+========================================================= */
+
 .ai-chat-message.user
 .ai-message-bubble {
-
   color: #ffffff;
 
   background:
     linear-gradient(
       135deg,
-      #011f5d,
-      #1b79c1
+      #011f5d 0%,
+      #1b79c1 100%
     );
 
   border-bottom-right-radius: 4px;
 
   box-shadow:
-    0 5px 14px rgba(1,31,93,0.13);
+    0 5px 14px rgba(1, 31, 93, 0.13);
 }
 
 
 /* =========================================================
-   TYPING
+   TYPING INDICATOR
 ========================================================= */
 
 .ai-typing {
@@ -677,6 +730,10 @@
 }
 
 
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
+
 .ai-chat-input-wrapper {
   min-height: 45px;
 
@@ -710,9 +767,13 @@
 
   box-shadow:
     0 0 0 3px
-    rgba(9,212,255,0.09);
+    rgba(9, 212, 255, 0.09);
 }
 
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
 
 .ai-chat-input-wrapper textarea {
   flex: 1;
@@ -723,7 +784,8 @@
   max-height: 90px;
 
   padding:
-    8px 0;
+    8px
+    0;
 
   resize: none;
 
@@ -753,6 +815,10 @@
 }
 
 
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
 .ai-chat-input-wrapper button {
   width: 38px;
   height: 38px;
@@ -762,6 +828,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: 0;
 
   border: 0;
 
@@ -795,6 +863,8 @@
   opacity: 0.35;
 
   cursor: not-allowed;
+
+  transform: none;
 }
 
 
@@ -821,6 +891,21 @@
    TABLET
 ========================================================= */
 
+@media (max-width: 1100px) {
+
+  .ai-chat-window {
+    width: 360px;
+
+    min-width: 360px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
 @media (max-width: 900px) {
 
   .ai-chat-floating-button {
@@ -833,14 +918,16 @@
 
 
   .ai-chat-window {
-    right: 18px;
+    top: 96px;
 
-    bottom: 98px;
+    width: 390px;
 
-    width: 370px;
+    min-width: 320px;
 
-    max-height:
-      calc(100vh - 120px);
+    height: calc(100vh - 96px);
+
+    border-radius:
+      0 0 0 20px;
   }
 
 }
@@ -852,8 +939,11 @@
 
 @media (max-width: 600px) {
 
-  .ai-chat-floating-button {
+  /* ---------------------------------------------
+     FLOATING BUTTON
+  --------------------------------------------- */
 
+  .ai-chat-floating-button {
     right: 16px;
     bottom: 18px;
 
@@ -872,26 +962,41 @@
   }
 
 
+  /* ---------------------------------------------
+     FULL MOBILE CHAT PANEL
+  --------------------------------------------- */
+
   .ai-chat-window {
 
-    right: 10px;
-    left: 10px;
+    top: 64px;
 
-    bottom: 88px;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-    width: auto;
+    width: 100%;
 
-    height:
-      min(570px, calc(100vh - 105px));
-
+    min-width: 0;
     max-width: none;
 
-    max-height:
-      calc(100vh - 100px);
+    height: calc(100vh - 64px);
 
-    border-radius: 19px;
+    border-top:
+      1px solid #d9e6ef;
+
+    border-left: 0;
+
+    border-radius: 0;
+
+    box-shadow:
+      0 -5px 30px
+      rgba(1, 31, 93, 0.10);
   }
 
+
+  /* ---------------------------------------------
+     HEADER
+  --------------------------------------------- */
 
   .ai-chat-header {
     min-height: 64px;
@@ -920,10 +1025,9 @@
   }
 
 
-  .ai-chat-body {
-    min-height: 0;
-  }
-
+  /* ---------------------------------------------
+     QUICK QUESTIONS
+  --------------------------------------------- */
 
   .ai-chat-quick {
     padding:
@@ -942,6 +1046,10 @@
   }
 
 
+  /* ---------------------------------------------
+     MESSAGES
+  --------------------------------------------- */
+
   .ai-chat-messages {
     padding:
       9px
@@ -956,6 +1064,10 @@
     font-size: 11.5px;
   }
 
+
+  /* ---------------------------------------------
+     INPUT
+  --------------------------------------------- */
 
   .ai-chat-input-area {
     padding:
@@ -998,21 +1110,17 @@
 
   .ai-chat-window {
 
-    right: 7px;
-    left: 7px;
+    top: 58px;
 
-    bottom: 78px;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-    width:
-      calc(100vw - 14px);
+    width: 100%;
 
-    height:
-      calc(100vh - 92px);
+    height: calc(100vh - 58px);
 
-    max-height:
-      calc(100vh - 92px);
-
-    border-radius: 17px;
+    max-height: none;
   }
 
 
@@ -1028,6 +1136,31 @@
 
   .ai-chat-brand strong {
     font-size: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+
+  .ai-chat-quick > div {
+    flex-direction: column;
+  }
+
+
+  .ai-chat-quick button {
+    width: 100%;
+  }
+
+
+  .ai-message-bubble {
+    max-width: 82%;
+
+    font-size: 11px;
   }
 
 }

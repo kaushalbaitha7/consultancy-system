@@ -7,6 +7,7 @@ import "../../styles/footer.css";
 
 
 import PublicNavbar from "../../components/PublicNavbar";
+import AIChat from "../../components/AIChat";
 import BackToTop from "../../components/BackToTop";
 
 /* =========================================================
@@ -1311,13 +1312,18 @@ useEffect(() => {
 
 
       {/* =================================================
-          BACK TO TOP
-      ================================================= */}
+    BACK TO TOP
+================================================= */}
 
-      <BackToTop />
+<BackToTop />
 
+{/* =================================================
+    GYANGURU AI CHAT
+================================================= */}
 
-    </div>
+<AIChat />
+
+</div>
 
   );
 

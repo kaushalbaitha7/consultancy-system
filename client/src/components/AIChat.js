@@ -100,8 +100,10 @@ function AIChat() {
          BACKEND REQUEST
       --------------------------------------------- */
 
-      const response = await fetch(
-        "/api/ai/chat",
+     const API_URL = process.env.REACT_APP_API_URL;
+
+     const response = await fetch(
+      `${API_URL}/api/ai/chat`,
         {
           method: "POST",
 

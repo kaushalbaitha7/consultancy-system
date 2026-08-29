@@ -13,22 +13,27 @@ import "../styles/aiChat.css";
 
 function AIChat() {
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] =
+    useState(false);
 
-  const [message, setMessage] = useState("");
+  const [message, setMessage] =
+    useState("");
 
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      role: "assistant",
-      text:
-        "Namaste! 👋 I’m GyanGuru AI, your admission assistant. Ask me about NEET counselling, colleges, courses, fees, cutoffs, or admissions."
-    }
-  ]);
+  const [messages, setMessages] =
+    useState([
+      {
+        id: 1,
+        role: "assistant",
+        text:
+          "Namaste! 👋 I’m GyanGuru AI, your admission assistant. Ask me about NEET counselling, colleges, courses, fees, cutoffs, or admissions."
+      }
+    ]);
 
-  const [isTyping, setIsTyping] = useState(false);
+  const [isTyping, setIsTyping] =
+    useState(false);
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef =
+    useRef(null);
 
 
   /* =======================================================
@@ -41,7 +46,10 @@ function AIChat() {
       behavior: "smooth"
     });
 
-  }, [messages, isTyping]);
+  }, [
+    messages,
+    isTyping
+  ]);
 
 
   /* =======================================================
@@ -49,10 +57,15 @@ function AIChat() {
   ======================================================= */
 
   const quickQuestions = [
+
     "Which deemed colleges are available?",
+
     "Explain NEET counselling",
+
     "What courses do you offer?",
+
     "How can you help me choose a college?"
+
   ];
 
 
@@ -60,234 +73,359 @@ function AIChat() {
      SEND MESSAGE
   ======================================================= */
 
-  const sendMessage = async (customMessage = null) => {
+  const sendMessage =
+    async (
+      customMessage = null
+    ) => {
 
-    const text =
-      customMessage !== null
-        ? customMessage.trim()
-        : message.trim();
-
-
-    if (!text || isTyping) {
-      return;
-    }
+      const text =
+        customMessage !== null
+          ? customMessage.trim()
+          : message.trim();
 
 
-    /* -----------------------------------------------
-       ADD USER MESSAGE
-    ------------------------------------------------ */
-
-    const userMessage = {
-      id: Date.now(),
-      role: "user",
-      text
-    };
-
-
-    setMessages((previous) => [
-      ...previous,
-      userMessage
-    ]);
-
-    setMessage("");
-
-    setIsTyping(true);
-
-
-    try {
-
-      /* ---------------------------------------------
-         BACKEND REQUEST
-      --------------------------------------------- */
-
-     const API_URL = process.env.REACT_APP_API_URL;
-
-     const response = await fetch(
-      `${API_URL}/api/ai/chat`,
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type": "application/json"
-          },
-
-          body: JSON.stringify({
-            message: text
-          })
-        }
-      );
-
-
-      /* ---------------------------------------------
-         CHECK SERVER RESPONSE
-      --------------------------------------------- */
-
-      if (!response.ok) {
-
-        throw new Error(
-          `AI server returned ${response.status}`
-        );
-
+      if (
+        !text ||
+        isTyping
+      ) {
+        return;
       }
 
 
-      const data =
-        await response.json();
+      /* ADD USER MESSAGE */
 
+      const userMessage = {
 
-      /* ---------------------------------------------
-         AI MESSAGE
-      --------------------------------------------- */
+        id: Date.now(),
 
-      const aiMessage = {
+        role: "user",
 
-        id: Date.now() + 1,
-
-        role: "assistant",
-
-        text:
-          data.reply ||
-          "Sorry, I couldn't generate a response right now."
+        text
 
       };
 
 
-      setMessages((previous) => [
-        ...previous,
-        aiMessage
-      ]);
+      setMessages(
+        (previous) => [
 
+          ...previous,
 
-    } catch (error) {
+          userMessage
 
-      console.error(
-        "GyanGuru AI error:",
-        error
+        ]
       );
 
 
-      setMessages((previous) => [
+      setMessage("");
 
-        ...previous,
+      setIsTyping(true);
 
-        {
-          id: Date.now() + 1,
 
-          role: "assistant",
+      try {
 
-          text:
-            "I’m having trouble connecting to GyanGuru AI right now. Please try again in a moment."
+        const API_URL =
+          process.env.REACT_APP_API_URL;
+
+
+        if (!API_URL) {
+
+          throw new Error(
+            "REACT_APP_API_URL is not configured."
+          );
+
         }
 
-      ]);
 
-    } finally {
+        const response =
+          await fetch(
 
-      setIsTyping(false);
+            `${API_URL}/api/ai/chat`,
 
-    }
+            {
 
-  };
+              method: "POST",
+
+              headers: {
+
+                "Content-Type":
+                  "application/json"
+
+              },
+
+              body:
+                JSON.stringify({
+
+                  message: text
+
+                })
+
+            }
+
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            `AI server returned ${response.status}`
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        const aiMessage = {
+
+          id:
+            Date.now() + 1,
+
+          role:
+            "assistant",
+
+          text:
+
+            data.reply ||
+
+            "Sorry, I couldn't generate a response right now."
+
+        };
+
+
+        setMessages(
+          (previous) => [
+
+            ...previous,
+
+            aiMessage
+
+          ]
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "GyanGuru AI error:",
+          error
+        );
+
+
+        setMessages(
+          (previous) => [
+
+            ...previous,
+
+            {
+
+              id:
+                Date.now() + 1,
+
+              role:
+                "assistant",
+
+              text:
+
+                "I’m having trouble connecting to GyanGuru AI right now. Please try again in a moment."
+
+            }
+
+          ]
+        );
+
+
+      } finally {
+
+        setIsTyping(false);
+
+      }
+
+    };
 
 
   /* =======================================================
      ENTER KEY
   ======================================================= */
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown =
+    (event) => {
 
-    if (
-      event.key === "Enter" &&
-      !event.shiftKey
-    ) {
+      if (
 
-      event.preventDefault();
+        event.key === "Enter" &&
 
-      sendMessage();
+        !event.shiftKey
 
-    }
+      ) {
 
-  };
+        event.preventDefault();
+
+        sendMessage();
+
+      }
+
+    };
 
 
   /* =======================================================
      CLEAR CHAT
   ======================================================= */
 
-  const clearChat = () => {
+  const clearChat =
+    () => {
 
-    setMessages([
-      {
-        id: Date.now(),
+      setMessages([
+        {
 
-        role: "assistant",
+          id:
+            Date.now(),
 
-        text:
-          "Namaste! 👋 I’m GyanGuru AI. How can I help you with your medical admission journey?"
-      }
-    ]);
+          role:
+            "assistant",
 
-  };
+          text:
 
+            "Namaste! 👋 I’m GyanGuru AI. How can I help you with your medical admission journey?"
+
+        }
+      ]);
+
+    };
+
+
+  /* =======================================================
+     RENDER
+  ======================================================= */
 
   return (
 
     <>
 
+
       {/* ===================================================
-          FLOATING AI BUTTON
+          CLICKABLE GENIE
       =================================================== */}
 
-      <button
-  type="button"
-  className={
-    `ai-chat-floating-button ${
-      isOpen ? "active" : ""
-    }`
-  }
-  onClick={() =>
-    setIsOpen((previous) => !previous)
-  }
-  aria-label="Open GyanGuru AI"
->
+      {!isOpen && (
 
-  {/* MAGIC PARTICLES */}
+        <button
 
-  <span className="ai-magic-particle particle-one"></span>
+          type="button"
 
-  <span className="ai-magic-particle particle-two"></span>
+          className="ai-genie-container"
 
-  <span className="ai-magic-particle particle-three"></span>
+          onClick={() =>
+            setIsOpen(true)
+          }
 
-  <span className="ai-magic-particle particle-four"></span>
+          aria-label="Open GyanGuru AI"
+
+        >
 
 
-  {/* GENIE SMOKE */}
+          {/* ===============================================
+              MAGIC SMOKE
+          =============================================== */}
 
-  <span className="ai-genie-smoke smoke-one"></span>
+          <span className="ai-genie-main-smoke smoke-one"></span>
 
-  <span className="ai-genie-smoke smoke-two"></span>
+          <span className="ai-genie-main-smoke smoke-two"></span>
 
-  <span className="ai-genie-smoke smoke-three"></span>
-
-
-  {/* MAGIC GLOW */}
-
-  <span className="ai-genie-glow"></span>
+          <span className="ai-genie-main-smoke smoke-three"></span>
 
 
-  {/* MAIN AI ORB */}
+          {/* ===============================================
+              GENIE
+          =============================================== */}
 
-  <span className="ai-chat-sparkle">
-    ✦
-  </span>
+          <span className="ai-genie-body">
 
 
-  <span className="ai-chat-button-text">
-    GyanGuru AI
-  </span>
+            {/* HEAD */}
 
-</button>
+            <span className="ai-genie-head">
+
+
+              {/* EYES */}
+
+              <span className="ai-genie-eye left-eye"></span>
+
+              <span className="ai-genie-eye right-eye"></span>
+
+
+              {/* SMILE */}
+
+              <span className="ai-genie-smile"></span>
+
+
+              {/* TURBAN */}
+
+              <span className="ai-genie-turban"></span>
+
+
+            </span>
+
+
+            {/* ARMS */}
+
+            <span className="ai-genie-arm-left"></span>
+
+            <span className="ai-genie-arm-right"></span>
+
+
+          </span>
+
+
+          {/* ===============================================
+              MAGIC SPARKLES
+          =============================================== */}
+
+          <span className="ai-genie-sparkle one">
+            ✦
+          </span>
+
+          <span className="ai-genie-sparkle two">
+            ✦
+          </span>
+
+          <span className="ai-genie-sparkle three">
+            ✦
+          </span>
+
+
+          {/* ===============================================
+              MAGIC LAMP
+          =============================================== */}
+
+          <span className="ai-genie-lamp">
+
+
+            <span className="ai-genie-lamp-handle"></span>
+
+            <span className="ai-genie-lamp-body"></span>
+
+            <span className="ai-genie-lamp-spout"></span>
+
+
+          </span>
+
+
+          {/* ===============================================
+              CLICK TEXT
+          =============================================== */}
+
+          <span className="ai-genie-label">
+
+            Ask GyanGuru AI
+
+          </span>
+
+
+        </button>
+
+      )}
 
 
       {/* ===================================================
@@ -299,17 +437,18 @@ function AIChat() {
         <div className="ai-chat-window">
 
 
-          {/* =================================================
-              HEADER
-          ================================================= */}
+          {/* HEADER */}
 
           <div className="ai-chat-header">
 
+
             <div className="ai-chat-brand">
+
 
               <div className="ai-chat-logo">
                 ✦
               </div>
+
 
               <div className="ai-chat-brand-text">
 
@@ -323,33 +462,47 @@ function AIChat() {
 
               </div>
 
+
             </div>
 
 
             <div className="ai-chat-header-actions">
 
+
               <button
+
                 type="button"
+
                 className="ai-chat-clear"
+
                 onClick={clearChat}
+
                 title="Clear chat"
+
               >
                 ↻
               </button>
 
 
               <button
+
                 type="button"
+
                 className="ai-chat-close"
+
                 onClick={() =>
                   setIsOpen(false)
                 }
+
                 aria-label="Close chat"
+
               >
                 ×
               </button>
 
+
             </div>
+
 
           </div>
 
@@ -361,13 +514,12 @@ function AIChat() {
           <div className="ai-chat-body">
 
 
-            {/* =================================================
-                WELCOME / QUICK QUESTIONS
-            ================================================= */}
+            {/* QUICK QUESTIONS */}
 
             {messages.length === 1 && (
 
               <div className="ai-chat-quick">
+
 
                 <span className="ai-chat-quick-title">
                   What can I help you with?
@@ -376,75 +528,94 @@ function AIChat() {
 
                 <div className="ai-chat-quick-list">
 
+
                   {quickQuestions.map(
                     (question) => (
 
                       <button
+
                         type="button"
+
                         key={question}
+
                         onClick={() =>
-                          sendMessage(question)
+                          sendMessage(
+                            question
+                          )
                         }
+
                       >
+
                         {question}
+
                       </button>
 
                     )
                   )}
 
+
                 </div>
+
 
               </div>
 
             )}
 
 
-            {/* =================================================
-                MESSAGES
-            ================================================= */}
+            {/* MESSAGES */}
 
             <div className="ai-chat-messages">
 
-              {messages.map((item) => (
 
-                <div
-                  key={item.id}
-                  className={
-                    `ai-chat-message ${
-                      item.role === "user"
-                        ? "user"
-                        : "assistant"
-                    }`
-                  }
-                >
+              {messages.map(
+                (item) => (
 
-                  {item.role === "assistant" && (
+                  <div
 
-                    <div className="ai-message-avatar">
-                      ✦
+                    key={item.id}
+
+                    className={
+
+                      `ai-chat-message ${
+                        item.role === "user"
+                          ? "user"
+                          : "assistant"
+                      }`
+
+                    }
+
+                  >
+
+
+                    {item.role ===
+                      "assistant" && (
+
+                      <div className="ai-message-avatar">
+                        ✦
+                      </div>
+
+                    )}
+
+
+                    <div className="ai-message-bubble">
+
+                      {item.text}
+
                     </div>
 
-                  )}
-
-
-                  <div className="ai-message-bubble">
-
-                    {item.text}
 
                   </div>
 
-                </div>
+                )
+              )}
 
-              ))}
 
-
-              {/* =================================================
-                  TYPING
-              ================================================= */}
+              {/* TYPING */}
 
               {isTyping && (
 
                 <div className="ai-chat-message assistant">
+
 
                   <div className="ai-message-avatar">
                     ✦
@@ -454,10 +625,13 @@ function AIChat() {
                   <div className="ai-typing">
 
                     <span></span>
+
                     <span></span>
+
                     <span></span>
 
                   </div>
+
 
                 </div>
 
@@ -468,7 +642,9 @@ function AIChat() {
                 ref={messagesEndRef}
               />
 
+
             </div>
+
 
           </div>
 
@@ -479,45 +655,77 @@ function AIChat() {
 
           <div className="ai-chat-input-area">
 
+
             <div className="ai-chat-input-wrapper">
 
+
               <textarea
+
                 value={message}
-                onChange={(event) =>
-                  setMessage(event.target.value)
+
+                onChange={
+                  (event) =>
+                    setMessage(
+                      event.target.value
+                    )
                 }
-                onKeyDown={handleKeyDown}
+
+                onKeyDown={
+                  handleKeyDown
+                }
+
                 placeholder="Ask about NEET, colleges, fees..."
+
                 rows={1}
+
                 disabled={isTyping}
+
               />
 
 
               <button
+
                 type="button"
-                onClick={() => sendMessage()}
-                disabled={
-                  !message.trim() ||
-                  isTyping
+
+                onClick={() =>
+                  sendMessage()
                 }
+
+                disabled={
+
+                  !message.trim() ||
+
+                  isTyping
+
+                }
+
                 aria-label="Send message"
+
               >
+
                 ➤
+
               </button>
+
 
             </div>
 
 
             <small>
-              GyanGuru AI can make mistakes.
+
+              GyanGuru AI may make mistakes.
               Verify important admission information.
+
             </small>
 
+
           </div>
+
 
         </div>
 
       )}
+
 
     </>
 

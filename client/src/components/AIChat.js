@@ -239,27 +239,55 @@ function AIChat() {
       =================================================== */}
 
       <button
-        type="button"
-        className={
-          `ai-chat-floating-button ${
-            isOpen ? "active" : ""
-          }`
-        }
-        onClick={() =>
-          setIsOpen((previous) => !previous)
-        }
-        aria-label="Open GyanGuru AI"
-      >
+  type="button"
+  className={
+    `ai-chat-floating-button ${
+      isOpen ? "active" : ""
+    }`
+  }
+  onClick={() =>
+    setIsOpen((previous) => !previous)
+  }
+  aria-label="Open GyanGuru AI"
+>
 
-        <span className="ai-chat-sparkle">
-          ✦
-        </span>
+  {/* MAGIC PARTICLES */}
 
-        <span className="ai-chat-button-text">
-          GyanGuru AI
-        </span>
+  <span className="ai-magic-particle particle-one"></span>
 
-      </button>
+  <span className="ai-magic-particle particle-two"></span>
+
+  <span className="ai-magic-particle particle-three"></span>
+
+  <span className="ai-magic-particle particle-four"></span>
+
+
+  {/* GENIE SMOKE */}
+
+  <span className="ai-genie-smoke smoke-one"></span>
+
+  <span className="ai-genie-smoke smoke-two"></span>
+
+  <span className="ai-genie-smoke smoke-three"></span>
+
+
+  {/* MAGIC GLOW */}
+
+  <span className="ai-genie-glow"></span>
+
+
+  {/* MAIN AI ORB */}
+
+  <span className="ai-chat-sparkle">
+    ✦
+  </span>
+
+
+  <span className="ai-chat-button-text">
+    GyanGuru AI
+  </span>
+
+</button>
 
 
       {/* ===================================================

@@ -4,660 +4,209 @@
 
 
 /* =========================================================
-   CLICKABLE GENIE
+   GENIE CONTAINER
 ========================================================= */
 
 .ai-genie-container {
   position: fixed;
 
-  right: 22px;
+  right: 24px;
 
-  bottom: 100px;
+  /*
+    Keep this above your Back To Top button.
+    Increase/decrease if needed.
+  */
+  bottom: 105px;
 
-  width: 145px;
+  width: 190px;
 
-  height: 255px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  z-index: 9999;
+
+  animation:
+    genieAppear 1.2s ease-out forwards,
+    genieFloat 4s ease-in-out infinite;
+
+  transform-origin: bottom center;
+}
+
+
+/* =========================================================
+   GENIE IMAGE BUTTON
+========================================================= */
+
+.ai-genie-button {
+  width: 170px;
+  height: 230px;
 
   padding: 0;
-
   margin: 0;
 
   border: none;
-
   outline: none;
 
   background: transparent;
 
   cursor: pointer;
 
-  z-index: 99999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 
-  opacity: 0;
+  position: relative;
 
-  transform:
-    translateY(80px)
-    scale(0.35);
-
-  transform-origin:
-    bottom center;
-
-  animation:
-    genieAppear 1.8s ease-out forwards,
-    genieFloat 3.5s ease-in-out 1.8s infinite;
-
-  -webkit-tap-highlight-color:
-    transparent;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 
-/* REMOVE DEFAULT BUTTON EFFECT */
-
-.ai-genie-container:hover,
-.ai-genie-container:focus,
-.ai-genie-container:active {
-  border: none;
-
-  outline: none;
-
-  background: transparent;
-}
-
-
-/* =========================================================
-   GENIE BODY
-========================================================= */
-
-.ai-genie-body {
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 42px;
-
-  width: 82px;
-
-  height: 122px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius:
-    48% 52%
-    42% 42%
-    32% 32%
-    70% 70%;
-
-  background:
-
-    radial-gradient(
-
-      circle at 32% 25%,
-
-      #66eaff,
-
-      #169ed8 40%,
-
-      #075789 75%,
-
-      #032b52 100%
-
-    );
-
-  box-shadow:
-
-    0 0 18px
-    rgba(50, 210, 255, 0.9),
-
-    0 0 42px
-    rgba(0, 140, 255, 0.5);
-
-  animation:
-    genieBodyGlow
-    2.5s ease-in-out
-    infinite;
-}
-
-
-/* =========================================================
-   GENIE HEAD
-========================================================= */
-
-.ai-genie-head {
-  position: absolute;
-
-  top: -48px;
-
-  left: 50%;
-
-  width: 70px;
-
-  height: 70px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius:
-    50%;
-
-  background:
-
-    radial-gradient(
-
-      circle at 35% 30%,
-
-      #8bf1ff,
-
-      #20a9df 52%,
-
-      #07517e 100%
-
-    );
-
-  box-shadow:
-
-    0 0 16px
-    rgba(70, 220, 255, 0.95);
-}
-
-
-/* =========================================================
-   EYES
-========================================================= */
-
-.ai-genie-eye {
-  position: absolute;
-
-  top: 29px;
-
-  width: 8px;
-
-  height: 11px;
-
-  border-radius:
-    50%;
-
-  background:
-    #ffffff;
-
-  box-shadow:
-
-    0 0 7px
-    #ffffff,
-
-    0 0 12px
-    #42dcff;
-}
-
-
-.left-eye {
-  left: 19px;
-}
-
-
-.right-eye {
-  right: 19px;
-}
-
-
-/* =========================================================
-   SMILE
-========================================================= */
-
-.ai-genie-smile {
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 13px;
-
-  width: 22px;
-
-  height: 10px;
-
-  transform:
-    translateX(-50%);
-
-  border-bottom:
-
-    3px solid
-    rgba(255, 255, 255, 0.85);
-
-  border-radius:
-    0 0 50% 50%;
-}
-
-
-/* =========================================================
-   TURBAN
-========================================================= */
-
-.ai-genie-turban {
-  position: absolute;
-
-  top: -12px;
-
-  left: 50%;
-
-  width: 74px;
-
-  height: 30px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius:
-    50% 50% 30% 30%;
-
-  background:
-
-    linear-gradient(
-
-      135deg,
-
-      #f4c94b,
-
-      #bd7411,
-
-      #f6d66d
-
-    );
-
-  box-shadow:
-
-    0 0 12px
-    rgba(255, 205, 70, 0.8);
-}
-
-
-/* =========================================================
-   ARMS
-========================================================= */
-
-.ai-genie-arm-left,
-.ai-genie-arm-right {
-  position: absolute;
-
-  top: 20px;
-
-  width: 28px;
-
-  height: 76px;
-
-  border-radius:
-    30px;
-
-  background:
-
-    linear-gradient(
-
-      180deg,
-
-      #45d9ff,
-
-      #0878b8
-
-    );
-
-  box-shadow:
-
-    0 0 12px
-    rgba(35, 200, 255, 0.6);
-}
-
-
-.ai-genie-arm-left {
-  left: -18px;
-
-  transform:
-    rotate(30deg);
-
-  transform-origin:
-    top center;
-}
-
-
-.ai-genie-arm-right {
-  right: -18px;
-
-  transform:
-    rotate(-30deg);
-
-  transform-origin:
-    top center;
-}
-
-
-/* =========================================================
-   MAGIC SMOKE
-========================================================= */
-
-.ai-genie-main-smoke {
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 28px;
-
-  width: 60px;
-
-  height: 110px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius:
-    50%;
-
-  background:
-
-    radial-gradient(
-
-      ellipse at center,
-
-      rgba(83, 224, 255, 0.8) 0%,
-
-      rgba(26, 145, 220, 0.4) 45%,
-
-      rgba(0, 100, 200, 0) 75%
-
-    );
+.ai-genie-button:hover {
+  transform: scale(1.06);
 
   filter:
-    blur(6px);
-
-  pointer-events:
-    none;
-
-  animation:
-    genieSmokeRise
-    2.4s ease-in-out
-    infinite;
-}
-
-
-.ai-genie-main-smoke.smoke-one {
-  animation-delay:
-    0s;
-}
-
-
-.ai-genie-main-smoke.smoke-two {
-
-  left: 42%;
-
-  animation-delay:
-    0.6s;
-}
-
-
-.ai-genie-main-smoke.smoke-three {
-
-  left: 58%;
-
-  animation-delay:
-    1.2s;
-}
-
-
-/* =========================================================
-   SPARKLES
-========================================================= */
-
-.ai-genie-sparkle {
-  position: absolute;
-
-  z-index: 5;
-
-  color:
-    #a7f4ff;
-
-  font-size:
-    16px;
-
-  text-shadow:
-
-    0 0 8px
-    #a7f4ff,
-
-    0 0 18px
-    #23cfff;
-
-  pointer-events:
-    none;
-
-  animation:
-    sparkleFloat
-    2.5s ease-in-out
-    infinite;
-}
-
-
-.ai-genie-sparkle.one {
-
-  left: 12px;
-
-  top: 55px;
-
-  animation-delay:
-    0s;
-}
-
-
-.ai-genie-sparkle.two {
-
-  right: 5px;
-
-  top: 100px;
-
-  animation-delay:
-    0.8s;
-}
-
-
-.ai-genie-sparkle.three {
-
-  left: 20px;
-
-  top: 135px;
-
-  animation-delay:
-    1.5s;
-}
-
-
-/* =========================================================
-   MAGIC LAMP
-========================================================= */
-
-.ai-genie-lamp {
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 0;
-
-  width: 105px;
-
-  height: 48px;
-
-  transform:
-    translateX(-50%);
-
-  z-index: 10;
-
-  pointer-events:
-    none;
-}
-
-
-/* LAMP BODY */
-
-.ai-genie-lamp-body {
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 0;
-
-  width: 72px;
-
-  height: 32px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius:
-
-    50% 50%
-
-    45% 45%
-
-    48% 48%;
-
-  background:
-
-    linear-gradient(
-
-      145deg,
-
-      #ffe28b 0%,
-
-      #c88918 45%,
-
-      #774206 100%
-
+    drop-shadow(
+      0 10px 25px
+      rgba(31, 168, 220, 0.45)
     );
-
-  box-shadow:
-
-    0 6px 12px
-    rgba(0, 0, 0, 0.3),
-
-    0 0 18px
-    rgba(255, 190, 40, 0.4);
 }
 
 
-/* HANDLE */
+.ai-genie-image {
+  width: 100%;
+  height: 100%;
 
-.ai-genie-lamp-handle {
-  position: absolute;
+  object-fit: contain;
+  object-position: bottom center;
 
-  left: 0;
+  display: block;
 
-  bottom: 10px;
+  user-select: none;
 
-  width: 30px;
+  -webkit-user-drag: none;
 
-  height: 24px;
-
-  border:
-
-    6px solid
-    #b7770e;
-
-  border-right:
-    0;
-
-  border-radius:
-
-    50% 0
-    0 50%;
-
-  z-index:
-    1;
-}
-
-
-/* SPOUT */
-
-.ai-genie-lamp-spout {
-  position: absolute;
-
-  right: 0;
-
-  bottom: 11px;
-
-  width: 38px;
-
-  height: 14px;
-
-  border-radius:
-
-    0 70%
-    70% 0;
-
-  background:
-
-    linear-gradient(
-
-      90deg,
-
-      #a9660b,
-
-      #f5c450
-
+  filter:
+    drop-shadow(
+      0 8px 20px
+      rgba(0, 103, 180, 0.35)
     );
-
-  transform:
-    rotate(-12deg);
-
-  z-index:
-    1;
 }
 
 
 /* =========================================================
-   GENIE LABEL
+   ASK BUTTON
 ========================================================= */
 
 .ai-genie-label {
-  position: absolute;
+  margin-top: -4px;
 
-  left: 50%;
-
-  bottom: -28px;
-
-  transform:
-    translateX(-50%);
-
-  white-space:
-    nowrap;
+  border: none;
 
   padding:
-    7px 13px;
+    11px 20px;
 
-  border-radius:
-    20px;
+  border-radius: 999px;
 
   background:
-
     linear-gradient(
-
       135deg,
-
-      #07558b,
-
-      #0d8dc4
-
+      #163c72,
+      #187bb5
     );
 
-  color:
-    #ffffff;
+  color: #ffffff;
 
-  font-size:
-    11px;
+  font-size: 14px;
+  font-weight: 700;
 
-  font-weight:
-    700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
 
   box-shadow:
+    0 8px 25px
+    rgba(18, 88, 151, 0.35);
 
-    0 5px 18px
-    rgba(0, 100, 180, 0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
 
-  pointer-events:
-    none;
+
+.ai-genie-label:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px
+    rgba(18, 88, 151, 0.5);
+}
+
+
+/* =========================================================
+   GENIE ANIMATIONS
+========================================================= */
+
+@keyframes genieAppear {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(90px)
+      scale(0.55);
+
+    filter:
+      blur(4px);
+  }
+
+
+  60% {
+    opacity: 1;
+
+    transform:
+      translateY(-8px)
+      scale(1.05);
+
+    filter:
+      blur(0);
+  }
+
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:
+      blur(0);
+  }
+
+}
+
+
+@keyframes genieFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+
+  }
+
+
+  50% {
+
+    transform:
+      translateY(-8px);
+
+  }
+
 }
 
 
@@ -669,45 +218,62 @@
   position: fixed;
 
   right: 24px;
-
-  bottom: 24px;
+  bottom: 105px;
 
   width: 390px;
 
-  height: min(
-    610px,
-    calc(100vh - 48px)
-  );
+  max-width:
+    calc(100vw - 32px);
 
-  display:
-    flex;
+  height: 560px;
 
-  flex-direction:
-    column;
-
-  overflow:
-    hidden;
-
-  border-radius:
-    22px;
+  max-height:
+    calc(100vh - 130px);
 
   background:
-    #ffffff;
+    rgba(255, 255, 255, 0.98);
+
+  border:
+    1px solid
+    rgba(19, 71, 125, 0.14);
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 10000;
 
   box-shadow:
-
-    0 20px 60px
-    rgba(0, 0, 0, 0.28),
-
-    0 0 0 1px
-    rgba(0, 90, 150, 0.08);
-
-  z-index:
-    99999;
+    0 20px 70px
+    rgba(9, 36, 72, 0.28);
 
   animation:
-    chatOpen
-    0.35s ease-out;
+    chatOpen 0.35s ease-out forwards;
+}
+
+
+@keyframes chatOpen {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.96);
+  }
+
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
 }
 
 
@@ -716,183 +282,109 @@
 ========================================================= */
 
 .ai-chat-header {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
-
   padding:
-    15px 16px;
+    17px 18px;
 
-  color:
-    #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   background:
-
     linear-gradient(
-
       135deg,
-
-      #063f6c,
-
-      #087bb8,
-
-      #14a8db
-
+      #12396b,
+      #196fa8
     );
 
-  flex-shrink:
-    0;
+  color: #ffffff;
+
+  flex-shrink: 0;
 }
 
 
 .ai-chat-brand {
-  display:
-    flex;
+  display: flex;
+  align-items: center;
 
-  align-items:
-    center;
-
-  gap:
-    10px;
+  gap: 11px;
 }
 
 
 .ai-chat-logo {
-  width:
-    42px;
+  width: 42px;
+  height: 42px;
 
-  height:
-    42px;
+  border-radius: 50%;
 
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  border-radius:
-    50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background:
-    rgba(255, 255, 255, 0.18);
-
-  font-size:
-    22px;
-}
-
-
-.ai-chat-brand-text {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  gap:
-    2px;
-}
-
-
-.ai-chat-brand-text strong {
-  font-size:
-    16px;
-}
-
-
-.ai-chat-brand-text span {
-  font-size:
-    11px;
-
-  opacity:
-    0.85;
-}
-
-
-/* =========================================================
-   HEADER BUTTONS
-========================================================= */
-
-.ai-chat-header-actions {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    8px;
-}
-
-
-.ai-chat-clear,
-.ai-chat-close {
-  width:
-    34px;
-
-  height:
-    34px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  padding:
-    0;
-
-  border:
-    none;
-
-  border-radius:
-    9px;
+    #23b9df;
 
   color:
-    #ffffff;
+    #07376c;
+
+  font-size: 22px;
+
+  box-shadow:
+    0 0 20px
+    rgba(77, 221, 255, 0.5);
+}
+
+
+.ai-chat-brand strong {
+  display: block;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+
+.ai-chat-brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  opacity: 0.85;
+}
+
+
+.ai-chat-close {
+  width: 36px;
+  height: 36px;
+
+  border: none;
+
+  border-radius: 50%;
 
   background:
-    rgba(255, 255, 255, 0.12);
+    rgba(255, 255, 255, 0.13);
 
-  font-size:
-    20px;
+  color: #ffffff;
 
-  cursor:
-    pointer;
+  font-size: 27px;
+
+  line-height: 1;
+
+  cursor: pointer;
 
   transition:
-    0.2s ease;
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 
-.ai-chat-clear {
-  font-size:
-    17px;
-}
-
-
-.ai-chat-clear:hover,
 .ai-chat-close:hover {
-
   background:
-    rgba(255, 255, 255, 0.25);
+    rgba(255, 255, 255, 0.24);
 
-}
-
-
-.ai-chat-clear:hover {
   transform:
-    rotate(-25deg);
+    rotate(90deg);
 }
 
 
@@ -901,20 +393,17 @@
 ========================================================= */
 
 .ai-chat-body {
-  flex:
-    1;
+  flex: 1;
 
-  min-height:
-    0;
+  min-height: 0;
 
-  overflow-y:
-    auto;
-
-  padding:
-    16px;
+  display: flex;
+  flex-direction: column;
 
   background:
-    #f5f8fb;
+    #f8fafc;
+
+  overflow: hidden;
 }
 
 
@@ -923,79 +412,81 @@
 ========================================================= */
 
 .ai-chat-quick {
-  margin-bottom:
-    16px;
+  padding:
+    14px 16px
+    4px;
+
+  flex-shrink: 0;
 }
 
 
-.ai-chat-quick-title {
-  display:
-    block;
+.ai-chat-quick > span {
+  display: block;
 
-  margin-bottom:
-    10px;
+  margin-bottom: 9px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
 
   color:
-    #456;
-
-  font-size:
-    13px;
-
-  font-weight:
-    700;
+    #607083;
 }
 
 
-.ai-chat-quick-list {
-  display:
-    flex;
+.ai-chat-quick > div {
+  display: flex;
 
-  flex-wrap:
-    wrap;
+  flex-wrap: wrap;
 
-  gap:
-    8px;
+  gap: 7px;
 }
 
 
-.ai-chat-quick-list button {
-
-  padding:
-    8px 11px;
-
+.ai-chat-quick button {
   border:
-
     1px solid
-    rgba(10, 120, 180, 0.18);
-
-  border-radius:
-    16px;
+    #d8e2ec;
 
   background:
     #ffffff;
 
   color:
-    #086da8;
+    #294560;
+
+  padding:
+    8px 11px;
+
+  border-radius:
+    12px;
 
   font-size:
     11px;
+
+  font-weight:
+    600;
 
   cursor:
     pointer;
 
   transition:
-    0.2s ease;
+    all 0.2s ease;
 }
 
 
-.ai-chat-quick-list button:hover {
-
-  color:
-    #ffffff;
+.ai-chat-quick button:hover {
+  border-color:
+    #2486bd;
 
   background:
-    #087bb8;
+    #edf8fd;
 
+  color:
+    #125887;
 }
 
 
@@ -1004,26 +495,34 @@
 ========================================================= */
 
 .ai-chat-messages {
-  display:
-    flex;
+  flex: 1;
 
-  flex-direction:
-    column;
+  min-height: 0;
 
-  gap:
-    13px;
+  overflow-y: auto;
+
+  padding:
+    12px 16px
+    20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  scrollbar-width:
+    thin;
 }
 
 
 .ai-chat-message {
-  display:
-    flex;
+  display: flex;
 
   align-items:
     flex-end;
 
   gap:
-    8px;
+    9px;
 }
 
 
@@ -1035,10 +534,16 @@
 
 .ai-message-avatar {
   width:
-    28px;
+    38px;
 
   height:
-    28px;
+    38px;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    50%;
 
   display:
     flex;
@@ -1049,47 +554,40 @@
   justify-content:
     center;
 
-  flex-shrink:
-    0;
-
-  border-radius:
-    50%;
+  background:
+    #1eb9dc;
 
   color:
-    #ffffff;
-
-  background:
-
-    linear-gradient(
-
-      135deg,
-
-      #08659a,
-
-      #16a8d8
-
-    );
+    #063d74;
 
   font-size:
-    14px;
+    18px;
+
+  box-shadow:
+    0 4px 12px
+    rgba(0, 151, 197, 0.25);
 }
 
+
+/* =========================================================
+   MESSAGE BUBBLES
+========================================================= */
 
 .ai-message-bubble {
   max-width:
     78%;
 
   padding:
-    10px 13px;
+    12px 14px;
 
   border-radius:
-    15px;
+    18px;
 
   font-size:
-    13px;
+    14px;
 
   line-height:
-    1.5;
+    1.55;
 
   white-space:
     pre-wrap;
@@ -1102,84 +600,77 @@
 .ai-chat-message.assistant
 .ai-message-bubble {
 
-  border-bottom-left-radius:
-    4px;
-
-  color:
-    #263642;
-
   background:
     #ffffff;
 
+  color:
+    #34495e;
+
+  border:
+    1px solid
+    #dce5ec;
+
+  border-bottom-left-radius:
+    6px;
+
   box-shadow:
-
-    0 3px 12px
-    rgba(0, 0, 0, 0.07);
-
+    0 4px 12px
+    rgba(15, 52, 83, 0.05);
 }
 
 
 .ai-chat-message.user
 .ai-message-bubble {
 
-  border-bottom-right-radius:
-    4px;
+  background:
+    linear-gradient(
+      135deg,
+      #16467d,
+      #2582bd
+    );
 
   color:
     #ffffff;
 
-  background:
+  border-bottom-right-radius:
+    6px;
 
-    linear-gradient(
-
-      135deg,
-
-      #08649a,
-
-      #1098cf
-
-    );
-
+  box-shadow:
+    0 5px 15px
+    rgba(24, 89, 145, 0.22);
 }
 
 
 /* =========================================================
-   TYPING
+   TYPING ANIMATION
 ========================================================= */
 
 .ai-typing {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    5px;
-
   padding:
-    12px 15px;
+    13px 16px;
+
+  border:
+    1px solid
+    #dce5ec;
 
   border-radius:
-    15px;
+    18px;
 
   border-bottom-left-radius:
-    4px;
+    6px;
 
   background:
     #ffffff;
 
-  box-shadow:
+  display:
+    flex;
 
-    0 3px 12px
-    rgba(0, 0, 0, 0.07);
-
+  gap:
+    5px;
 }
 
 
 .ai-typing span {
-
   width:
     7px;
 
@@ -1190,12 +681,11 @@
     50%;
 
   background:
-    #1699ca;
+    #4d87ad;
 
   animation:
     typingBounce
     1.2s infinite ease-in-out;
-
 }
 
 
@@ -1208,373 +698,6 @@
 .ai-typing span:nth-child(3) {
   animation-delay:
     0.3s;
-}
-
-
-/* =========================================================
-   INPUT
-========================================================= */
-
-.ai-chat-input-area {
-
-  padding:
-    12px 14px;
-
-  border-top:
-
-    1px solid
-    #e7edf2;
-
-  background:
-    #ffffff;
-
-  flex-shrink:
-    0;
-}
-
-
-.ai-chat-input-wrapper {
-
-  display:
-    flex;
-
-  align-items:
-    flex-end;
-
-  gap:
-    8px;
-
-  padding:
-    7px 8px 7px 13px;
-
-  border:
-
-    1px solid
-    #dbe5ec;
-
-  border-radius:
-    15px;
-
-  background:
-    #f8fafc;
-}
-
-
-.ai-chat-input-wrapper textarea {
-
-  flex:
-    1;
-
-  min-height:
-    24px;
-
-  max-height:
-    100px;
-
-  padding:
-    5px 0;
-
-  border:
-    none;
-
-  outline:
-    none;
-
-  resize:
-    none;
-
-  background:
-    transparent;
-
-  color:
-    #24313c;
-
-  font-family:
-    inherit;
-
-  font-size:
-    13px;
-}
-
-
-.ai-chat-input-wrapper button {
-
-  width:
-    36px;
-
-  height:
-    36px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  flex-shrink:
-    0;
-
-  border:
-    none;
-
-  border-radius:
-    11px;
-
-  color:
-    #ffffff;
-
-  background:
-
-    linear-gradient(
-
-      135deg,
-
-      #0874ad,
-
-      #13a7d7
-
-    );
-
-  cursor:
-    pointer;
-
-  font-size:
-    17px;
-
-  transition:
-    0.2s ease;
-}
-
-
-.ai-chat-input-wrapper button:hover:not(:disabled) {
-  transform:
-    scale(1.05);
-}
-
-
-.ai-chat-input-wrapper button:disabled {
-
-  opacity:
-    0.45;
-
-  cursor:
-    not-allowed;
-
-}
-
-
-.ai-chat-input-area small {
-
-  display:
-    block;
-
-  margin-top:
-    7px;
-
-  text-align:
-    center;
-
-  color:
-    #8a98a3;
-
-  font-size:
-    9px;
-
-}
-
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes genieAppear {
-
-  0% {
-
-    opacity:
-      0;
-
-    transform:
-
-      translateY(100px)
-
-      scale(0.25);
-
-  }
-
-
-  60% {
-
-    opacity:
-      1;
-
-    transform:
-
-      translateY(-8px)
-
-      scale(1.05);
-
-  }
-
-
-  100% {
-
-    opacity:
-      1;
-
-    transform:
-
-      translateY(0)
-
-      scale(1);
-
-  }
-
-}
-
-
-@keyframes genieFloat {
-
-  0%,
-  100% {
-
-    margin-bottom:
-      0;
-
-  }
-
-
-  50% {
-
-    margin-bottom:
-      12px;
-
-  }
-
-}
-
-
-@keyframes genieBodyGlow {
-
-  0%,
-  100% {
-
-    box-shadow:
-
-      0 0 18px
-      rgba(50, 210, 255, 0.8),
-
-      0 0 35px
-      rgba(0, 140, 255, 0.35);
-
-  }
-
-
-  50% {
-
-    box-shadow:
-
-      0 0 30px
-      rgba(70, 225, 255, 1),
-
-      0 0 60px
-      rgba(0, 170, 255, 0.65);
-
-  }
-
-}
-
-
-@keyframes genieSmokeRise {
-
-  0% {
-
-    opacity:
-      0;
-
-    transform:
-
-      translateX(-50%)
-
-      translateY(35px)
-
-      scale(0.45);
-
-  }
-
-
-  45% {
-
-    opacity:
-      0.8;
-
-  }
-
-
-  100% {
-
-    opacity:
-      0;
-
-    transform:
-
-      translateX(-50%)
-
-      translateY(-105px)
-
-      scale(1.3);
-
-  }
-
-}
-
-
-@keyframes sparkleFloat {
-
-  0% {
-
-    opacity:
-      0;
-
-    transform:
-
-      translateY(15px)
-
-      scale(0.4);
-
-  }
-
-
-  50% {
-
-    opacity:
-      1;
-
-    transform:
-
-      translateY(-12px)
-
-      scale(1.2);
-
-  }
-
-
-  100% {
-
-    opacity:
-      0;
-
-    transform:
-
-      translateY(-40px)
-
-      scale(0.5);
-
-  }
-
 }
 
 
@@ -1600,33 +723,236 @@
 }
 
 
-@keyframes chatOpen {
+/* =========================================================
+   INPUT AREA
+========================================================= */
 
-  from {
+.ai-chat-input-area {
+  padding:
+    12px 14px
+    11px;
 
-    opacity:
-      0;
+  border-top:
+    1px solid
+    #e2e9ef;
 
-    transform:
+  background:
+    #ffffff;
 
-      translateY(20px)
+  flex-shrink:
+    0;
+}
 
-      scale(0.96);
 
+.ai-chat-input-wrapper {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  border:
+    1px solid
+    #d4e0e8;
+
+  border-radius:
+    16px;
+
+  padding:
+    6px;
+
+  background:
+    #f8fafc;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.ai-chat-input-wrapper:focus-within {
+  border-color:
+    #2086bd;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(32, 134, 189, 0.1);
+}
+
+
+.ai-chat-input-wrapper textarea {
+  flex:
+    1;
+
+  border:
+    none;
+
+  outline:
+    none;
+
+  resize:
+    none;
+
+  background:
+    transparent;
+
+  min-height:
+    38px;
+
+  max-height:
+    90px;
+
+  padding:
+    9px 10px;
+
+  font-family:
+    inherit;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.4;
+
+  color:
+    #263b4d;
+}
+
+
+.ai-chat-input-wrapper textarea::placeholder {
+  color:
+    #82909d;
+}
+
+
+.ai-chat-input-wrapper button {
+  width:
+    44px;
+
+  height:
+    44px;
+
+  flex-shrink:
+    0;
+
+  border:
+    none;
+
+  border-radius:
+    13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #174477,
+      #2a86bd
+    );
+
+  color:
+    #ffffff;
+
+  font-size:
+    19px;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.ai-chat-input-wrapper button:hover:not(:disabled) {
+  transform:
+    scale(1.05);
+}
+
+
+.ai-chat-input-wrapper button:disabled {
+  opacity:
+    0.45;
+
+  cursor:
+    not-allowed;
+}
+
+
+.ai-chat-input-area small {
+  display:
+    block;
+
+  margin-top:
+    7px;
+
+  text-align:
+    center;
+
+  font-size:
+    10px;
+
+  color:
+    #7b8995;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .ai-genie-container {
+    right:
+      14px;
+
+    bottom:
+      88px;
+
+    width:
+      145px;
   }
 
 
-  to {
+  .ai-genie-button {
+    width:
+      135px;
 
-    opacity:
-      1;
+    height:
+      190px;
+  }
 
-    transform:
 
-      translateY(0)
+  .ai-genie-label {
+    font-size:
+      12px;
 
-      scale(1);
+    padding:
+      10px 16px;
+  }
 
+
+  .ai-chat-window {
+    right:
+      12px;
+
+    bottom:
+      80px;
+
+    width:
+      calc(100vw - 24px);
+
+    height:
+      min(
+        560px,
+        calc(100vh - 105px)
+      );
+
+    border-radius:
+      20px;
   }
 
 }
@@ -1636,77 +962,98 @@
    MOBILE
 ========================================================= */
 
-@media (
-  max-width: 600px
-) {
+@media (max-width: 480px) {
 
   .ai-genie-container {
-
     right:
       10px;
 
     bottom:
-      90px;
+      78px;
 
-    transform-origin:
-      bottom right;
+    width:
+      125px;
+  }
 
-    scale:
-      0.88;
 
+  .ai-genie-button {
+    width:
+      115px;
+
+    height:
+      165px;
+  }
+
+
+  .ai-genie-label {
+    padding:
+      9px 14px;
+
+    font-size:
+      11px;
   }
 
 
   .ai-chat-window {
-
     right:
-      10px;
-
-    left:
-      10px;
+      8px;
 
     bottom:
-      10px;
+      8px;
 
     width:
-      auto;
+      calc(100vw - 16px);
 
     height:
-      min(
-        650px,
-        calc(100vh - 20px)
-      );
+      calc(100vh - 16px);
+
+    max-height:
+      none;
 
     border-radius:
       18px;
+  }
 
+
+  .ai-chat-header {
+    padding:
+      14px;
+  }
+
+
+  .ai-message-bubble {
+    max-width:
+      82%;
+
+    font-size:
+      13px;
+  }
+
+
+  .ai-chat-quick button {
+    font-size:
+      10px;
   }
 
 }
 
 
-@media (
-  max-width: 380px
-) {
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
 
-  .ai-genie-container {
+@media (prefers-reduced-motion: reduce) {
 
-    right:
-      0;
+  .ai-genie-container,
+  .ai-genie-button,
+  .ai-chat-window,
+  .ai-typing span {
 
-    bottom:
-      75px;
+    animation:
+      none !important;
 
-    scale:
-      0.78;
-
-  }
-
-
-  .ai-message-bubble {
-
-    max-width:
-      82%;
+    transition:
+      none !important;
 
   }
 

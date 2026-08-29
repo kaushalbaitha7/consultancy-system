@@ -19,7 +19,6 @@ function AIChat() {
 
   const messagesEndRef = useRef(null);
 
-
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth"
@@ -36,17 +35,14 @@ function AIChat() {
 
 
   const sendMessage = async (customMessage = null) => {
-
     const text =
       customMessage !== null
         ? customMessage
         : message.trim();
 
-
     if (!text || isTyping) {
       return;
     }
-
 
     const userMessage = {
       id: Date.now(),
@@ -54,24 +50,18 @@ function AIChat() {
       text
     };
 
-
     setMessages((previous) => [
       ...previous,
       userMessage
     ]);
 
-
     setMessage("");
-
     setIsTyping(true);
 
-
     try {
-
       const API_URL =
         process.env.REACT_APP_API_URL ||
         "http://localhost:5000";
-
 
       const response = await fetch(
         `${API_URL}/api/ai/chat`,
@@ -88,14 +78,11 @@ function AIChat() {
         }
       );
 
-
       if (!response.ok) {
         throw new Error("Unable to contact AI server.");
       }
 
-
       const data = await response.json();
-
 
       const aiMessage = {
         id: Date.now() + 1,
@@ -105,20 +92,16 @@ function AIChat() {
           "Sorry, I couldn't find an answer right now."
       };
 
-
       setMessages((previous) => [
         ...previous,
         aiMessage
       ]);
 
-
     } catch (error) {
-
       console.error(
         "GyanGuru AI error:",
         error
       );
-
 
       setMessages((previous) => [
         ...previous,
@@ -130,40 +113,27 @@ function AIChat() {
         }
       ]);
 
-
     } finally {
-
       setIsTyping(false);
-
     }
-
   };
 
 
   const handleKeyDown = (event) => {
-
     if (
       event.key === "Enter" &&
       !event.shiftKey
     ) {
-
       event.preventDefault();
-
       sendMessage();
-
     }
-
   };
 
 
   return (
-
     <>
 
-      {/* =========================================
-          GENIE FLOATING ASSISTANT
-      ========================================= */}
-
+      {/* GENIE */}
       {!isOpen && (
 
         <div className="ai-genie-container">
@@ -189,9 +159,7 @@ function AIChat() {
             className="ai-genie-label"
             onClick={() => setIsOpen(true)}
           >
-
             Ask GyanGuru AI
-
           </button>
 
         </div>
@@ -199,17 +167,12 @@ function AIChat() {
       )}
 
 
-      {/* =========================================
-          AI CHAT WINDOW
-      ========================================= */}
-
+      {/* CHAT WINDOW */}
       {isOpen && (
 
         <div className="ai-chat-window">
 
-
           {/* HEADER */}
-
           <div className="ai-chat-header">
 
             <div className="ai-chat-brand">
@@ -218,9 +181,7 @@ function AIChat() {
                 ✦
               </div>
 
-
               <div>
-
                 <strong>
                   GyanGuru AI
                 </strong>
@@ -228,7 +189,6 @@ function AIChat() {
                 <span>
                   Your Admission Assistant
                 </span>
-
               </div>
 
             </div>
@@ -246,10 +206,8 @@ function AIChat() {
           </div>
 
 
-          {/* BODY */}
-
+          {/* CHAT BODY */}
           <div className="ai-chat-body">
-
 
             {messages.length === 1 && (
 
@@ -258,7 +216,6 @@ function AIChat() {
                 <span>
                   What can I help you with?
                 </span>
-
 
                 <div>
 
@@ -286,7 +243,6 @@ function AIChat() {
 
 
             {/* MESSAGES */}
-
             <div className="ai-chat-messages">
 
               {messages.map((item) => (
@@ -310,11 +266,8 @@ function AIChat() {
 
                   )}
 
-
                   <div className="ai-message-bubble">
-
                     {item.text}
-
                   </div>
 
                 </div>
@@ -323,7 +276,6 @@ function AIChat() {
 
 
               {/* TYPING */}
-
               {isTyping && (
 
                 <div className="ai-chat-message assistant">
@@ -332,23 +284,17 @@ function AIChat() {
                     ✦
                   </div>
 
-
                   <div className="ai-typing">
-
                     <span></span>
                     <span></span>
                     <span></span>
-
                   </div>
 
                 </div>
 
               )}
 
-
-              <div
-                ref={messagesEndRef}
-              />
+              <div ref={messagesEndRef} />
 
             </div>
 
@@ -356,7 +302,6 @@ function AIChat() {
 
 
           {/* INPUT */}
-
           <div className="ai-chat-input-area">
 
             <div className="ai-chat-input-wrapper">
@@ -372,7 +317,6 @@ function AIChat() {
                 disabled={isTyping}
               />
 
-
               <button
                 type="button"
                 onClick={() => sendMessage()}
@@ -387,7 +331,6 @@ function AIChat() {
 
             </div>
 
-
             <small>
               GyanGuru AI may make mistakes. Verify important admission information.
             </small>
@@ -399,9 +342,7 @@ function AIChat() {
       )}
 
     </>
-
   );
-
 }
 
 export default AIChat;

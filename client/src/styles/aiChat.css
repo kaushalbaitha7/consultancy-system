@@ -836,3 +836,338 @@
   }
 
 }
+
+/* =========================================================
+   PROFESSIONAL AI ANSWER FORMATTING
+========================================================= */
+
+.ai-formatted-answer {
+  width: 100%;
+}
+
+
+/* =========================================================
+   NORMAL PARAGRAPH
+========================================================= */
+
+.ai-answer-paragraph {
+  margin: 0 0 10px;
+
+  color: #405264;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+.ai-answer-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   IMPORTANT BOLD TEXT
+========================================================= */
+
+.ai-formatted-answer strong {
+  color: #173d70;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TOPIC / HEADING BOX
+========================================================= */
+
+.ai-answer-heading {
+  margin:
+    4px 0
+    10px;
+
+  padding:
+    9px 12px;
+
+  border-left:
+    4px solid #1c8ebd;
+
+  border-radius:
+    8px;
+
+  color:
+    #173d70;
+
+  font-size:
+    14px;
+
+  font-weight:
+    700;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(33, 157, 198, 0.12),
+      rgba(33, 157, 198, 0.03)
+    );
+}
+
+
+/* =========================================================
+   BULLET LIST
+========================================================= */
+
+.ai-answer-list {
+  margin:
+    6px 0
+    12px;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.ai-answer-list li {
+  position: relative;
+
+  padding:
+    7px 8px
+    7px 26px;
+
+  margin-bottom:
+    5px;
+
+  border-radius:
+    9px;
+
+  color:
+    #405264;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.5;
+
+  background:
+    rgba(237, 245, 249, 0.72);
+}
+
+
+/* CUSTOM BULLET */
+
+.ai-answer-list li::before {
+  content: "•";
+
+  position: absolute;
+
+  left: 11px;
+
+  top: 6px;
+
+  color:
+    #1695bd;
+
+  font-size:
+    20px;
+
+  font-weight:
+    700;
+}
+
+
+/* =========================================================
+   NUMBERED STEPS
+========================================================= */
+
+.ai-answer-number-list {
+  margin:
+    8px 0
+    12px;
+
+  padding-left:
+    22px;
+
+  color:
+    #405264;
+}
+
+
+.ai-answer-number-list li {
+  margin-bottom:
+    8px;
+
+  padding-left:
+    4px;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.55;
+}
+
+
+.ai-answer-number-list li::marker {
+  color:
+    #176a96;
+
+  font-weight:
+    700;
+}
+
+
+/* =========================================================
+   IMPORTANT INFORMATION BOX
+========================================================= */
+
+.ai-answer-important {
+  margin:
+    8px 0;
+
+  padding:
+    11px 13px;
+
+  border:
+    1px solid
+    rgba(243, 169, 50, 0.35);
+
+  border-radius:
+    12px;
+
+  color:
+    #5c4b26;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.55;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 244, 215, 0.9),
+      rgba(255, 249, 235, 0.8)
+    );
+}
+
+
+/* =========================================================
+   ASSISTANT BUBBLE IMPROVEMENT
+========================================================= */
+
+.ai-chat-message.assistant
+.ai-message-bubble {
+  max-width:
+    82%;
+
+  padding:
+    13px 15px;
+
+  border:
+    1px solid
+    rgba(205, 220, 231, 0.9);
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    0 5px 16px
+    rgba(25, 55, 80, 0.06);
+}
+
+
+/* =========================================================
+   USER MESSAGE
+========================================================= */
+
+.ai-chat-message.user
+.ai-message-bubble {
+  max-width:
+    75%;
+
+  line-height:
+    1.55;
+
+  font-size:
+    14px;
+
+  font-weight:
+    500;
+}
+
+
+/* =========================================================
+   ANSWER ANIMATION
+========================================================= */
+
+.ai-chat-message.assistant
+.ai-message-bubble {
+  animation:
+    answerAppear
+    0.25s ease-out;
+}
+
+
+@keyframes answerAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(6px);
+
+  }
+
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE ANSWERS
+========================================================= */
+
+@media (max-width: 768px) {
+
+
+  .ai-answer-paragraph,
+  .ai-answer-list li,
+  .ai-answer-number-list li,
+  .ai-answer-important {
+
+    font-size:
+      13px;
+
+  }
+
+
+  .ai-chat-message.assistant
+  .ai-message-bubble {
+
+    max-width:
+      85%;
+
+  }
+
+
+  .ai-chat-message.user
+  .ai-message-bubble {
+
+    max-width:
+      82%;
+
+  }
+
+}
